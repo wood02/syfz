@@ -421,3 +421,7 @@
 2022-06-01 10:39:36.899 | consumer1.py 102 | INFO | consumer1 start
 2022-06-01 10:39:48.895 | consumer1.py 102 | INFO | consumer1 start
 2022-06-01 10:40:00.802 | consumer1.py 102 | INFO | consumer1 start
+2022-06-01 11:36:10.302 | consumer1.py 102 | INFO | consumer1 start
+2022-06-01 11:36:10.781 | consumer1.py 92 | WARNING | 已连接， Waiting for queue: [ queue_scan_result ] routing_key: [ topic_scan_result ]
+2022-06-01 11:42:13.435 | consumer1.py 102 | INFO | consumer1 start
+2022-06-01 11:42:13.882 | consumer1.py 92 | WARNING | 已连接， Waiting for queue: [ queue_scan_result ] routing_key: [ topic_scan_result ]

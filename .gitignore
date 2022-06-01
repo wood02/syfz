@@ -1,3 +1,4 @@
 # 项目排除路径
 /backend/AAAAA-本地测试/
 /backend/doc/
+.idea
