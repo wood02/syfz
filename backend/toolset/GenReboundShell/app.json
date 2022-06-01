@@ -1,0 +1,20 @@
+{
+  "order": 15,
+  "identification": "syfz",
+  "is_public": true,
+  "name": "反弹shell生成器",
+  "version": "1.0",
+  "description": "一键生成反弹Shell命令。",
+  "type": "后门工具",
+  "is_site": true,
+  "action": [
+    {
+      "name": "跳转到指定网站",
+      "site": "GenReboundShell",
+      "args": {
+        "url": "https://www.baidu.com/",
+        "target": "_blank"
+      }
+    }
+  ]
+}

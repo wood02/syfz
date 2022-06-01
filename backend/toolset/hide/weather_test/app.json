@@ -1,0 +1,23 @@
+{
+  "identification": "syfz",
+  "is_public": true,
+  "name": "查询天气-百度接口",
+  "version": "1.0",
+  "description": "查询天气-百度接口",
+  "type": "基础应用",
+  "action": [
+    {
+      "name": "查询城市天气",
+      "func": "weather"
+    }
+  ],
+  "args": {
+    "weather": [
+      {
+        "key": "city",
+        "type": "text",
+        "required": true
+      }
+    ]
+  }
+}

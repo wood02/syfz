@@ -1,0 +1,23 @@
+{
+  "identification": "syfz",
+  "is_public": true,
+  "name": "IP 查询",
+  "version": "1.0",
+  "description": "查询地理信息和经纬度",
+  "type": "信息查询",
+  "action": [
+    {
+      "name": "IP查询",
+      "func": "ip"
+    }
+  ],
+  "args": {
+    "ip": [
+      {
+        "key": "ip",
+        "type": "text",
+        "required": true
+      }
+    ]
+  }
+}

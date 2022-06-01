@@ -1,0 +1,45 @@
+{
+  "identification": "syfz",
+  "is_public": true,
+  "name": "Linux远程命令",
+  "version": "1.0",
+  "description": "Linux SSH 客户端，执行远程命令",
+  "type": "命令执行",
+  "action": [
+    {
+      "name": "执行命令",
+      "func": "execute"
+    }
+  ],
+  "args": {
+    "execute": [
+      {
+        "key": "host",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "port",
+        "type": "number",
+        "required": true,
+        "default": 22
+      },
+      {
+        "key": "user",
+        "type": "text",
+        "required": true,
+        "default": "root"
+      },
+      {
+        "key": "passwd",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "shell",
+        "type": "textarea",
+        "required": true
+      }
+    ]
+  }
+}
