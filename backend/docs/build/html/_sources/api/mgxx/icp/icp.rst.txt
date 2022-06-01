@@ -1,0 +1,156 @@
+未备案检测
+=========================================================
+
+说明
+--------------------------------------
+
+    1. API地址: http://47.114.129.62:18000
+    2. <(?P<pk>[0-9]+)> 在此代表id
+
+未备案检测-列表
+--------------------------------
+
+- GET /api/mgxx/icp/icp/?page=1&page_size=2
+- 请求参数::
+
+    {
+        "id": 2 # id(编号) | int | 选填
+        "title": "标题" # 网站标题 | str | 选填 | 支持模糊搜索
+        "salarm_time": "2020-09-08 14:24:37" # 告警开始时间 | time | 选填 | yyyy-MM-dd HH:mm:ss
+        "ealarm_time": "2020-09-08 14:24:37" # 告警结束时间 | time | 选填 | yyyy-MM-dd HH:mm:ss
+        "status": 1 # 状态 | int | 选填 |  1:未确认,2:异常
+        "job_name": "aa" # 策略名称 | str | 选填 |  根据数据统计接口job_names列表数据
+        "remark": "备注" # 备注 | str | 选填 | 支持模糊搜索
+    }
+
+- 响应结果::
+
+    {
+        "count": 13,
+        "next": "http://127.0.0.1:8000/api/mgxx/icp/icp/?page=2&page_size=1",
+        "previous": null,
+        "results": [
+            {
+                "id": 19, # 编号
+                "insert_tm": "2021-09-08 14:24:39",
+                "update_tm": "2021-09-08 14:24:39",
+                "title": "TGC X ChinaJoy2019", # 标题
+                "alarm_time": "2020-09-08 14:24:37", # 告警时间
+                "status": 1, # 状态 | 1:未确认,2:异常
+                "uuid": "80eca5030bdd18dcfd6c76a4cd5d680e",
+                "url": "https://tgc.qq.com", # 地址
+                "ip": "123.6.1.99", # IP
+                "organization": "CHINA UNICOM China169 Backbone", # 组织
+                "source": "Fofa", # 来源
+                "first_handle_time": null,
+                "job_name": "qq2", # 匹配策略
+                "qbase64": "ZG9tYWluPSJxcS5jb20iICYmIGFmdGVyPSIyMDE5LTA5LTA5IDE0OjI0OjM3IiAmJiBzdGF0dXNfY29kZT0iMjAwIg==", # 截图地址
+                "screenshot": "/media/images/screenshot/2021/11/02\\6c39ba85717b21830a4bd777e5a4b779.png", # 截图时间
+                "screenshot_at": "2021-11-02 10:07:27",
+                "icp_job": 6
+            }
+        ]
+    }
+
+
+
+未备案检测-单个/批量更新(处置)
+----------------------------------------------------
+
+- PUT /api/mgxx/icp/icp/multiple_update/
+
+- 请求参数::
+
+
+    {
+        "ids": [1,9],  #  ids | list | 必填
+        "status": 1 # 状态 | int | 必填  | 1:未确认,2:异常
+    }
+
+
+- 响应结果::
+
+    {
+        "code": 200,
+        "success": true,
+        "data": [],
+        "message": "更新成功"
+    }
+
+
+未备案检测-单个/批量误报加白
+--------------------------------
+
+- POST /api/mgxx/icp/icp/multiple_white/
+- 请求参数::
+
+    {
+        "ids": [1,9],  #  ids | list | 必填
+
+    }
+
+- 响应结果::
+
+    {
+        "code": 200,
+        "success": true,
+        "data": [],
+        "message": "加白成功！"
+    }
+
+
+
+未备案检测-数据统计包含(匹配策略列表)
+-------------------------------------------------
+
+- GET /api/mgxx/icp/icp/statistics/
+- 请求参数::
+
+    None
+
+- 响应结果::
+
+    {
+        "code": 200,
+        "success": true,
+        "data": {
+            "total": 11, # 总数
+            "unconfirmed": 11, # 未处置
+            "abnormal": 0, #
+            "job_names": [ # 匹配策略列表
+                {
+                    "job_name": "aa2333",
+                    "count": 1
+                },
+                {
+                    "job_name": "ab2333",
+                    "count": 1
+                },
+                {
+                    "job_name": "qq2",
+                    "count": 9
+                }
+            ],
+            "week_handle": 1, # 本周处置数
+            "week_handle_avg": 13827.183333333332 # 本周平均处置时间
+        },
+        "message": "查询成功！"
+    }
+
+
+未备案检测-数据导出
+-------------------------------------------------
+
+- GET /api/mgxx/icp/icp/export/
+
+- 请求参数::
+
+    {
+        "ids":[5,7] # 要导出的ids | list | 选填 | 无此参数导出搜索数据,可加搜索参数, 有则导出指定数据
+         "title": "标题" # 网站标题 | str | 选填 | 支持模糊搜索
+        "salarm_time": "2020-09-08 14:24:37" # 告警开始时间 | time | 选填 | yyyy-MM-dd HH:mm:ss
+        "ealarm_time": "2020-09-08 14:24:37" # 告警结束时间 | time | 选填 | yyyy-MM-dd HH:mm:ss
+        "status": 1 # 状态 | int | 选填 |  1:未确认,2:异常
+        "job_name": "aa" # 策略名称 | str | 选填 |  根据数据统计接口job_names列表数据
+        "remark": "备注" # 备注 | str | 选填 | 支持模糊搜索
+    }

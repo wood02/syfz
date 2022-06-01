@@ -1,0 +1,13 @@
+*** Starting uWSGI 2.0.20 (64bit) on [Wed Dec  1 14:12:44 2021] ***
+compiled with version: Apple LLVM 13.0.0 (clang-1300.0.29.3) on 01 December 2021 01:15:25
+os: Darwin-21.1.0 Darwin Kernel Version 21.1.0: Wed Oct 13 17:33:01 PDT 2021; root:xnu-8019.41.5~1/RELEASE_ARM64_T6000
+nodename: JiaaadeMBP
+machine: arm64
+clock source: unix
+detected number of CPU cores: 10
+current working directory: /Users/w_ood/Work/PythonStudy/workspce/motanni_workspace/Syfz
+writing pidfile to uwsgi.pid
+detected binary path: /Users/w_ood/Work/Python/venvs/Syfz/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /www/wwwroot/mtn_x/Syfz
+chdir(): No such file or directory [core/uwsgi.c line 2625]

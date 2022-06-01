@@ -1,0 +1,544 @@
+监控日志(详细信息)
+=========================================================
+
+说明
+--------------------------------------
+
+    1. API地址: http://47.114.129.62:18000
+    2. <(?P<pk>[0-9]+)> 在此代表id 也为监控对象列表的ID
+    3. {id} 在此代表id 为告警信息的ID
+    4. 错误日志查询(告警信息) 测试数据尽可能使用 api:base_info_id=36, html base_info_id=39  数据相对较全
+    5. 不同类型(type值不同)使用不同的接口
+
+访问历史(实时监控)
+--------------------------------
+
+- GET /api/webmonitor/visit_history/search/?base_info_id=<(?P<pk>[0-9]+)>
+
+- 请求参数::
+
+    {
+        "base_info_id": 36 # 监控对象配置id | int | 必填
+    }
+
+- 响应结果::
+
+    {
+        "code": 200,
+        "success": true,
+        "data": {
+            "history": {   # 默认为default 有对象hk,uk...
+                "default": [
+                    {
+                        "id": 2,
+                        "insert_tm": "2021-08-02 17:21:28",
+                        "res_time": 201,
+                        "res_code": 200,
+                        "request_at": "2021-08-02 17:21:28",  # 请求时间
+                        "multi_link": "default",
+                        "link_status": true,
+                        "base_info": 39
+                    },
+                    {
+                        "id": 1,
+                        "insert_tm": "2021-08-02 17:21:28",
+                        "res_time": 201,
+                        "res_code": 200,
+                        "request_at": "2021-08-02 17:21:28",
+                        "multi_link": "default",
+                        "link_status": true,
+                        "base_info": 39
+                    },
+                    {
+                        "id": 7,
+                        "insert_tm": "2021-08-02 17:25:45",
+                        "res_time": 186,
+                        "res_code": 200,
+                        "request_at": "2021-08-02 17:25:45",
+                        "multi_link": "default",
+                        "link_status": true,
+                        "base_info": 39
+                    },
+                    {
+                        "id": 3,
+                        "insert_tm": "2021-08-02 17:25:45",
+                        "res_time": 186,
+                        "res_code": 200,
+                        "request_at": "2021-08-02 17:25:45",
+                        "multi_link": "default",
+                        "link_status": true,
+                        "base_info": 39
+                    },
+                    {
+                        "id": 4,
+                        "insert_tm": "2021-08-02 17:29:51",
+                        "res_time": 186,
+                        "res_code": 200,
+                        "request_at": "2021-08-02 17:29:51",
+                        "multi_link": "default",
+                        "link_status": true,
+                        "base_info": 39
+                    },
+                    {
+                        "id": 8,
+                        "insert_tm": "2021-08-02 17:29:51",
+                        "res_time": 186,
+                        "res_code": 200,
+                        "request_at": "2021-08-02 17:29:51",
+                        "multi_link": "default",
+                        "link_status": true,
+                        "base_info": 39
+                    },
+                    {
+                        "id": 5,
+                        "insert_tm": "2021-08-02 17:32:11",
+                        "res_time": 254,
+                        "res_code": 200,
+                        "request_at": "2021-08-02 17:32:11",
+                        "multi_link": "default",
+                        "link_status": true,
+                        "base_info": 39
+                    },
+                    {
+                        "id": 9,
+                        "insert_tm": "2021-08-02 17:32:11",
+                        "res_time": 254,
+                        "res_code": 200,
+                        "request_at": "2021-08-02 17:32:11",
+                        "multi_link": "default",
+                        "link_status": true,
+                        "base_info": 39
+                    },
+                    {
+                        "id": 10,
+                        "insert_tm": "2021-08-02 17:36:58",
+                        "res_time": 164,
+                        "res_code": 200,
+                        "request_at": "2021-08-02 17:36:58",
+                        "multi_link": "default",
+                        "link_status": true,
+                        "base_info": 39
+                    },
+                    {
+                        "id": 6,
+                        "insert_tm": "2021-08-02 17:36:58",
+                        "res_time": 164,
+                        "res_code": 200,
+                        "request_at": "2021-08-02 17:36:58",
+                        "multi_link": "default",
+                        "link_status": true,
+                        "base_info": 39
+                    }
+                ],
+                "us": [
+                    {
+                        "id": 12,
+                        "insert_tm": "2021-08-02 17:21:28",
+                        "res_time": 100,
+                        "res_code": 200,
+                        "request_at": "2021-08-02 17:21:28",
+                        "multi_link": "us",
+                        "link_status": true,
+                        "base_info": 39
+                    },
+                    {
+                        "id": 11,
+                        "insert_tm": "2021-08-02 17:21:28",
+                        "res_time": 202,
+                        "res_code": 200,
+                        "request_at": "2021-08-02 17:21:28",
+                        "multi_link": "us",
+                        "link_status": true,
+                        "base_info": 39
+                    },
+                    {
+                        "id": 17,
+                        "insert_tm": "2021-08-02 17:25:45",
+                        "res_time": 286,
+                        "res_code": 200,
+                        "request_at": "2021-08-02 17:25:45",
+                        "multi_link": "us",
+                        "link_status": true,
+                        "base_info": 39
+                    },
+                    {
+                        "id": 13,
+                        "insert_tm": "2021-08-02 17:25:45",
+                        "res_time": 184,
+                        "res_code": 200,
+                        "request_at": "2021-08-02 17:25:45",
+                        "multi_link": "us",
+                        "link_status": true,
+                        "base_info": 39
+                    },
+                    {
+                        "id": 18,
+                        "insert_tm": "2021-08-02 17:29:51",
+                        "res_time": 386,
+                        "res_code": 200,
+                        "request_at": "2021-08-02 17:29:51",
+                        "multi_link": "us",
+                        "link_status": true,
+                        "base_info": 39
+                    },
+                    {
+                        "id": 14,
+                        "insert_tm": "2021-08-02 17:29:51",
+                        "res_time": 126,
+                        "res_code": 200,
+                        "request_at": "2021-08-02 17:29:51",
+                        "multi_link": "us",
+                        "link_status": true,
+                        "base_info": 39
+                    },
+                    {
+                        "id": 19,
+                        "insert_tm": "2021-08-02 17:32:11",
+                        "res_time": 454,
+                        "res_code": 200,
+                        "request_at": "2021-08-02 17:32:11",
+                        "multi_link": "us",
+                        "link_status": true,
+                        "base_info": 39
+                    },
+                    {
+                        "id": 15,
+                        "insert_tm": "2021-08-02 17:32:11",
+                        "res_time": 154,
+                        "res_code": 200,
+                        "request_at": "2021-08-02 17:32:11",
+                        "multi_link": "us",
+                        "link_status": true,
+                        "base_info": 39
+                    },
+                    {
+                        "id": 16,
+                        "insert_tm": "2021-08-02 17:36:58",
+                        "res_time": 100,
+                        "res_code": 200,
+                        "request_at": "2021-08-02 17:36:58",
+                        "multi_link": "us",
+                        "link_status": true,
+                        "base_info": 39
+                    },
+                    {
+                        "id": 20,
+                        "insert_tm": "2021-08-02 17:36:58",
+                        "res_time": 364,
+                        "res_code": 200,
+                        "request_at": "2021-08-02 17:36:58",
+                        "multi_link": "us",
+                        "link_status": true,
+                        "base_info": 39
+                    }
+                ]
+            },
+            "avg_res_time": 198,  # 平均响应时间 单位:ms
+             "usability_threshold": 1000,  # 设定值 单位:ms
+             "screenshot": "http://47.114.129.62:18000/media/images/screenshot/2021/08/17/14260204337919721.png", # 快照地址
+             "screenshot_at": "2021-08-17 14:26:02" # 快照时间
+        }
+    }
+
+
+接口错误日志查询(告警信息)
+--------------------------------
+
+- GET /api/webmonitor/api_logs/search/?base_info_id=<(?P<pk>[0-9]+)>
+
+- 请求参数::
+
+    {
+        "base_info_id": 36 # 监控对象配置id | int | 必填
+    }
+
+- 响应结果::
+
+    {
+        "count": 5,
+        "next": "http://127.0.0.1:8000/api/webmonitor/api_logs/search/?base_info_id=36&page=2&page_size=2",
+        "previous": null,
+        "results": [
+            {
+                "id": 23,
+                "insert_tm": "2021-07-23 14:53:16",
+                "update_tm": "2021-08-03 09:25:10",
+                "error_type": "接口异常",
+                "error_res_content": "{\"errNo\": \"0\", \"data\": {\"weather\": {\"setting\": {\"city\": \"上海\"}, \"content\": {\"week\": \"周五 07月23日\", \"city\": \"上海\", \"today\": {\"time\": \"周五 07月23日 (实时: 32℃)\", \"date\": \"07月23日\", \"img\": [\"\", \"\"], \"condition\": \"阴转中雨\", \"wind\": \"东风5-6级\", \"temp\": \"32℃\", \"link\": \"http://www.weather.com.cn/weather/101020100.shtml#7d\", \"imgs\": {\"1\": \"a2\", \"0\": \"a2\"}, \"pm25\": \"27\", \"pollution\": \"0\", \"pm25url\": \"//www.baidu.com/s?wd=%E4%B8%8A%E6%B5%B7%E7%A9%BA%E6%B0%94%E8%B4%A8%E9%87%8F%E6%8C%87%E6%95%B0&amp;tn=baidutop10&amp;rsv_idx=2\"}, \"tomorrow\": {\"time\": \"周六\", \"date\": \"07月24日\", \"img\": [\"\", \"\"], \"condition\": \"中雨\", \"wind\": \"东风5-6级\", \"temp\": \"27 ~ 30\", \"link\": \"http://www.weather.com.cn/weather/101020100.shtml#7d\", \"imgs\": {\"1\": \"a8\", \"0\": \"a8\"}, \"pm25\": \"27\", \"pollution\": \"0\", \"pm25url\": \"//www.baidu.com/s?wd=%E4%B8%8A%E6%B5%B7%E7%A9%BA%E6%B0%94%E8%B4%A8%E9%87%8F%E6%8C%87%E6%95%B0&amp;tn=baidutop10&amp;rsv_idx=2\"}, \"thirdday\": {\"time\": \"周日\", \"date\": \"07月25日\", \"img\": [\"\", \"\"], \"condition\": \"大暴雨转大雨\", \"wind\": \"东风5-6级\", \"temp\": \"27 ~ 29\", \"link\": \"http://www.weather.com.cn/weather/101020100.shtml#7d\", \"imgs\": {\"1\": \"a11\", \"0\": \"a11\"}, \"pm25\": \"//www.baidu.com/s?wd=%E4%B8%8A%E6%B5%B7%E7%A9%BA%E6%B0%94%E8%B4%A8%E9%87%8F%E6%8C%87%E6%95%B0&amp;tn=baidutop10&amp;rsv_idx=2\", \"pollution\": \"0\", \"pm25url\": \"\"}, \"fourthday\": {\"time\": \"周一\", \"date\": \"07月26日\", \"img\": [\"\", \"\"], \"condition\": \"小雨\", \"wind\": \"东风5-6级\", \"temp\": \"26 ~ 29\", \"link\": \"http://www.weather.com.cn/weather/101020100.shtml#7d\", \"imgs\": {\"1\": \"a7\", \"0\": \"a7\"}}, \"fifthday\": {\"time\": \"周二\", \"date\": \"07月27日\", \"img\": [\"\", \"\"], \"condition\": \"阴\", \"wind\": \"东风5-6级\", \"temp\": \"26 ~ 30\", \"link\": \"http://www.weather.com.cn/weather/101020100.shtml#7d\", \"imgs\": {\"1\": \"a2\", \"0\": \"a2\"}}, \"linkseven\": \"http://www.weather.com.cn/weather/101020100.shtml#7d\", \"source\": {\"name\": \"中国气象频道\", \"url\": \"http://www.mywtv.cn/\"}, \"cityname\": \"上海\", \"calendar\": {\"time\": \"1627023005877\", \"lunar\": \"六月十四\", \"festival\": false, \"weatherSourceUrl\": \"http://www.weather.com.cn/weather/101020100.shtml#7d\"}, \"currenttemp\": \"32℃\", \"warning\": {\"title\": \"台风预警\", \"color\": \"#329af0\", \"imgurl\": \"http://ss.bdimg.com/static/superman/img/weather/warn-293532f566.png\", \"url\": \"http://www.weather.com.cn/alarm/newalarmcontent.shtml?file=http://www.baidu.com/index.html\"}, \"pslink\": \"//www.baidu.com/s?tn=baidutop10&amp;rsv_idx=2&amp;wd=%E4%B8%8A%E6%B5%B7%E5%A4%A9%E6%B0%94%E9%A2%84%E6%8A%A5\", \"weatherType\": \"aladdin\", \"isauto\": false, \"ipcity\": \"杭州\", \"province\": \"浙江\"}}}}",
+                "patch": [
+                    {
+                        "op": "replace",
+                        "path": "/data/weather/content/fifthday/condition",
+                        "value": "中雨"
+                    },
+                    {
+                        "op": "replace",
+                        "path": "/data/weather/content/fifthday/date",
+                        "value": "07月24日"
+                    },
+                    {
+                        "op": "replace",
+                        "path": "/data/weather/content/fifthday/imgs/0",
+                        "value": "a8"
+                    },
+                    {
+                        "op": "replace",
+                        "path": "/data/weather/content/fifthday/imgs/1",
+                        "value": "a8"
+                    },
+                    {
+                        "op": "replace",
+                        "path": "/data/weather/content/fifthday/temp",
+                        "value": "26 ~ 31"
+                    },
+                    {
+                        "op": "replace",
+                        "path": "/data/weather/content/fifthday/time",
+                        "value": "周六"
+                    },
+                    {
+                        "op": "replace",
+                        "path": "/data/weather/content/fifthday/wind",
+                        "value": "东北风6-7级"
+                    },
+                    {
+                        "op": "replace",
+                        "path": "/data/weather/content/fourthday/date",
+                        "value": "07月23日"
+                    },
+                    {
+                        "op": "replace",
+                        "path": "/data/weather/content/fourthday/temp",
+                        "value": "27 ~ 31"
+                    },
+                    {
+                        "op": "replace",
+                        "path": "/data/weather/content/fourthday/time",
+                        "value": "周五"
+                    },
+                    {
+                        "op": "replace",
+                        "path": "/data/weather/content/thirdday/temp",
+                        "value": "27 ~ 31"
+                    }
+                ],
+                "handle": true, # 是否被处置过
+                "updated_at": "2021-08-03 09:25:10" # 最后更新时间
+            },
+            {
+                "id": 22,
+                "insert_tm": "2021-07-20 15:09:24",
+                "update_tm": "2021-08-03 09:25:10",
+                "error_type": "网页失效",
+                "invalid_res_time": 200,
+                "handle": false,
+                "updated_at": "2021-08-03 09:25:10"
+            }
+        ]
+        "effective_count": 4 # 有效数量 可用于更新左侧
+    }
+
+
+
+接口错误日志处置(告警信息)-更新(处置)
+-------------------------------------
+
+- PUT /api/webmonitor/api_logs/{id}/
+
+- 请求参数::
+
+    {
+        "handle": true
+    }
+
+- 响应结果::
+
+        {
+            "code": 200,
+            "success": true,
+            "data": {
+                "handle": true
+            },
+            "message": "更新成功！"
+    }
+
+接口错误日志一键处置(告警信息)
+-------------------------------------
+- POST /api/webmonitor/api_logs/handle/onekey/?base_info_id=<(?P<pk>[0-9]+)>
+
+- 请求参数::
+
+    None
+
+- 响应结果::
+
+    {
+        "code": 200,
+        "success": true,
+        "data": [],
+        "message": "一键处置成功！"
+    }
+
+
+
+网页错误日志查询(告警信息)
+--------------------------------
+
+- GET /api/webmonitor/html_logs/search/?base_info_id=<(?P<pk>[0-9]+)>
+
+- 请求参数::
+
+    {
+        "base_info_id": 39, # 监控对象配置id | int | 必填
+        "page":1,
+        "page_size":10,
+    }
+
+- 响应结果::
+
+    {
+        "count": 5,
+        "next": null,
+        "previous": null,
+        "results": [
+            {
+                "id": 90,
+                "insert_tm": "2021-08-09 10:01:39",
+                "update_tm": "2021-08-09 10:01:39",
+                "error_type": "网页失效",
+                "handle": false,
+                "updated_at": "2021-08-09 10:01:39", # 最后更新时间
+                "invalid": {
+                    "res_code": 408, # 响应状态码
+                    "res_time": 1000, # 超时时间
+                    "usability_status": 200, # 所需状态码
+                    "usability_threshold": 1000 # 所需响应时间(阈值)
+                }
+            },
+            {
+                "id": 89,
+                "insert_tm": "2021-08-09 09:53:18",
+                "update_tm": "2021-08-09 09:53:18",
+                "error_type": "网页挂马",
+                "handle": false,
+                "updated_at": "2021-08-09 09:53:18", # 数据更新时间
+                "trojan": { # 网页挂马
+                    "urls": [ # 挂马链接
+                        "https://dss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/guide_new/arrow-top-d81f5f8843.png",
+                        "https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/home/img/sugbg_1762fe7.png",
+                        "https://dss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/icons-441e82fb11.png",
+                        ]
+                }
+            },
+            {
+                "id": 88,
+                "insert_tm": "2021-08-09 09:41:24",
+                "update_tm": "2021-08-09 09:41:24",
+                "error_type": "不良信息",
+                "handle": false,
+                "updated_at": "2021-08-09 09:41:24",
+                "bad_info": { # 不良信息
+                    "keywords": [ # 关键词
+                        "新闻",
+                        "百度一下"
+                    ]
+                }
+            },
+            {
+                "id": 76,
+                "insert_tm": "2021-07-30 16:33:57",
+                "update_tm": "2021-08-02 17:37:02",
+                "error_type": "信息泄露",
+                "handle": false,
+                "updated_at": "2021-08-02 17:37:02",
+                "info_leak": { # 信息泄露
+                    "phones": [
+                        "15600182281",
+                        "15275011874"
+                    ],
+                    "id_cards": [
+                        "51160219980325116X",
+                        "640300199804115345"
+                    ]
+                }
+            },
+            {
+                "id": 74,
+                "insert_tm": "2021-07-30 16:33:53",
+                "update_tm": "2021-08-09 09:53:13",
+                "error_type": "页面篡改",
+                "handle": false,
+                "updated_at": "2021-08-09 09:53:13",
+                "change": { # 修改内容
+                    "to": "百度一下",     # 到篡改的
+                    "from": "假百度一下"  # 从原来的
+                },
+                "selector": {  # 使用的选择器
+                    "selector_type": "Css Selector",
+                    "selector_text": "#su::attr(value)",
+                    "selector_content": "假百度一下",
+                    "selector_error": false
+                }
+            },
+            {
+                "id": 73,
+                "insert_tm": "2021-07-30 16:33:52",
+                "update_tm": "2021-08-09 09:53:13",
+                "error_type": "页面篡改",
+                "handle": false,
+                "updated_at": "2021-08-09 09:53:13",
+                "change": {
+                    "to": "新闻",
+                    "from": "假新闻"
+                },
+                "selector": {
+                    "selector_type": "Xpath",
+                    "selector_text": "//*[@id='s-top-left']/a[1]/text()",
+                    "selector_content": "假新闻",
+                    "selector_error": false
+                }
+            }
+        ]
+        "effective_count": 4 # 有效数量 可用于更新左侧
+    }
+
+网页错误日志处置(告警信息)-更新(处置)
+------------------------------------------
+
+- PUT /api/webmonitor/html_logs/{id}/
+
+- 请求参数::
+
+    {
+        "handle": true
+    }
+
+- 响应结果::
+
+    {
+        "code": 200,
+        "success": true,
+        "data": {
+            "handle": true
+        },
+        "message": "更新成功！"
+    }
+
+
+网页错误日志一键处置(告警信息)
+-------------------------------------
+
+- POST /api/webmonitor/html_logs/handle/onekey/?base_info_id=<(?P<pk>[0-9]+)>
+
+- 请求参数::
+
+    None
+
+- 响应结果::
+
+    {
+        "code": 200,
+        "success": true,
+        "data": [],
+        "message": "一键处置成功！"
+    }

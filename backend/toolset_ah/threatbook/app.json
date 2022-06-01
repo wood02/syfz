@@ -1,0 +1,24 @@
+{
+  "order": 5,
+  "identification": "syfz",
+  "is_public": true,
+  "name": "微步威胁情报",
+  "version": "1.0",
+  "description": "根据<IP>或者<域名>进行综合性威胁威胁情报查询。",
+  "type": "信息收集",
+  "action": [
+    {
+      "name": "搜索",
+      "func": "search"
+    }
+  ],
+  "args": {
+    "search": [
+      {
+        "key": "query",
+        "type": "ipordomain",
+        "required": true
+      }
+    ]
+  }
+}

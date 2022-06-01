@@ -1,0 +1,180 @@
+批量查询微步标签(包含微步用户信息)
+============================================
+
+微步标签查询
+--------------------------------
+
+- POST /providedata/search/xtb/tags/
+- 请求参数::
+
+    {
+        "ips": # IP | json | 必填 | 数组长度: 0<ips<=1000
+        [
+            "209.141.37.3",
+            "112.85.48.3",
+            "139.196.106.181",
+            "218.59.220.184",
+            "120.85.118.134",
+            "120.85.112.18"
+            ...
+        ]
+    }
+- 响应结果::
+
+    {
+    "success": true,
+    "data": {
+        "209.141.37.3": [
+            "扫描",
+            "垃圾邮件"
+        ],
+        "112.85.48.3": [
+            "动态IP"
+        ],
+        "139.196.106.181": [
+            "傀儡机",
+            "IDC服务器",
+            "垃圾邮件"
+        ],
+        "218.59.220.184": [
+            "傀儡机",
+            "扫描",
+            "动态IP",
+            "垃圾邮件"
+        ],
+        "120.85.118.134": [
+            "傀儡机",
+            "动态IP",
+            "垃圾邮件"
+        ],
+        "120.85.112.18": [
+            "傀儡机",
+            "动态IP",
+            "垃圾邮件"
+        ],
+        ...
+    }
+
+
+新增微步用户信息
+--------------------------------
+
+- POST /providedata/xbt/user/
+- 请求参数::
+
+    {
+    "username": "xxxxxxx.qq.com", # 微步用户名 | email | 必填
+    "password": "xxxxxxx", # 微步密码 | str | 必填
+    "cookies": "cookies"  # 微步登陆后的cookies | str | 必填
+    }
+
+
+- 响应结果::
+
+    {
+        "code": 200,
+        "success": true,
+        "data": {
+            "id": 4,
+            "insert_tm": "2021-07-12 09:55:31",
+            "update_tm": "2021-07-12 09:55:31",
+            "username": "xxxxxxx.qq.com",
+            "password": "xxxxxxx",
+            "status": "未知",
+            "cookies": "cookies",
+            "api_limit": 50,
+            "api_remaining": 50,
+            "api_reset_at": "2021-07-12 09:55:31",
+            "error_num": 0,
+            "status_change_at": "2021-07-12 09:55:31"
+        }
+    }
+
+查询微步用户信息
+--------------------------------
+
+- GET /providedata/xbt/user/?page=1&page_size=1
+- 请求参数::
+
+    None
+
+- 响应结果::
+
+    {
+        "count": 2,
+        "next": "http://127.0.0.1:8000/api/providedata/xbt/user/?page=2&page_size=1",
+        "previous": null,
+        "results": [
+            {
+                "id": 4,
+                "insert_tm": "2021-07-12 09:55:31",
+                "update_tm": "2021-07-12 09:55:31",
+                "username": "xxxxxxx.qq.com",
+                "password": "xxxxxxx",
+                "status": "未知",
+                "cookies": "cookies",
+                "api_limit": 50,
+                "api_remaining": 50,
+                "api_reset_at": "2021-07-12 09:55:31",
+                "error_num": 0,
+                "status_change_at": "2021-07-12 09:55:31"
+            }
+        ]
+    }
+
+修改微步用户信息
+--------------------------------
+
+- PUT /providedata/xbt/user/<(?P<pk>[0-9]+)>/
+- 请求参数::
+
+    {
+        "username": "xxxxxxx.qq.com",
+        "password": "xxxxxxx",
+        "cookies": "cookies",
+        "api_remaining": 23,  # 微步用户名 | int | 选填
+    }
+
+- 参数说明::
+
+    为局部更新，参数均为选填参数！
+
+- 响应结果::
+
+    {
+    "code": 200,
+    "success": true,
+    "data": {
+        "id": 1,
+        "insert_tm": "2021-07-12 09:52:56",
+        "update_tm": "2021-07-12 10:07:38",
+        "username": "xxxxxxx.qq.com",
+        "password": "xxxxxxx",
+        "status": "未知",
+        "cookies": "cookies",
+        "api_limit": 50,
+        "api_remaining": 23,
+        "api_reset_at": "2021-07-12 09:52:56",
+        "error_num": 0,
+        "status_change_at": "2021-07-12 09:52:56"
+        }
+    }
+
+
+删除微步用户信息
+--------------------------------
+
+- DELETE /providedata/xbt/user/<(?P<pk>[0-9]+)>/
+- 请求参数::
+
+    None
+
+- 响应结果::
+
+    {
+        "code": 200,
+        "success": true,
+        "data": []
+    }
+
+

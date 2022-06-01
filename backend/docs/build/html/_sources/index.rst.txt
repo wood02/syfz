@@ -1,0 +1,62 @@
+.. show documentation master file, created by
+   sphinx-quickstart on Fri May  7 09:40:11 2021.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+欢迎使用 hwtools 的文档！
+====================================
+
+
+.. toctree::
+   :maxdepth: 2
+   :caption: 数据提供:
+
+   api/providedata/xtb_tags.rst
+
+
+.. toctree::
+   :maxdepth: 2
+   :caption: 知识库:
+
+   api/knowledge/loophole.rst
+
+
+.. toctree::
+   :maxdepth: 2
+   :caption: 主动式网站安全监测工具:
+
+   api/webmonitor/baseinfo.rst
+   api/webmonitor/detailinfo.rst
+   api/webmonitor/badinfo.rst
+   api/webmonitor/webhook.rst
+   api/webmonitor/email.rst
+
+.. toctree::
+   :maxdepth: 2
+   :caption: 敏感信息:
+
+   api/mgxx/index.rst
+   api/mgxx/icp/icp.rst
+   api/mgxx/icp/job.rst
+   api/mgxx/icp/white.rst
+   api/mgxx/code/code.rst
+   api/mgxx/code/job.rst
+   api/mgxx/code/white.rst
+   api/mgxx/sys/event.rst
+   api/mgxx/sys/config.rst
+   api/mgxx/sys/upgrade.rst
+
+
+.. toctree::
+   :maxdepth: 2
+   :caption: 用户管理:
+
+   api/rbac/role.rst
+   api/rbac/user.rst
+
+索引和表格
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

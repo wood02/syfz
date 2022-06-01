@@ -1,0 +1,349 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>源代码检测 &#8212; Hvv工具箱  文档</title>
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../../../genindex.html" />
+    <link rel="search" title="搜索" href="../../../search.html" />
+    <link rel="next" title="源代码策略" href="job.html" />
+    <link rel="prev" title="未备案白名单" href="../icp/white.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="id1">
+<h1>源代码检测<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2>说明<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>API地址: <a class="reference external" href="http://47.114.129.62:18000">http://47.114.129.62:18000</a></p></li>
+<li><p>&lt;(?P&lt;pk&gt;[0-9]+)&gt; 在此代表id</p></li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="id3">
+<h2>源代码-列表<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>GET /api/mgxx/code/code/?page=1&amp;page_size=2</p></li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span> <span class="c1"># id(编号) | int | 选填</span>
+    <span class="s2">&quot;repo_owner&quot;</span><span class="p">:</span> <span class="s2">&quot;aa&quot;</span> <span class="c1"># 用户名 | str | 选填 | 支持模糊搜索</span>
+    <span class="s2">&quot;repo_name&quot;</span><span class="p">:</span> <span class="s2">&quot;aa&quot;</span> <span class="c1"># 仓库名 | str | 选填 | 支持模糊搜索</span>
+    <span class="s2">&quot;repo_description&quot;</span><span class="p">:</span> <span class="s2">&quot;repo_description&quot;</span> <span class="c1"># 仓库描述 | str | 选填 | 支持模糊搜索</span>
+    <span class="s2">&quot;salarm_time&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-09-08 14:24:37&quot;</span> <span class="c1"># 告警开始时间 | time | 选填 | yyyy-MM-dd HH:mm:ss</span>
+    <span class="s2">&quot;ealarm_time&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-09-08 14:24:37&quot;</span> <span class="c1"># 告警结束时间 | time | 选填 | yyyy-MM-dd HH:mm:ss</span>
+    <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">1</span> <span class="c1"># 状态 | int | 选填 |  1:未确认,2:异常</span>
+    <span class="s2">&quot;job_name&quot;</span><span class="p">:</span> <span class="s2">&quot;aa&quot;</span> <span class="c1"># 策略名称 | str | 选填 |  根据数据统计接口job_names列表数据</span>
+    <span class="s2">&quot;remark&quot;</span><span class="p">:</span> <span class="s2">&quot;备注&quot;</span> <span class="c1"># 备注 | str | 选填 | 支持模糊搜索</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;count&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;next&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;previous&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;results&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">325</span><span class="p">,</span>
+            <span class="s2">&quot;insert_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-09-14 10:47:11&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;update_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-09-14 10:47:11&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;alarm_time&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-09-14 10:47:11&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;uuid&quot;</span><span class="p">:</span> <span class="s2">&quot;98cdfa235e6433a063e788759660c5f0&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;repo_owner&quot;</span><span class="p">:</span> <span class="s2">&quot;xinyi-zhu&quot;</span><span class="p">,</span> <span class="c1"># 用户名</span>
+            <span class="s2">&quot;repo_name&quot;</span><span class="p">:</span> <span class="s2">&quot;frog_tech_trend&quot;</span><span class="p">,</span> <span class="c1"># 仓库名</span>
+            <span class="s2">&quot;repo_full_name&quot;</span><span class="p">:</span> <span class="s2">&quot;xinyi-zhu/frog_tech_trend&quot;</span><span class="p">,</span> <span class="c1"># 仓库名/用户名</span>
+            <span class="s2">&quot;file_path&quot;</span><span class="p">:</span> <span class="s2">&quot;build/trend.json&quot;</span><span class="p">,</span><span class="c1"># 文件名</span>
+            <span class="s2">&quot;file_html_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://github.com/xinyi-zhu/frog_tech_trend/blob/8d7433275b64a877c4ddd412370921207c439f49/build/trend.json&quot;</span><span class="p">,</span> <span class="c1"># 跳转地址</span>
+            <span class="s2">&quot;html_url_blob&quot;</span><span class="p">:</span> <span class="s2">&quot;8d7433275b64a877c4ddd412370921207c439f49&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;file_download_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://raw.githubusercontent.com/xinyi-zhu/frog_tech_trend/8d7433275b64a877c4ddd412370921207c439f49/build/trend.json&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;file_size&quot;</span><span class="p">:</span> <span class="s2">&quot;23047&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;repo_description&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span> <span class="c1"># 仓库描述</span>
+            <span class="s2">&quot;commit_latest_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-01-24 10:15:27&quot;</span><span class="p">,</span> <span class="c1"># 仓库最新提交时间</span>
+            <span class="s2">&quot;commit_file_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-01-24 05:30:26&quot;</span><span class="p">,</span> <span class="c1"># 文件最新提交时间</span>
+            <span class="s2">&quot;text_matches&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="c1"># 快照</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;matches&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="c1"># 快照 highlight</span>
+                        <span class="p">{</span>
+                            <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;大数据&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;indices&quot;</span><span class="p">:</span> <span class="p">[</span>
+                                <span class="mi">33</span><span class="p">,</span>
+                                <span class="mi">36</span>
+                            <span class="p">]</span>
+                        <span class="p">}</span>
+                    <span class="p">],</span>
+                    <span class="s2">&quot;fragment&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">21</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">year</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">2015</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">category</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">大数据</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">themeicon</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">信息安全</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">headline</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">随着API的增多，许多产品与服务也变得越来越容易受到黑客攻击。&quot;</span>
+                    <span class="c1"># 快照文本</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;matches&quot;</span><span class="p">:</span> <span class="p">[</span>
+                        <span class="p">{</span>
+                            <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;大数据&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;indices&quot;</span><span class="p">:</span> <span class="p">[</span>
+                                <span class="mi">41</span><span class="p">,</span>
+                                <span class="mi">44</span>
+                            <span class="p">]</span>
+                        <span class="p">}</span>
+                    <span class="p">],</span>
+                    <span class="s2">&quot;fragment&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">},</span><span class="se">\n</span><span class="s2">{</span><span class="se">\&quot;</span><span class="s2">id</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">22</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">year</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">2015</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">category</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">大数据</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">themeicon</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">信息安全</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">headline&quot;</span>
+                <span class="p">}</span>
+            <span class="p">],</span>
+            <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;Github&quot;</span><span class="p">,</span> <span class="c1"># 来源</span>
+            <span class="s2">&quot;first_handle_time&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+            <span class="s2">&quot;job_name&quot;</span><span class="p">:</span> <span class="s2">&quot;qq3&quot;</span><span class="p">,</span> <span class="c1"># 策略名</span>
+            <span class="s2">&quot;query&quot;</span><span class="p">:</span> <span class="s2">&quot;大数据 in:file&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;qbase64&quot;</span><span class="p">:</span> <span class="s2">&quot;5aSn5pWw5o2uIGluOmZpbGU=&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;remark&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+            <span class="s2">&quot;code_job&quot;</span><span class="p">:</span> <span class="n">null</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h2>源代码检测-单个/批量更新(处置)<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>PUT /api/mgxx/code/code/multiple_update/</p></li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;ids&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">9</span><span class="p">],</span>  <span class="c1">#  ids | list | 必填</span>
+    <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">1</span> <span class="c1"># 状态 | int | 必填  | 1:未确认,2:异常</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s2">&quot;success&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;更新成功&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h2>源代码检测-单个/批量误报加白<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>POST /api/mgxx/code/code/multiple_white/</p></li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;ids&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">9</span><span class="p">],</span>  <span class="c1">#  ids | list | 必填</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;repo_owner&quot;</span>  <span class="c1"># 类型 | str | 必填 | repo_owner:用户名,repo_full_name:仓库名</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s2">&quot;success&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;加白成功！&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h2>源代码检测-数据统计包含(匹配策略列表)<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>GET /api/mgxx/code/code/statistics/</p></li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kc">None</span>
+</pre></div>
+</div>
+</li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s2">&quot;success&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;total&quot;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span> <span class="c1"># 总数</span>
+        <span class="s2">&quot;unconfirmed&quot;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span> <span class="c1"># 未处置</span>
+        <span class="s2">&quot;abnormal&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="c1">#</span>
+        <span class="s2">&quot;job_names&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="c1"># 匹配策略列表</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;job_name&quot;</span><span class="p">:</span> <span class="s2">&quot;qq3&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;count&quot;</span><span class="p">:</span> <span class="mi">8</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;job_name&quot;</span><span class="p">:</span> <span class="s2">&quot;大数据&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;count&quot;</span><span class="p">:</span> <span class="mi">59</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;job_name&quot;</span><span class="p">:</span> <span class="s2">&quot;qq2&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;count&quot;</span><span class="p">:</span> <span class="mi">9</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;week_handle&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="c1"># 本周处置数</span>
+        <span class="s2">&quot;week_handle_avg&quot;</span><span class="p">:</span> <span class="mf">13827.183333333332</span> <span class="c1"># 本周平均处置时间</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;查询成功！&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h2>源代码检测-数据导出<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>GET /api/mgxx/code/code/export/</p></li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;ids&quot;</span><span class="p">:[</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span> <span class="c1"># 要导出的ids | list | 选填 | 无此参数导出搜索数据,可加搜索参数, 有则导出指定数据</span>
+    <span class="s2">&quot;repo_owner&quot;</span><span class="p">:</span> <span class="s2">&quot;aa&quot;</span> <span class="c1"># 用户名 | str | 选填 | 支持模糊搜索</span>
+    <span class="s2">&quot;repo_name&quot;</span><span class="p">:</span> <span class="s2">&quot;aa&quot;</span> <span class="c1"># 仓库名 | str | 选填 | 支持模糊搜索</span>
+    <span class="s2">&quot;repo_description&quot;</span><span class="p">:</span> <span class="s2">&quot;repo_description&quot;</span> <span class="c1"># 仓库描述 | str | 选填 | 支持模糊搜索</span>
+    <span class="s2">&quot;salarm_time&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-09-08 14:24:37&quot;</span> <span class="c1"># 告警开始时间 | time | 选填 | yyyy-MM-dd HH:mm:ss</span>
+    <span class="s2">&quot;ealarm_time&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-09-08 14:24:37&quot;</span> <span class="c1"># 告警结束时间 | time | 选填 | yyyy-MM-dd HH:mm:ss</span>
+    <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="mi">1</span> <span class="c1"># 状态 | int | 选填 |  1:未确认,2:异常</span>
+    <span class="s2">&quot;job_name&quot;</span><span class="p">:</span> <span class="s2">&quot;aa&quot;</span> <span class="c1"># 策略名称 | str | 选填 |  根据数据统计接口job_names列表数据</span>
+    <span class="s2">&quot;remark&quot;</span><span class="p">:</span> <span class="s2">&quot;备注&quot;</span> <span class="c1"># 备注 | str | 选填 | 支持模糊搜索</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Hvv工具箱</a></h1>
+
+
+
+
+
+
+
+
+<h3>导航</h3>
+<p class="caption"><span class="caption-text">数据提供:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../providedata/xtb_tags.html">批量查询微步标签(包含微步用户信息)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">知识库:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../knowledge/loophole.html">漏洞库</a></li>
+</ul>
+<p class="caption"><span class="caption-text">主动式网站安全监测工具:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../webmonitor/baseinfo.html">监控对象配置(基础信息)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../webmonitor/detailinfo.html">监控日志(详细信息)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../webmonitor/badinfo.html">不良信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../webmonitor/webhook.html">推送到钉钉配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../webmonitor/email.html">推送到邮件配置</a></li>
+</ul>
+<p class="caption"><span class="caption-text">敏感信息:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">总览</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../icp/icp.html">未备案检测</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../icp/job.html">未备案策略</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../icp/white.html">未备案白名单</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">源代码检测</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">源代码-列表</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">源代码检测-单个/批量更新(处置)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">源代码检测-单个/批量误报加白</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">源代码检测-数据统计包含(匹配策略列表)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">源代码检测-数据导出</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="job.html">源代码策略</a></li>
+<li class="toctree-l1"><a class="reference internal" href="white.html">源代码白名单</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sys/event.html">系统设置</a></li>
+</ul>
+<p class="caption"><span class="caption-text">用户管理:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../rbac/role.html">角色管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rbac/user.html">用户管理</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../icp/white.html" title="上一章">未备案白名单</a></li>
+      <li>Next: <a href="job.html" title="下一章">源代码策略</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, W_OOD.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../_sources/api/mgxx/code/code.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

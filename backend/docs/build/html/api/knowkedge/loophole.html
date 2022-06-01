@@ -1,0 +1,301 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>批量查询微步标签(包含微步用户信息) &#8212; Hvv工具箱  文档</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="id1">
+<h1>批量查询微步标签(包含微步用户信息)<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2>微步标签查询<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>POST /providedata/search/xtb/tags/</p></li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;ips&quot;</span><span class="p">:</span> <span class="c1"># IP | json | 必填 | 数组长度: 0&lt;ips&lt;=1000</span>
+    <span class="p">[</span>
+        <span class="s2">&quot;209.141.37.3&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;112.85.48.3&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;139.196.106.181&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;218.59.220.184&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;120.85.118.134&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;120.85.112.18&quot;</span>
+        <span class="o">...</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;success&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+<span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;209.141.37.3&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;扫描&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;垃圾邮件&quot;</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;112.85.48.3&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;动态IP&quot;</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;139.196.106.181&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;傀儡机&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;IDC服务器&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;垃圾邮件&quot;</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;218.59.220.184&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;傀儡机&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;扫描&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;动态IP&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;垃圾邮件&quot;</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;120.85.118.134&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;傀儡机&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;动态IP&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;垃圾邮件&quot;</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;120.85.112.18&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;傀儡机&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;动态IP&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;垃圾邮件&quot;</span>
+    <span class="p">],</span>
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>新增微步用户信息<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>POST /providedata/xbt/user/</p></li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;xxxxxxx.qq.com&quot;</span><span class="p">,</span> <span class="c1"># 微步用户名 | email | 必填</span>
+<span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;xxxxxxx&quot;</span><span class="p">,</span> <span class="c1"># 微步密码 | str | 必填</span>
+<span class="s2">&quot;cookies&quot;</span><span class="p">:</span> <span class="s2">&quot;cookies&quot;</span>  <span class="c1"># 微步登陆后的cookies | str | 必填</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s2">&quot;success&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+        <span class="s2">&quot;insert_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-07-12 09:55:31&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;update_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-07-12 09:55:31&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;xxxxxxx.qq.com&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;xxxxxxx&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;未知&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;cookies&quot;</span><span class="p">:</span> <span class="s2">&quot;cookies&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;api_limit&quot;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span>
+        <span class="s2">&quot;api_remaining&quot;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span>
+        <span class="s2">&quot;api_reset_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-07-12 09:55:31&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;error_num&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;status_change_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-07-12 09:55:31&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h2>查询微步用户信息<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>GET /providedata/xbt/user/?page=1&amp;page_size=1</p></li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kc">None</span>
+</pre></div>
+</div>
+</li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;count&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">&quot;next&quot;</span><span class="p">:</span> <span class="s2">&quot;http://127.0.0.1:8000/api/providedata/xbt/user/?page=2&amp;page_size=1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;previous&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;results&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+            <span class="s2">&quot;insert_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-07-12 09:55:31&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;update_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-07-12 09:55:31&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;xxxxxxx.qq.com&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;xxxxxxx&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;未知&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cookies&quot;</span><span class="p">:</span> <span class="s2">&quot;cookies&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;api_limit&quot;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span>
+            <span class="s2">&quot;api_remaining&quot;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span>
+            <span class="s2">&quot;api_reset_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-07-12 09:55:31&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;error_num&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s2">&quot;status_change_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-07-12 09:55:31&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h2>修改微步用户信息<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>PUT /providedata/xbt/user/&lt;(?P&lt;pk&gt;[0-9]+)&gt;/</p></li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;xxxxxxx.qq.com&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;xxxxxxx&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;cookies&quot;</span><span class="p">:</span> <span class="s2">&quot;cookies&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;api_remaining&quot;</span><span class="p">:</span> <span class="mi">23</span><span class="p">,</span>  <span class="c1"># 微步用户名 | int | 选填</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>参数说明:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>为局部更新，参数均为选填参数！
+</pre></div>
+</div>
+</li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+<span class="s2">&quot;success&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+<span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;insert_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-07-12 09:52:56&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;update_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-07-12 10:07:38&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;xxxxxxx.qq.com&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;xxxxxxx&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;未知&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;cookies&quot;</span><span class="p">:</span> <span class="s2">&quot;cookies&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;api_limit&quot;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span>
+    <span class="s2">&quot;api_remaining&quot;</span><span class="p">:</span> <span class="mi">23</span><span class="p">,</span>
+    <span class="s2">&quot;api_reset_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-07-12 09:52:56&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;error_num&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;status_change_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-07-12 09:52:56&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h2>删除微步用户信息<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>DELETE /providedata/xbt/user/&lt;(?P&lt;pk&gt;[0-9]+)&gt;/</p></li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kc">None</span>
+</pre></div>
+</div>
+</li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s2">&quot;success&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">[]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Hvv工具箱</a></h1>
+
+
+
+
+
+
+
+
+<h3>导航</h3>
+<p class="caption"><span class="caption-text">目录:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../guide.html">API设计规范</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../providedata/xtb_tags.html">批量查询微步标签(包含微步用户信息)</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, W_OOD.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/api/knowkedge/loophole.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

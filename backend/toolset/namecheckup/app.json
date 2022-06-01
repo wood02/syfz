@@ -1,0 +1,41 @@
+{
+  "order": 7,
+  "identification": "syfz",
+  "is_public": true,
+  "name": "网络ID全网检索",
+  "version": "1.0",
+  "description": "指定ID对全网进行检索是否存在用户。",
+  "type": "信息收集",
+  "action": [
+    {
+      "name": "搜索外网",
+      "func": "search_extranet"
+    },
+    {
+      "name": "数据信息",
+      "func": "infos"
+    }
+  ],
+  "args": {
+    "search_extranet": [
+      {
+        "key": "query",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "key",
+        "type": "text",
+        "required": true
+      }
+    ],
+    "infos": [
+      {
+        "key": "all",
+        "type": "boolean",
+        "required": false,
+        "default": false
+      }
+    ]
+  }
+}

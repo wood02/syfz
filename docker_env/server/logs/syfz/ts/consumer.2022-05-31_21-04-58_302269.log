@@ -1,0 +1,188 @@
+2022-05-31 15:33:39.290 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:33:51.624 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:34:03.563 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:34:15.306 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:34:27.234 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:34:38.999 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:34:50.770 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:35:03.166 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:35:15.162 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:35:26.862 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:35:38.503 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:35:50.468 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:36:02.502 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:36:15.494 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:36:27.892 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:36:39.912 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:36:51.725 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:37:03.692 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:37:15.556 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:37:27.492 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:37:39.224 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:37:51.333 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:38:03.470 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:38:15.176 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:38:27.378 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:38:39.513 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:38:52.214 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:39:04.109 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:39:15.826 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:39:27.884 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:39:40.082 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:39:53.542 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:40:05.792 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:40:18.138 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:40:30.239 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:40:42.770 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:40:55.036 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:41:08.322 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:41:24.884 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:41:37.299 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:41:49.027 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:42:01.278 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:42:14.952 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:42:27.382 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:42:40.138 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:42:52.696 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:43:06.007 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:43:18.333 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:43:30.510 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:43:43.461 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:43:55.645 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:44:07.840 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:44:21.089 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:44:33.804 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:44:46.381 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:44:59.372 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:45:11.558 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:45:24.856 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:45:38.697 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:45:52.039 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:46:04.215 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:46:16.921 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:46:29.520 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:46:42.717 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:46:55.494 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:47:08.809 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:47:22.590 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:47:35.716 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:47:48.569 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:48:02.147 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 15:48:14.494 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:04:48.563 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:05:00.574 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:05:12.931 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:05:25.768 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:05:37.778 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:05:49.932 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:06:01.988 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:06:13.795 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:06:25.716 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:06:37.808 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:06:49.722 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:07:01.785 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:07:13.519 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:07:25.408 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:07:37.217 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:07:49.075 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:08:01.228 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:08:13.219 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:08:25.711 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:08:37.901 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:08:51.131 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:09:03.046 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:09:15.180 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:09:27.260 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:09:39.508 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:09:51.512 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:10:03.500 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:10:15.198 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:10:27.117 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:10:39.486 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:10:52.068 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:11:04.127 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:11:16.040 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:11:27.884 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:11:40.234 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:11:52.850 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:12:05.020 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:12:17.116 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:12:29.723 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:12:41.991 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:12:54.188 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:13:06.709 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:13:18.944 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:13:31.215 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:13:44.089 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:13:55.992 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:14:08.809 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:14:20.948 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:14:33.725 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:14:45.703 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:14:58.429 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:15:11.698 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:15:24.234 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:15:36.331 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:15:48.625 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:16:01.749 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:16:14.270 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:16:14.847 | consumer1.py 91 | WARNING | 已连接， Waiting for queue: [ queue_scan_result ] routing_key: [ topic_scan_result ]
+2022-05-31 17:24:16.977 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:24:17.482 | consumer1.py 91 | WARNING | 已连接， Waiting for queue: [ queue_scan_result ] routing_key: [ topic_scan_result ]
+2022-05-31 17:32:45.060 | consumer1.py 52 | INFO | Received new message from - topic_scan_result
+2022-05-31 17:32:45.083 | consumer1.py 54 | WARNING | Received '{"task_id": "6db6d912-255d-4068-bba1-7df7cd0905dc", "status": 1, "msg": "扫描完成", "data": {"scan_time": "2022-05-31 17:32:39", "target": "39.105.143.157", "assets": [], "assetinfo": {"http": [], "weakpass": [], "vul": []}}, "finished": true}'
+2022-05-31 17:32:45.087 | consumer1.py 59 | WARNING | Saving to DB
+2022-05-31 17:32:45.226 | consumer1.py 75 | WARNING | No such attack
+2022-05-31 17:32:45.228 | consumer1.py 78 | WARNING | Saved to DB
+2022-05-31 17:33:55.602 | consumer1.py 52 | INFO | Received new message from - topic_scan_result
+2022-05-31 17:33:55.626 | consumer1.py 54 | WARNING | Received '{"task_id": "371d84ef-35a6-4417-a8ed-b858cb81ab33", "status": 1, "msg": "nmap扫描完成", "data": {"scan_time": "2022-05-31 17:33:50", "target": "39.105.143.157", "assets": [], "assetinfo": {"http": [], "weakpass": [], "vul": []}}}'
+2022-05-31 17:33:55.630 | consumer1.py 59 | WARNING | Saving to DB
+2022-05-31 17:33:55.642 | consumer1.py 75 | WARNING | No such attack
+2022-05-31 17:33:55.644 | consumer1.py 78 | WARNING | Saved to DB
+2022-05-31 17:41:23.494 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:41:25.356 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:41:27.258 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:41:29.628 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 17:41:33.223 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 18:20:53.470 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 18:21:02.325 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 18:21:16.777 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 18:21:17.188 | consumer1.py 91 | WARNING | 已连接， Waiting for queue: [ queue_scan_result ] routing_key: [ topic_scan_result ]
+2022-05-31 18:35:32.081 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 18:35:32.330 | consumer1.py 91 | WARNING | 已连接， Waiting for queue: [ queue_scan_result ] routing_key: [ topic_scan_result ]
+2022-05-31 18:46:03.816 | consumer1.py 52 | INFO | Received new message from - topic_scan_result
+2022-05-31 18:46:03.847 | consumer1.py 54 | WARNING | Received '{"task_id": "6a4a40fa-47b8-4344-8644-dfd43b0ad00e", "status": 1, "msg": "扫描完成", "data": {"scan_time": "2022-05-31 18:45:59", "target": "114.238.190.79", "assets": [], "assetinfo": {"http": [], "weakpass": [], "vul": []}}, "finished": true}'
+2022-05-31 18:46:03.850 | consumer1.py 59 | WARNING | Saving to DB
+2022-05-31 18:46:09.019 | consumer1.py 75 | WARNING | No such attack
+2022-05-31 18:46:09.021 | consumer1.py 78 | WARNING | Saved to DB
+2022-05-31 18:47:28.890 | consumer1.py 52 | INFO | Received new message from - topic_scan_result
+2022-05-31 18:47:28.898 | consumer1.py 54 | WARNING | Received '{"task_id": "e430e3b4-0130-4eeb-8816-c52670057631", "status": 1, "msg": "nmap扫描完成", "data": {"scan_time": "2022-05-31 18:47:23", "target": "49.82.74.63", "assets": [], "assetinfo": {"http": [], "weakpass": [], "vul": []}}}'
+2022-05-31 18:47:28.900 | consumer1.py 59 | WARNING | Saving to DB
+2022-05-31 18:47:28.915 | consumer1.py 75 | WARNING | No such attack
+2022-05-31 18:47:28.920 | consumer1.py 78 | WARNING | Saved to DB
+2022-05-31 19:05:41.271 | consumer1.py 52 | INFO | Received new message from - topic_scan_result
+2022-05-31 19:05:41.302 | consumer1.py 54 | WARNING | Received '{"task_id": "e66ffcd3-8b64-4524-bba2-dfb4969f31cc", "status": 1, "msg": "nmap扫描完成", "data": {"scan_time": "2022-05-31 19:05:35", "target": "103.85.84.160", "assets": [{"port": "20", "service": "ftp-data"}, {"port": "21", "service": "ftp"}, {"port": "22", "service": "ssh"}, {"port": "23", "service": "telnet"}, {"port": "69", "service": "tftp"}, {"port": "80", "service": "http"}, {"port": "81", "service": "hosts2-ns"}, {"port": "389", "service": "ldap"}, {"port": "443", "service": "https"}, {"port": "1352", "service": "lotusnotes"}, {"port": "1433", "service": "ms-sql-s"}, {"port": "1521", "service": "oracle"}, {"port": "2049", "service": "nfs"}, {"port": "2181", "service": "eforward"}, {"port": "2375", "service": "docker"}, {"port": "3306", "service": "mysql"}, {"port": "3389", "service": "ms-wbt-server"}, {"port": "5000", "service": "upnp"}, {"port": "5003", "service": "filemaker"}, {"port": "5050", "service": "mmcc"}, {"port": "5432", "service": "postgresql"}, {"port": "6379", "service": "redis"}, {"port": "7001", "service": "afs3-callback"}, {"port": "8069", "service": "unknown"}, {"port": "8080", "service": "http-proxy"}, {"port": "8089", "service": "unknown"}, {"port": "8888", "service": "sun-answerbook"}, {"port": "9200", "service": "wap-wsp"}, {"port": "9300", "service": "vrace"}, {"port": "27017", "service": "mongod"}], "assetinfo": {"http": [], "weakpass": [], "vul": []}}}'
+2022-05-31 19:05:41.306 | consumer1.py 59 | WARNING | Saving to DB
+2022-05-31 19:05:41.364 | consumer1.py 75 | WARNING | No such attack
+2022-05-31 19:05:41.366 | consumer1.py 78 | WARNING | Saved to DB
+2022-05-31 19:05:49.332 | consumer1.py 52 | INFO | Received new message from - topic_scan_result
+2022-05-31 19:05:49.341 | consumer1.py 54 | WARNING | Received '{"task_id": "1697ceb9-339b-44e1-a805-41997fc31bc2", "status": 1, "msg": "扫描完成", "data": {"scan_time": "2022-05-31 19:05:45", "target": "114.238.190.79", "assets": [], "assetinfo": {"http": [], "weakpass": [], "vul": []}}, "finished": true}'
+2022-05-31 19:05:49.347 | consumer1.py 59 | WARNING | Saving to DB
+2022-05-31 19:05:49.352 | consumer1.py 75 | WARNING | No such attack
+2022-05-31 19:05:49.354 | consumer1.py 78 | WARNING | Saved to DB
+2022-05-31 19:16:15.818 | consumer1.py 52 | INFO | Received new message from - topic_scan_result
+2022-05-31 19:16:15.847 | consumer1.py 54 | WARNING | Received '{"task_id": "6eeeaf28-ffaa-451e-8697-4da3502f5f80", "status": 1, "msg": "nmap扫描完成", "data": {"scan_time": "2022-05-31 19:16:11", "target": "114.238.190.79", "assets": [], "assetinfo": {"http": [], "weakpass": [], "vul": []}}}'
+2022-05-31 19:16:15.852 | consumer1.py 59 | WARNING | Saving to DB
+2022-05-31 19:16:15.880 | consumer1.py 75 | WARNING | No such attack
+2022-05-31 19:16:15.882 | consumer1.py 78 | WARNING | Saved to DB
+2022-05-31 20:29:40.774 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 20:29:41.025 | consumer1.py 91 | WARNING | 已连接， Waiting for queue: [ queue_scan_result ] routing_key: [ topic_scan_result ]
+2022-05-31 20:35:42.810 | consumer1.py 101 | INFO | consumer1 start
+2022-05-31 20:35:43.057 | consumer1.py 91 | WARNING | 已连接， Waiting for queue: [ queue_scan_result ] routing_key: [ topic_scan_result ]
+2022-05-31 20:48:08.679 | consumer1.py 102 | INFO | consumer1 start
+2022-05-31 20:48:08.930 | consumer1.py 92 | WARNING | 已连接， Waiting for queue: [ queue_scan_result ] routing_key: [ topic_scan_result ]
+2022-05-31 21:04:58.079 | consumer1.py 52 | INFO | Received new message from - topic_scan_result
+2022-05-31 21:04:58.100 | consumer1.py 54 | WARNING | Received '{"task_id": "269a5d3f-3c30-492e-bcaa-54831cc09719", "status": 1, "msg": "扫描完成", "data": {"scan_time": "2022-05-31 21:04:51", "target": "152.136.19.143", "assets": [{"port": "3389", "service": "ms-wbt-server"}], "assetinfo": {"http": [], "weakpass": [], "vul": []}}, "finished": true}'
+2022-05-31 21:04:58.118 | consumer1.py 61 | WARNING | Saving to DB
+2022-05-31 21:04:58.300 | consumer1.py 76 | WARNING | No such attack
+2022-05-31 21:04:58.302 | consumer1.py 79 | WARNING | Saved to DB

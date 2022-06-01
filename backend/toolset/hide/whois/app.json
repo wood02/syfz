@@ -1,0 +1,23 @@
+{
+  "identification": "syfz",
+  "is_public": true,
+  "name": "Whois",
+  "version": "1.0",
+  "description": "查询域名注册信息",
+  "type": "信息查询",
+  "action": [
+    {
+      "name": "域名信息查询",
+      "func": "query"
+    }
+  ],
+  "args": {
+    "query": [
+      {
+        "key": "domain",
+        "type": "text",
+        "required": true
+      }
+    ]
+  }
+}

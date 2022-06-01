@@ -1,0 +1,436 @@
+监控对象配置(基础信息)
+=========================================================
+
+说明
+--------------------------------------
+
+    1. API地址: http://47.114.129.62:18000
+    2. <(?P<pk>[0-9]+)> 在此代表id 为监控对象列表的ID
+    3. 测试时不要删除id=36 和id=39的数据
+
+监控对象配置查询(监控对象列表)
+--------------------------------
+
+- GET /api/webmonitor/base_info/?page=1&page_size=2
+- 请求参数::
+
+    {
+        "name": "百度" # 业务名称 | str | 选填 | 支持模糊搜索
+        "type": 1 # 类型 | int | 选填 | 1:网页, 2:接口
+    }
+
+- 响应结果::
+
+    {
+        "count": 33,
+        "next": "http://47.114.129.62:18000/api/webmonitor/base_info/?page=1&page_size=2",
+        "previous": null,
+        "results": [
+            {
+                "id": 36, # 编号
+                "type": "接口", # 类型
+                "insert_tm": "2021-07-14 10:37:26",
+                "update_tm": "2021-07-26 12:37:46", # 更新时间
+                "name": "上海的天气", # 业务名称
+                "url": "https://www.baidu.com/home/other/data/weatherInfo", # url
+                "phone": "18625546652", # 联系方式
+                "people": "项羽", # 业务负责人
+                "api_error": true, # 接口异常监控
+                "api_param": { # 请求参数
+                    "city": "上海"
+                },
+                "api_method": "GET", # 请求方式
+                "api_res_content": "{\"errNo\":\"0\", \"data\":{\"weather\":{\"setting\":{\"city\":\"上海\"}, \"content\":{\"week\":\"周二 07月20日\", \"city\":\"上海\", \"today\":{\"time\":\"周二 07月20日 (实时: 32℃)\", \"date\":\"07月20日\", \"img\":[\"\", \"\"], \"condition\":\"多云\", \"wind\":\"东风3-4级\", \"temp\":\"32℃\", \"link\":\"http://www.weather.com.cn/weather/101020100.shtml#7d\", \"imgs\":{\"1\":\"a1\", \"0\":\"a1\"}, \"pm25\":\"29\", \"pollution\":\"0\", \"pm25url\":\"//www.baidu.com/s?wd=%E4%B8%8A%E6%B5%B7%E7%A9%BA%E6%B0%94%E8%B4%A8%E9%87%8F%E6%8C%87%E6%95%B0&amp;tn=baidutop10&amp;rsv_idx=2\"}, \"tomorrow\":{\"time\":\"周三\", \"date\":\"07月21日\", \"img\":[\"\", \"\"], \"condition\":\"阴转多云\", \"wind\":\"东风4-5级\", \"temp\":\"27 ~ 33\", \"link\":\"http://www.weather.com.cn/weather/101020100.shtml#7d\", \"imgs\":{\"1\":\"a2\", \"0\":\"a2\"}, \"pm25\":\"29\", \"pollution\":\"0\", \"pm25url\":\"//www.baidu.com/s?wd=%E4%B8%8A%E6%B5%B7%E7%A9%BA%E6%B0%94%E8%B4%A8%E9%87%8F%E6%8C%87%E6%95%B0&amp;tn=baidutop10&amp;rsv_idx=2\"}, \"thirdday\":{\"time\":\"周四\", \"date\":\"07月22日\", \"img\":[\"\", \"\"], \"condition\":\"小雨\", \"wind\":\"东风4-5级\", \"temp\":\"27 ~ 31\", \"link\":\"http://www.weather.com.cn/weather/101020100.shtml#7d\", \"imgs\":{\"1\":\"a7\", \"0\":\"a7\"}, \"pm25\":\"//www.baidu.com/s?wd=%E4%B8%8A%E6%B5%B7%E7%A9%BA%E6%B0%94%E8%B4%A8%E9%87%8F%E6%8C%87%E6%95%B0&amp;tn=baidutop10&amp;rsv_idx=2\", \"pollution\":\"0\", \"pm25url\":\"\"}, \"fourthday\":{\"time\":\"周五\", \"date\":\"07月23日\", \"img\":[\"\", \"\"], \"condition\":\"小雨\", \"wind\":\"东北风5-6级\", \"temp\":\"27 ~ 31\", \"link\":\"http://www.weather.com.cn/weather/101020100.shtml#7d\", \"imgs\":{\"1\":\"a7\", \"0\":\"a7\"}}, \"fifthday\":{\"time\":\"周六\", \"date\":\"07月24日\", \"img\":[\"\", \"\"], \"condition\":\"中雨\", \"wind\":\"东北风6-7级\", \"temp\":\"26 ~ 31\", \"link\":\"http://www.weather.com.cn/weather/101020100.shtml#7d\", \"imgs\":{\"1\":\"a8\", \"0\":\"a8\"}}, \"linkseven\":\"http://www.weather.com.cn/weather/101020100.shtml#7d\", \"source\":{\"name\":\"中国气象频道\", \"url\":\"http://www.mywtv.cn/\"}, \"cityname\":\"上海\", \"calendar\":{\"time\":\"1626747904356\", \"lunar\":\"六月十一\", \"festival\":false, \"weatherSourceUrl\":\"http://www.weather.com.cn/weather/101020100.shtml#7d\"}, \"currenttemp\":\"32℃\", \"pslink\":\"//www.baidu.com/s?tn=baidutop10&amp;rsv_idx=2&amp;wd=%E4%B8%8A%E6%B5%B7%E5%A4%A9%E6%B0%94%E9%A2%84%E6%8A%A5\", \"weatherType\":\"aladdin\", \"isauto\":false, \"ipcity\":\"杭州\", \"province\":\"浙江\"}}}}", # 响应内容
+                "frequency": 2,
+                "usability": true, # 可用性监控
+                "usability_threshold": 2000, # 阈值
+                "usability_status": 200, # 响应状态码
+                "multi_link": false, # 多链路
+                "headers": "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36", # 请求头
+                "re_expression": "2", # 正则表达式
+                "rule": "2", # 规则
+                "notification": "1,2", # 通知方式
+                "notification_email": "x171899394@163.com",  # 通知邮件
+                "job_state": true, # 任务状态
+                "count": 4 # 监控对象的有效告警条数
+            },
+            {
+                "id": 39,
+                "type": "网页",
+                "selector": [ # 选择器
+                    {
+                        "selector_type": "Css Selector",  # 选择器类型
+                        "selector_text": "#su::attr(value)", # 选择器内容
+                        "selector_content": "假百度一下",
+                        "selector_error": false
+                    },
+                    {
+                        "selector_type": "Xpath",
+                        "selector_text": "//*[@id='s-top-left']/a[1]/text()",
+                        "selector_content": "假新闻",
+                        "selector_error": false
+                    }
+                ],
+                "insert_tm": "2021-07-30 15:22:51",
+                "update_tm": "2021-07-30 16:18:03",
+                "name": "百度首页",
+                "url": "https://www.baidu.com/",
+                "phone": "18625546652",
+                "people": "项羽",
+                "is_chrome": true, # 使用无头浏览器
+                "html_change": true, # 篡改监控
+                "html_trojan": true, # 网页挂马监测
+                "html_bad_info": true, # 不良信息监测
+                "html_bad_info_pool": "2",# 1 默认不良信息库  2自定义库
+                "html_info_leak": true, # 信息泄露监测
+                "html_info_leak_type": "2", # 1身份证, 2手机号
+                "frequency": 20,
+                "usability": true,
+                "usability_threshold": 1000,
+                "usability_status": 200,
+                "multi_link": false,
+                "headers": "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+                "re_expression": "正则表达式",
+                "rule": "rule",
+                "notification": "2",
+                "notification_email": "xiangwj@motanni.com",
+                "job_state": false,
+                "count": 4
+            }
+        ]
+    }
+
+
+
+
+监控对象配置排序后列表页(监控对象列表)
+----------------------------------------------------
+
+- GET /api/webmonitor/base_info/order/?page=1&page_size=1
+- 请求参数::
+
+    {
+        "page": 1,
+        "page_size": 2
+    }
+
+
+ - 响应结果::
+
+    {
+        "count": 98,
+        "next": "http://127.0.0.1:8000/api/webmonitor/base_info/order/?page=2&page_size=1",
+        "previous": null,
+        "results": [
+            {
+                "id": 39,
+                "type": "网页",
+                "selector": [
+                    {
+                        "selector_type": 2,
+                        "selector_text": "#su::attr(value)",
+                        "selector_error": false
+                    },
+                    {
+                        "selector_type": 1,
+                        "selector_text": "//*[@id='s-top-left']/a[1]/text()",
+                        "selector_error": false
+                    }
+                ],
+                "insert_tm": "2021-07-30 15:22:51",
+                "update_tm": "2021-08-26 11:00:29",
+                "name": "百度首页",
+                "url": "https://baidu.com/",
+                "phone": "18625546652",
+                "people": "负责人",
+                "is_chrome": true,
+                "html_change": true,
+                "html_trojan": true,
+                "html_bad_info": true,
+                "html_bad_info_pool": "2",
+                "html_info_leak": true,
+                "html_info_leak_type": "1,2",
+                "frequency": 5,
+                "usability": true,
+                "usability_threshold": 1,
+                "usability_status": 5,
+                "multi_link": false,
+                "headers": "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+                "re_expression": "正则表达式",
+                "rule": "rule",
+                "notification": "2",
+                "notification_email": "",
+                "job_state": false,
+                "count": 40,
+                "updated_at": "2021-08-26 11:00:00"
+            }
+        ]
+    }
+
+网页类型新增
+--------------------------------
+
+- POST /api/webmonitor/base_info/
+
+- 请求参数::
+
+    {
+        "name": "百度首页", # 系统名称 | str | 必填
+        "type": 1, # 类型 | int | 必填且固定 | 1:网页类型
+        "url": "https://www.baidu.com/",  # url | str | 必填 | 链接类型
+        "phone": "18625546652", # 手机号 | str | 必填
+        "people": "负责人", # 负责人 | str | 必填
+        "is_chrome": true, # 无头浏览器 | bool | 选填 | 默认为:false
+        "html_change":true, # 篡改监控 | bool | 选填 | 默认为:false
+        "selector": [ # 选择器 | list | 选填(html_change为true时 为必填)
+            {
+                "selector_type": 1, # 选择器类型 | int | 必填 | 1:Xpath,2:Css Selector
+                "selector_text": "//*[@id='s-top-left']/a[1]/text()" # 选择器内容 | str | 必填
+            },
+            {
+                "selector_type": 2,
+                "selector_text": "#su::attr(value)"
+            }
+        ],
+        "html_trojan": false,  # 网页挂马 | bool | 选填 | 默认为:false
+        "html_bad_info": false, # 不良信息 | bool | 选填 | 默认为:false
+        "html_bad_info_pool":"1,2",  # 不良信息库 | str | 选填(html_bad_info为true时 为必填) | 格式为,分割 eg: 1,2 代表同时选中第一个和第二个选项
+        "html_info_leak": false, # 信息泄露监测 | bool | 选填 | 默认为:false
+        "html_info_leak_type":"1",  # 信息泄露监测类型 | str | 选填(html_info_leak为true时 为必填) | 格式为,分割 eg: 1,2 代表同时选中第一个和第二个选项
+        "frequency": 2, # 频率(分钟) | int | 必填
+        "usability": false,  # 可用性检测 | bool | 选填 | 默认为:false
+        "usability_threshold":1000,  # 阈值(ms) | int | 选填(usability为true时 为必填)
+        "usability_status": 200,  # 状态码 | int | 选填(usability为true时 为必填)
+        "multi_link": false,  # 多链路 | bool | 选填 | 默认为:false
+        "headers": "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",   # 请求头 | str | 选填
+        "re_expression": "正则表达式", # 正则表达式 | str | 选填
+        "rule": "rule", # 规则 | str | 选填
+        "notification": "2", # 通知方式 | str | 选填 | 格式为,分割 eg: 1,2 代表同时选中第一个和第二个选项
+        "notification_email": "xiangwj@motanni.com"
+    }
+
+- 响应结果::
+
+    {
+        "code": 200,
+        "success": true,
+        "data": {
+            "id": 77,
+            "selector": [
+                {
+                    "selector_type": "Css Selector",
+                    "selector_text": "#su::attr(value)",
+                    "selector_content": null,
+                    "selector_error": null
+                },
+                {
+                    "selector_type": "Xpath",
+                    "selector_text": "//*[@id='s-top-left']/a[1]/text()",
+                    "selector_content": null,
+                    "selector_error": null
+                }
+            ],
+            "insert_tm": "2021-08-05 09:19:44",
+            "update_tm": "2021-08-05 09:19:44",
+            "name": "百度首页",
+            "type": 1,
+            "url": "https://www.baidu.com/",
+            "phone": "18625546652",
+            "people": "项羽",
+            "is_chrome": true,
+            "html_change": true,
+            "html_trojan": true,
+            "html_bad_info": true,
+            "html_bad_info_pool": "1",
+            "html_info_leak": true,
+            "html_info_leak_type": "2",
+            "frequency": 10,
+            "usability": true,
+            "usability_threshold": 1000,
+            "usability_status": 200,
+            "multi_link": false,
+            "headers": "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+            "re_expression": "正则表达式",
+            "rule": "rule",
+            "notification": "2",
+            "notification_email": "xiangwj@motanni.com",
+            "job_state": true
+        }
+    }
+
+
+接口类型新增
+--------------------------------
+
+- POST /api/webmonitor/base_info/
+
+- 请求参数::
+
+    {
+        "name": "上海天气", # 系统名称 | str | 必填
+        "type": 1, # 类型 | int | 必填且固定 | 2:接口
+        "url": "https://www.baidu.com/home/other/data/weatherInfo",  # url | str | 必填 | 链接类型
+        "phone": "18625546652", # 手机号 | str | 必填
+        "people": "负责人", # 负责人 | str | 必填
+        "api_error": false,  # 网页错误 | bool | 选填 | 默认为:false
+        "api_param": { # 接口参数 | dict | 选填
+            "city": "上海"
+            },
+        "api_method": 1, # 接口参数 | int | 选填(api_error为true时 为必填) | 1:GET,2:POST
+        "api_res_content": "{}", # 响应结果 | str | 选填
+        "frequency": 2, # 频率(分钟) | int | 必填
+        "usability": false,  # 可用性检测 | bool | 选填 | 默认为:false
+        "usability_threshold":1000,  # 阈值(ms) | int | 选填(usability为true时 为必填)
+        "usability_status": 200,  # 状态码 | int | 选填
+        "multi_link": false,  # 多链路 | bool | 选填 | 默认为:false
+        "headers": "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",   # 请求头 | str | 选填
+        "re_expression": "正则表达式", # 正则表达式 | str | 选填
+        "rule": "rule", # 规则 | str | 选填
+        "notification": "2", # 通知方式 | str | 选填 | 格式为,分割 eg: 1,2 代表同时选中第一个和第二个选项
+        "notification_email": "xiangwj@motanni.com"
+    }
+
+- 响应结果::
+
+    {
+        "code": 200,
+        "success": true,
+        "data": {
+            "id": 80,
+            "api_param": {
+                "city": "上海"
+            },
+            "api_method": 1,
+            "api_res_content": "{}",
+            "insert_tm": "2021-08-05 10:13:41",
+            "update_tm": "2021-08-05 10:13:41",
+            "name": "上海天气",
+            "type": 2,
+            "url": "https://www.baidu.com/home/other/data/weatherInfo",
+            "phone": "18625546652",
+            "people": "负责人",
+            "html_change": false,
+            "api_error": true,
+            "frequency": 10,
+            "usability": true,
+            "usability_threshold": 1000,
+            "usability_status": 200,
+            "multi_link": false,
+            "headers": "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+            "re_expression": "正则表达式",
+            "rule": "rule",
+            "notification": "2",
+            "notification_email": "xiangwj@motanni.com",
+            "job_state": true
+           }
+       }
+
+
+监控对象配置更新
+--------------------------------
+
+- PUT  /api/webmonitor/base_info/<(?P<pk>[0-9]+)>/
+- 请求参数::
+
+    {
+        "type": 1,  # 类型 | int | 必填 | 1:网页 2:接口
+        "name": "xxxxxxx",
+        .....
+    }
+
+- 参数说明::
+
+    为局部更新,type为必填参数, 其余参数和新增对应！
+
+- 响应结果::
+
+    {
+        "code": 200,
+        "success": true,
+        "data": {
+            "id": 80,
+            "type": "接口",
+            "insert_tm": "2021-08-05 10:13:41",
+            "update_tm": "2021-08-09 08:46:29",
+            "name": "shtq",
+        }
+    }
+
+单个监控对象配置删除
+--------------------------------
+
+- DELETE /api/webmonitor/base_info/<(?P<pk>[0-9]+)>/
+- 请求参数::
+
+    None
+
+- 响应结果::
+
+    {
+        "code": 200,
+        "success": true,
+        "data": []
+    }
+
+
+
+批量监控对象配置删除
+--------------------------------
+
+- DELETE /api/webmonitor/base_info/multiple_del/
+- 请求参数::
+
+    {
+        "ids": [
+            4,
+            48,
+            54
+        ]
+    }
+
+- 响应结果::
+
+    {
+        "code": 200,
+        "success": true,
+        "data": [
+            {
+                "id": 79,
+                "type": 2
+            }
+        ]
+    }
+
+
+暂停任务
+--------------------------------
+
+- POST /api/webmonitor/base_info/<(?P<pk>[0-9]+)>/pause_job/
+- 请求参数::
+
+    None
+
+- 响应结果::
+
+    {
+        "code": 200,
+        "success": true,
+        "message": "暂停成功！"
+    }
+
+
+重启任务
+--------------------------------
+
+- POST /api/webmonitor/base_info/<(?P<pk>[0-9]+)>/resume_job/
+- 请求参数::
+
+    None
+
+- 响应结果::
+
+    {
+        "code": 200,
+        "success": true,
+        "message": "重启成功！"
+    }

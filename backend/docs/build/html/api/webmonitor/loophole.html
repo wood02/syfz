@@ -1,0 +1,376 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>漏洞库 &#8212; Hvv工具箱  文档</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="prev" title="漏洞库" href="../knowledge/loophole.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="id1">
+<h1>漏洞库<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2>说明<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<ol class="arabic simple">
+<li><p>分为管理员和普通用户, 普通用户只可查询</p></li>
+<li><p>角色模块此系统暂无</p></li>
+<li><p>字段说明见【漏洞库查询(管理员和普通用户)响应结果中】</p></li>
+<li><p>&lt;(?P&lt;pk&gt;[0-9]+)&gt; 在此代表id</p></li>
+</ol>
+</div>
+<div class="section" id="id3">
+<h2>漏洞库查询(管理员和普通用户)<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>GET /api/knowledge/loophole/?page=1&amp;page_size=10</p></li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;weblogic&quot;</span> <span class="c1"># 漏洞名称 | str | 选填 | 支持模糊搜索</span>
+    <span class="s2">&quot;cve_num&quot;</span><span class="p">:</span> <span class="s2">&quot;CVE-2014-4241&quot;</span> <span class="c1"># CVE编号 | str | 选填 | 支持模糊搜索</span>
+    <span class="s2">&quot;cnnvd_num&quot;</span><span class="p">:</span> <span class="s2">&quot;CNNVD-201407-437&quot;</span> <span class="c1"># CNNVD编号 | str | 选填 | 支持模糊搜索</span>
+    <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="mi">2</span> <span class="c1"># 威胁级别 | int | 选填 | 1:低危, 2:中危, 3:高危</span>
+    <span class="s2">&quot;spub_time&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-05-31 00:00:00&quot;</span> <span class="c1"># 发布开始时间 | time | 选填 | yyyy-MM-dd HH:mm:ss</span>
+    <span class="s2">&quot;epub_time&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-05-31 00:00:00&quot;</span> <span class="c1"># 发布结束时间 | time | 选填 | yyyy-MM-dd HH:mm:ss</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;缓冲区溢出&quot;</span> <span class="c1"># 漏洞类型 | str | 选填 | 支持模糊搜索</span>
+    <span class="s2">&quot;haspoc&quot;</span><span class="p">:</span> <span class="n">true</span> <span class="c1"># 有无poc链接｜ bool | 选填 | true:有, false:无</span>
+    <span class="s2">&quot;page&quot;</span><span class="p">:</span> <span class="mi">1</span> <span class="c1"># 页码 ｜ int | 选填 | 默认为 1</span>
+    <span class="s2">&quot;page_size&quot;</span><span class="p">:</span> <span class="mi">2</span> <span class="c1"># 每页数 ｜ int | 选填 | 默认为 10</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;count&quot;</span><span class="p">:</span> <span class="mi">54</span><span class="p">,</span>
+    <span class="s2">&quot;next&quot;</span><span class="p">:</span> <span class="s2">&quot;http://101.37.159.155:57001/api/knowledge/loophole/?level=&amp;page=2&amp;page_size=2&amp;title=weblogic&amp;type=&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;previous&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;results&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">81684</span><span class="p">,</span>  <span class="c1"># 编号</span>
+            <span class="s2">&quot;insert_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-06-03 17:35:42&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;update_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-06-03 17:35:42&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Oracle WebLogic Server 远程安全漏洞(CVE-2014-4241)&quot;</span><span class="p">,</span> <span class="c1"># 漏洞名称</span>
+            <span class="s2">&quot;pub_time&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-05-31 00:00:00&quot;</span><span class="p">,</span> <span class="c1"># 发布时间</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;缓冲区溢出&quot;</span><span class="p">,</span> <span class="c1"># 漏洞类型</span>
+            <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;中危&quot;</span><span class="p">,</span> <span class="c1"># 漏洞威胁级别</span>
+            <span class="s2">&quot;cve_num&quot;</span><span class="p">:</span> <span class="s2">&quot;CVE-2014-4241&quot;</span><span class="p">,</span> <span class="c1"># cve编号</span>
+            <span class="s2">&quot;cnnvd_num&quot;</span><span class="p">:</span> <span class="s2">&quot;CNNVD-201407-437&quot;</span><span class="p">,</span> <span class="c1"># cnnvd编号</span>
+            <span class="s2">&quot;cvss_score&quot;</span><span class="p">:</span> <span class="s2">&quot;0.0&quot;</span><span class="p">,</span> <span class="c1"># CVSS</span>
+            <span class="s2">&quot;cnvd_num&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span> <span class="c1"># cnvd编号</span>
+            <span class="s2">&quot;availability&quot;</span><span class="p">:</span> <span class="s2">&quot;暂无数据&quot;</span><span class="p">,</span> <span class="c1"># 可利用性</span>
+            <span class="s2">&quot;describe&quot;</span><span class="p">:</span> <span class="s2">&quot;Oracle Weblogic Server是应用程序服务器。  Oracle Weblogic Server组件的实现上存在远程安全漏洞，此漏洞可通过HTTP协议利用，未经身份验证的远程攻击者可利用此漏洞影响受影响组件的完整性。该漏洞的影响版本包括：10.0.2.0, 10.3.6.0 &quot;</span><span class="p">,</span> <span class="c1"># 漏洞描述</span>
+            <span class="s2">&quot;solution&quot;</span><span class="p">:</span> <span class="s2">&quot;Oracle已经为此发布了一个安全公告（cpujul2014-1972956）以及相应补丁:_x005f_x000D_</span><span class="se">\n</span><span class="s2">cpujul2014-1972956：Oracle Critical Patch Update Advisory - July 2014_x005f_x000D_</span><span class="se">\n</span><span class="s2">链接：http://www.oracle.com/technetwork/topics/security/cpujul2014-1972956.html&quot;</span><span class="p">,</span> <span class="c1"># 解决方案</span>
+            <span class="s2">&quot;poclink&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span> <span class="c1"># poc 链接</span>
+            <span class="s2">&quot;haspoc&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span> <span class="c1"># 是否有poc</span>
+            <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="mi">2</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">81600</span><span class="p">,</span>
+            <span class="s2">&quot;insert_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-06-03 17:34:51&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;update_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-06-03 17:34:51&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Oracle Fusion Middleware WebLogic Server组件安全漏洞&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;pub_time&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-10-17 00:00:00&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;其他&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;高危&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cve_num&quot;</span><span class="p">:</span> <span class="s2">&quot;CVE-2018-3191&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cnnvd_num&quot;</span><span class="p">:</span> <span class="s2">&quot;CNNVD-201810-900&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cvss_score&quot;</span><span class="p">:</span> <span class="s2">&quot;5.8&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cnvd_num&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+            <span class="s2">&quot;availability&quot;</span><span class="p">:</span> <span class="s2">&quot;部分地&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;describe&quot;</span><span class="p">:</span> <span class="s2">&quot;Oracle Fusion Middleware（Oracle融合中间件）是美国甲骨文（Oracle）公司的一套面向企业和云环境的业务创新平台。该平台提供了中间件、软件集合等功能。WebLogic Server是其中的一个适用于云环境和传统环境的应用服务器组件。Oracle Fusion Middleware中的WebLogic Server组件10.3.6.0版本、12.1.3.0版本和12.2.1.3版本的WLS Core Components子组件存在安全漏洞。攻击者可利用该漏洞控制组件，影响数据的保密性、完整性和可用性。&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;solution&quot;</span><span class="p">:</span> <span class="s2">&quot;目前厂商已发布升级补丁以修复漏洞，补丁获取链接：_x005f_x000D_</span><span class="se">\n</span><span class="s2">https://www.oracle.com/technetwork/security-advisory/cpuoct2018-4428296.html&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;poclink&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+            <span class="s2">&quot;haspoc&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+            <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="mi">2</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h2>漏洞库数据数量(管理员和普通用户)<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>GET /api/knowledge/loophole/get_count/</p></li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kc">None</span>
+</pre></div>
+</div>
+</li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s2">&quot;success&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;total&quot;</span><span class="p">:</span> <span class="mi">81790</span><span class="p">,</span> <span class="c1"># 总计</span>
+        <span class="s2">&quot;poc_num&quot;</span><span class="p">:</span> <span class="mi">41968</span><span class="p">,</span> <span class="c1"># 有poc的数量</span>
+        <span class="s2">&quot;cve_num&quot;</span><span class="p">:</span> <span class="mi">81790</span><span class="p">,</span> <span class="c1"># 有cve编号的数量</span>
+        <span class="s2">&quot;cnnvd_num&quot;</span><span class="p">:</span> <span class="mi">47929</span> <span class="c1"># 有cnnvd编号的数量</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h2>漏洞库新增(管理员)<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>POST /api/knowledge/loophole/</p></li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Oracle Fusion Middleware WebLogic Server组件安全漏洞&quot;</span><span class="p">,</span> <span class="c1"># 漏洞名称 | str | 必填</span>
+    <span class="s2">&quot;pub_time&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-10-17 00:00:00&quot;</span><span class="p">,</span> <span class="c1"># 发布时间 | time | 必填 | yyyy-MM-dd HH:mm:ss</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;其他&quot;</span><span class="p">,</span>  <span class="c1"># 漏洞名称 | str</span>
+    <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span><span class="c1"># 威胁级别 | int | 选填 | 1:低危, 2:中危, 3:高危</span>
+    <span class="s2">&quot;cve_num&quot;</span><span class="p">:</span> <span class="s2">&quot;CVE-2018-3191&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;cnnvd_num&quot;</span><span class="p">:</span> <span class="s2">&quot;CNNVD-201810-900&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;cvss_score&quot;</span><span class="p">:</span> <span class="s2">&quot;5.8&quot;</span><span class="p">,</span> <span class="c1"># cvss评分 | float | 选填 | 0.0~10.0</span>
+    <span class="s2">&quot;cnvd_num&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;availability&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="c1"># 威胁级别 | int | 选填 | 0:暂无数据, 1:完全地, 2:部分地, 3:不受影响地</span>
+    <span class="s2">&quot;describe&quot;</span><span class="p">:</span> <span class="s2">&quot;Oracle Fusion Middleware（Oracle融合中间件）是美国甲骨文（Oracle）公司的一套面向企业和云环境的业务创新平台。该平台提供了中间件、软件集合等功能。WebLogic Server是其中的一个适用于云环境和传统环境的应用服务器组件。Oracle Fusion Middleware中的WebLogic Server组件10.3.6.0版本、12.1.3.0版本和12.2.1.3版本的WLS Core Components子组件存在安全漏洞。攻击者可利用该漏洞控制组件，影响数据的保密性、完整性和可用性。&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;solution&quot;</span><span class="p">:</span> <span class="s2">&quot;目前厂商已发布升级补丁以修复漏洞，补丁获取链接：_x005f_x000D_</span><span class="se">\n</span><span class="s2">https://www.oracle.com/technetwork/security-advisory/cpuoct2018-4428296.html&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;poclink&quot;</span><span class="p">:</span><span class="s2">&quot;http://baidu.com&quot;</span> <span class="c1"># poc链接地址 或文本内容</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s2">&quot;success&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">81806</span><span class="p">,</span>
+        <span class="s2">&quot;cvss_score&quot;</span><span class="p">:</span> <span class="mf">5.8</span><span class="p">,</span>
+        <span class="s2">&quot;insert_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-02 14:43:17&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;update_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-02 14:43:17&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Oracle Fusion Middleware WebLogic Server组件安全漏洞&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pub_time&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-10-17 00:00:00&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;其他&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;cve_num&quot;</span><span class="p">:</span> <span class="s2">&quot;CVE-2018-3191&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;cnnvd_num&quot;</span><span class="p">:</span> <span class="s2">&quot;CNNVD-201810-900&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;cnvd_num&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s2">&quot;availability&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;describe&quot;</span><span class="p">:</span> <span class="s2">&quot;Oracle Fusion Middleware（Oracle融合中间件）是美国甲骨文（Oracle）公司的一套面向企业和云环境的业务创新平台。该平台提供了中间件、软件集合等功能。WebLogic Server是其中的一个适用于云环境和传统环境的应用服务器组件。Oracle Fusion Middleware中的WebLogic Server组件10.3.6.0版本、12.1.3.0版本和12.2.1.3版本的WLS Core Components子组件存在安全漏洞。攻击者可利用该漏洞控制组件，影响数据的保密性、完整性和可用性。&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;solution&quot;</span><span class="p">:</span> <span class="s2">&quot;目前厂商已发布升级补丁以修复漏洞，补丁获取链接：_x005f_x000D_</span><span class="se">\n</span><span class="s2">https://www.oracle.com/technetwork/security-advisory/cpuoct2018-4428296.html&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;poclink&quot;</span><span class="p">:</span> <span class="s2">&quot;http://baidu.com&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;haspoc&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="mi">3</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h2>漏洞库更新(管理员)<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>PUT /api/knowledge/loophole/&lt;(?P&lt;pk&gt;[0-9]+)&gt;/</p></li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Oracle Fusion Middleware WebLogic Server组件安全漏洞&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;pub_time&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-10-17 00:00:00&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;其他&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;cve_num&quot;</span><span class="p">:</span> <span class="s2">&quot;CVE-2018-3191&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;cnnvd_num&quot;</span><span class="p">:</span> <span class="s2">&quot;CNNVD-201810-900&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;cvss_score&quot;</span><span class="p">:</span> <span class="s2">&quot;5.8&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;cnvd_num&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;availability&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;describe&quot;</span><span class="p">:</span> <span class="s2">&quot;Oracle Fusion Middleware（Oracle融合中间件）是美国甲骨文（Oracle）公司的一套面向企业和云环境的业务创新平台。该平台提供了中间件、软件集合等功能。WebLogic Server是其中的一个适用于云环境和传统环境的应用服务器组件。Oracle Fusion Middleware中的WebLogic Server组件10.3.6.0版本、12.1.3.0版本和12.2.1.3版本的WLS Core Components子组件存在安全漏洞。攻击者可利用该漏洞控制组件，影响数据的保密性、完整性和可用性。&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;solution&quot;</span><span class="p">:</span> <span class="s2">&quot;目前厂商已发布升级补丁以修复漏洞，补丁获取链接：_x005f_x000D_</span><span class="se">\n</span><span class="s2">https://www.oracle.com/technetwork/security-advisory/cpuoct2018-4428296.html&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;poclink&quot;</span><span class="p">:</span><span class="s2">&quot;http://baidu.com&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>参数说明:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">以上参数均为可选参数</span>
+</pre></div>
+</div>
+</li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s2">&quot;success&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">81803</span><span class="p">,</span>
+        <span class="s2">&quot;cvss_score&quot;</span><span class="p">:</span> <span class="mf">5.8</span><span class="p">,</span>
+        <span class="s2">&quot;insert_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-02 14:14:37&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;update_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-02 14:57:16&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Oracle Fusion Middleware WebLogic Server组件安全漏洞&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;pub_time&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-10-17 00:00:00&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;其他&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;level&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;cve_num&quot;</span><span class="p">:</span> <span class="s2">&quot;CVE-2018-3191&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;cnnvd_num&quot;</span><span class="p">:</span> <span class="s2">&quot;CNNVD-201810-900&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;cnvd_num&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s2">&quot;availability&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;describe&quot;</span><span class="p">:</span> <span class="s2">&quot;Oracle Fusion Middleware（Oracle融合中间件）是美国甲骨文（Oracle）公司的一套面向企业和云环境的业务创新平台。该平台提供了中间件、软件集合等功能。WebLogic Server是其中的一个适用于云环境和传统环境的应用服务器组件。Oracle Fusion Middleware中的WebLogic Server组件10.3.6.0版本、12.1.3.0版本和12.2.1.3版本的WLS Core Components子组件存在安全漏洞。攻击者可利用该漏洞控制组件，影响数据的保密性、完整性和可用性。&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;solution&quot;</span><span class="p">:</span> <span class="s2">&quot;目前厂商已发布升级补丁以修复漏洞，补丁获取链接：_x005f_x000D_</span><span class="se">\n</span><span class="s2">https://www.oracle.com/technetwork/security-advisory/cpuoct2018-4428296.html&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;poclink&quot;</span><span class="p">:</span> <span class="s2">&quot;http://baidu.com&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;haspoc&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="mi">3</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h2>漏洞库单个删除(管理员)<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>DELETE /api/knowledge/loophole/&lt;(?P&lt;pk&gt;[0-9]+)&gt;/</p></li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kc">None</span>
+</pre></div>
+</div>
+</li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s2">&quot;success&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">[]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id8">
+<h2>漏洞库批量删除(管理员)<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>DELETE /api/knowledge/loophole/multiple_delete/</p></li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;ids&quot;</span><span class="p">:[</span><span class="mi">81805</span><span class="p">,</span><span class="mi">81804</span><span class="p">]</span> <span class="c1"># id数组 | list | 必填</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s2">&quot;success&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;del_num&quot;</span><span class="p">:</span> <span class="mi">1</span>  <span class="c1"># 批量删除成功的数量</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;删除成功！&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Hvv工具箱</a></h1>
+
+
+
+
+
+
+
+
+<h3>导航</h3>
+<p class="caption"><span class="caption-text">目录:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../guide.html">API设计规范</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../providedata/xtb_tags.html">批量查询微步标签(包含微步用户信息)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../knowledge/loophole.html">漏洞库</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">漏洞库</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">漏洞库查询(管理员和普通用户)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">漏洞库数据数量(管理员和普通用户)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">漏洞库新增(管理员)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">漏洞库更新(管理员)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">漏洞库单个删除(管理员)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">漏洞库批量删除(管理员)</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../knowledge/loophole.html" title="上一章">漏洞库</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, W_OOD.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/api/webmonitor/loophole.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

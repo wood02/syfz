@@ -1,0 +1,692 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>监控日志(详细信息) &#8212; Hvv工具箱  文档</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="不良信息" href="badinfo.html" />
+    <link rel="prev" title="监控对象配置(基础信息)" href="baseinfo.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="id1">
+<h1>监控日志(详细信息)<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2>说明<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>API地址: <a class="reference external" href="http://47.114.129.62:18000">http://47.114.129.62:18000</a></p></li>
+<li><p>&lt;(?P&lt;pk&gt;[0-9]+)&gt; 在此代表id 也为监控对象列表的ID</p></li>
+<li><p>{id} 在此代表id 为告警信息的ID</p></li>
+<li><p>错误日志查询(告警信息) 测试数据尽可能使用 api:base_info_id=36, html base_info_id=39  数据相对较全</p></li>
+<li><p>不同类型(type值不同)使用不同的接口</p></li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="id3">
+<h2>访问历史(实时监控)<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>GET /api/webmonitor/visit_history/search/?base_info_id=&lt;(?P&lt;pk&gt;[0-9]+)&gt;</p></li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;base_info_id&quot;</span><span class="p">:</span> <span class="mi">36</span> <span class="c1"># 监控对象配置id | int | 必填</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s2">&quot;success&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;history&quot;</span><span class="p">:</span> <span class="p">{</span>   <span class="c1"># 默认为default 有对象hk,uk...</span>
+            <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                    <span class="s2">&quot;insert_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-02 17:21:28&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;res_time&quot;</span><span class="p">:</span> <span class="mi">201</span><span class="p">,</span>
+                    <span class="s2">&quot;res_code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+                    <span class="s2">&quot;request_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-02 17:21:28&quot;</span><span class="p">,</span>  <span class="c1"># 请求时间</span>
+                    <span class="s2">&quot;multi_link&quot;</span><span class="p">:</span> <span class="s2">&quot;default&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;link_status&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+                    <span class="s2">&quot;base_info&quot;</span><span class="p">:</span> <span class="mi">39</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                    <span class="s2">&quot;insert_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-02 17:21:28&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;res_time&quot;</span><span class="p">:</span> <span class="mi">201</span><span class="p">,</span>
+                    <span class="s2">&quot;res_code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+                    <span class="s2">&quot;request_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-02 17:21:28&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;multi_link&quot;</span><span class="p">:</span> <span class="s2">&quot;default&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;link_status&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+                    <span class="s2">&quot;base_info&quot;</span><span class="p">:</span> <span class="mi">39</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+                    <span class="s2">&quot;insert_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-02 17:25:45&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;res_time&quot;</span><span class="p">:</span> <span class="mi">186</span><span class="p">,</span>
+                    <span class="s2">&quot;res_code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+                    <span class="s2">&quot;request_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-02 17:25:45&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;multi_link&quot;</span><span class="p">:</span> <span class="s2">&quot;default&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;link_status&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+                    <span class="s2">&quot;base_info&quot;</span><span class="p">:</span> <span class="mi">39</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+                    <span class="s2">&quot;insert_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-02 17:25:45&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;res_time&quot;</span><span class="p">:</span> <span class="mi">186</span><span class="p">,</span>
+                    <span class="s2">&quot;res_code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+                    <span class="s2">&quot;request_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-02 17:25:45&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;multi_link&quot;</span><span class="p">:</span> <span class="s2">&quot;default&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;link_status&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+                    <span class="s2">&quot;base_info&quot;</span><span class="p">:</span> <span class="mi">39</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+                    <span class="s2">&quot;insert_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-02 17:29:51&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;res_time&quot;</span><span class="p">:</span> <span class="mi">186</span><span class="p">,</span>
+                    <span class="s2">&quot;res_code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+                    <span class="s2">&quot;request_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-02 17:29:51&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;multi_link&quot;</span><span class="p">:</span> <span class="s2">&quot;default&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;link_status&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+                    <span class="s2">&quot;base_info&quot;</span><span class="p">:</span> <span class="mi">39</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+                    <span class="s2">&quot;insert_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-02 17:29:51&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;res_time&quot;</span><span class="p">:</span> <span class="mi">186</span><span class="p">,</span>
+                    <span class="s2">&quot;res_code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+                    <span class="s2">&quot;request_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-02 17:29:51&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;multi_link&quot;</span><span class="p">:</span> <span class="s2">&quot;default&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;link_status&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+                    <span class="s2">&quot;base_info&quot;</span><span class="p">:</span> <span class="mi">39</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+                    <span class="s2">&quot;insert_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-02 17:32:11&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;res_time&quot;</span><span class="p">:</span> <span class="mi">254</span><span class="p">,</span>
+                    <span class="s2">&quot;res_code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+                    <span class="s2">&quot;request_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-02 17:32:11&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;multi_link&quot;</span><span class="p">:</span> <span class="s2">&quot;default&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;link_status&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+                    <span class="s2">&quot;base_info&quot;</span><span class="p">:</span> <span class="mi">39</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
+                    <span class="s2">&quot;insert_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-02 17:32:11&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;res_time&quot;</span><span class="p">:</span> <span class="mi">254</span><span class="p">,</span>
+                    <span class="s2">&quot;res_code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+                    <span class="s2">&quot;request_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-02 17:32:11&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;multi_link&quot;</span><span class="p">:</span> <span class="s2">&quot;default&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;link_status&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+                    <span class="s2">&quot;base_info&quot;</span><span class="p">:</span> <span class="mi">39</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+                    <span class="s2">&quot;insert_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-02 17:36:58&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;res_time&quot;</span><span class="p">:</span> <span class="mi">164</span><span class="p">,</span>
+                    <span class="s2">&quot;res_code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+                    <span class="s2">&quot;request_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-02 17:36:58&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;multi_link&quot;</span><span class="p">:</span> <span class="s2">&quot;default&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;link_status&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+                    <span class="s2">&quot;base_info&quot;</span><span class="p">:</span> <span class="mi">39</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+                    <span class="s2">&quot;insert_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-02 17:36:58&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;res_time&quot;</span><span class="p">:</span> <span class="mi">164</span><span class="p">,</span>
+                    <span class="s2">&quot;res_code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+                    <span class="s2">&quot;request_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-02 17:36:58&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;multi_link&quot;</span><span class="p">:</span> <span class="s2">&quot;default&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;link_status&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+                    <span class="s2">&quot;base_info&quot;</span><span class="p">:</span> <span class="mi">39</span>
+                <span class="p">}</span>
+            <span class="p">],</span>
+            <span class="s2">&quot;us&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+                    <span class="s2">&quot;insert_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-02 17:21:28&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;res_time&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+                    <span class="s2">&quot;res_code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+                    <span class="s2">&quot;request_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-02 17:21:28&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;multi_link&quot;</span><span class="p">:</span> <span class="s2">&quot;us&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;link_status&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+                    <span class="s2">&quot;base_info&quot;</span><span class="p">:</span> <span class="mi">39</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span>
+                    <span class="s2">&quot;insert_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-02 17:21:28&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;res_time&quot;</span><span class="p">:</span> <span class="mi">202</span><span class="p">,</span>
+                    <span class="s2">&quot;res_code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+                    <span class="s2">&quot;request_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-02 17:21:28&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;multi_link&quot;</span><span class="p">:</span> <span class="s2">&quot;us&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;link_status&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+                    <span class="s2">&quot;base_info&quot;</span><span class="p">:</span> <span class="mi">39</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">17</span><span class="p">,</span>
+                    <span class="s2">&quot;insert_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-02 17:25:45&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;res_time&quot;</span><span class="p">:</span> <span class="mi">286</span><span class="p">,</span>
+                    <span class="s2">&quot;res_code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+                    <span class="s2">&quot;request_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-02 17:25:45&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;multi_link&quot;</span><span class="p">:</span> <span class="s2">&quot;us&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;link_status&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+                    <span class="s2">&quot;base_info&quot;</span><span class="p">:</span> <span class="mi">39</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span>
+                    <span class="s2">&quot;insert_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-02 17:25:45&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;res_time&quot;</span><span class="p">:</span> <span class="mi">184</span><span class="p">,</span>
+                    <span class="s2">&quot;res_code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+                    <span class="s2">&quot;request_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-02 17:25:45&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;multi_link&quot;</span><span class="p">:</span> <span class="s2">&quot;us&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;link_status&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+                    <span class="s2">&quot;base_info&quot;</span><span class="p">:</span> <span class="mi">39</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
+                    <span class="s2">&quot;insert_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-02 17:29:51&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;res_time&quot;</span><span class="p">:</span> <span class="mi">386</span><span class="p">,</span>
+                    <span class="s2">&quot;res_code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+                    <span class="s2">&quot;request_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-02 17:29:51&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;multi_link&quot;</span><span class="p">:</span> <span class="s2">&quot;us&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;link_status&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+                    <span class="s2">&quot;base_info&quot;</span><span class="p">:</span> <span class="mi">39</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
+                    <span class="s2">&quot;insert_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-02 17:29:51&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;res_time&quot;</span><span class="p">:</span> <span class="mi">126</span><span class="p">,</span>
+                    <span class="s2">&quot;res_code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+                    <span class="s2">&quot;request_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-02 17:29:51&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;multi_link&quot;</span><span class="p">:</span> <span class="s2">&quot;us&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;link_status&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+                    <span class="s2">&quot;base_info&quot;</span><span class="p">:</span> <span class="mi">39</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">19</span><span class="p">,</span>
+                    <span class="s2">&quot;insert_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-02 17:32:11&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;res_time&quot;</span><span class="p">:</span> <span class="mi">454</span><span class="p">,</span>
+                    <span class="s2">&quot;res_code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+                    <span class="s2">&quot;request_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-02 17:32:11&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;multi_link&quot;</span><span class="p">:</span> <span class="s2">&quot;us&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;link_status&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+                    <span class="s2">&quot;base_info&quot;</span><span class="p">:</span> <span class="mi">39</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span>
+                    <span class="s2">&quot;insert_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-02 17:32:11&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;res_time&quot;</span><span class="p">:</span> <span class="mi">154</span><span class="p">,</span>
+                    <span class="s2">&quot;res_code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+                    <span class="s2">&quot;request_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-02 17:32:11&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;multi_link&quot;</span><span class="p">:</span> <span class="s2">&quot;us&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;link_status&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+                    <span class="s2">&quot;base_info&quot;</span><span class="p">:</span> <span class="mi">39</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
+                    <span class="s2">&quot;insert_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-02 17:36:58&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;res_time&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+                    <span class="s2">&quot;res_code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+                    <span class="s2">&quot;request_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-02 17:36:58&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;multi_link&quot;</span><span class="p">:</span> <span class="s2">&quot;us&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;link_status&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+                    <span class="s2">&quot;base_info&quot;</span><span class="p">:</span> <span class="mi">39</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+                    <span class="s2">&quot;insert_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-02 17:36:58&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;res_time&quot;</span><span class="p">:</span> <span class="mi">364</span><span class="p">,</span>
+                    <span class="s2">&quot;res_code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+                    <span class="s2">&quot;request_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-02 17:36:58&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;multi_link&quot;</span><span class="p">:</span> <span class="s2">&quot;us&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;link_status&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+                    <span class="s2">&quot;base_info&quot;</span><span class="p">:</span> <span class="mi">39</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;avg_res_time&quot;</span><span class="p">:</span> <span class="mi">198</span><span class="p">,</span>  <span class="c1"># 平均响应时间 单位:ms</span>
+         <span class="s2">&quot;usability_threshold&quot;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>  <span class="c1"># 设定值 单位:ms</span>
+         <span class="s2">&quot;screenshot&quot;</span><span class="p">:</span> <span class="s2">&quot;http://47.114.129.62:18000/media/images/screenshot/2021/08/17/14260204337919721.png&quot;</span><span class="p">,</span> <span class="c1"># 快照地址</span>
+         <span class="s2">&quot;screenshot_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-17 14:26:02&quot;</span> <span class="c1"># 快照时间</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h2>接口错误日志查询(告警信息)<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>GET /api/webmonitor/api_logs/search/?base_info_id=&lt;(?P&lt;pk&gt;[0-9]+)&gt;</p></li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;base_info_id&quot;</span><span class="p">:</span> <span class="mi">36</span> <span class="c1"># 监控对象配置id | int | 必填</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;count&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="s2">&quot;next&quot;</span><span class="p">:</span> <span class="s2">&quot;http://127.0.0.1:8000/api/webmonitor/api_logs/search/?base_info_id=36&amp;page=2&amp;page_size=2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;previous&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;results&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">23</span><span class="p">,</span>
+            <span class="s2">&quot;insert_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-07-23 14:53:16&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;update_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-03 09:25:10&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;error_type&quot;</span><span class="p">:</span> <span class="s2">&quot;接口异常&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;error_res_content&quot;</span><span class="p">:</span> <span class="s2">&quot;{</span><span class="se">\&quot;</span><span class="s2">errNo</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">0</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">data</span><span class="se">\&quot;</span><span class="s2">: {</span><span class="se">\&quot;</span><span class="s2">weather</span><span class="se">\&quot;</span><span class="s2">: {</span><span class="se">\&quot;</span><span class="s2">setting</span><span class="se">\&quot;</span><span class="s2">: {</span><span class="se">\&quot;</span><span class="s2">city</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">上海</span><span class="se">\&quot;</span><span class="s2">}, </span><span class="se">\&quot;</span><span class="s2">content</span><span class="se">\&quot;</span><span class="s2">: {</span><span class="se">\&quot;</span><span class="s2">week</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">周五 07月23日</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">city</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">上海</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">today</span><span class="se">\&quot;</span><span class="s2">: {</span><span class="se">\&quot;</span><span class="s2">time</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">周五 07月23日 (实时: 32℃)</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">date</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">07月23日</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">img</span><span class="se">\&quot;</span><span class="s2">: [</span><span class="se">\&quot;\&quot;</span><span class="s2">, </span><span class="se">\&quot;\&quot;</span><span class="s2">], </span><span class="se">\&quot;</span><span class="s2">condition</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">阴转中雨</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">wind</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">东风5-6级</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">temp</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">32℃</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">link</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">http://www.weather.com.cn/weather/101020100.shtml#7d</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">imgs</span><span class="se">\&quot;</span><span class="s2">: {</span><span class="se">\&quot;</span><span class="s2">1</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">a2</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">0</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">a2</span><span class="se">\&quot;</span><span class="s2">}, </span><span class="se">\&quot;</span><span class="s2">pm25</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">27</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">pollution</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">0</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">pm25url</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">//www.baidu.com/s?wd=</span><span class="si">%E</span><span class="s2">4%B8%8A</span><span class="si">%E</span><span class="s2">6%B5%B7</span><span class="si">%E</span><span class="s2">7%A9%BA</span><span class="si">%E</span><span class="s2">6%B0</span><span class="si">%94%</span><span class="s2">E8%B4%A8</span><span class="si">%E</span><span class="s2">9</span><span class="si">%87%</span><span class="s2">8F</span><span class="si">%E</span><span class="s2">6%8C</span><span class="si">%87%</span><span class="s2">E6</span><span class="si">%95%</span><span class="s2">B0&amp;amp;tn=baidutop10&amp;amp;rsv_idx=2</span><span class="se">\&quot;</span><span class="s2">}, </span><span class="se">\&quot;</span><span class="s2">tomorrow</span><span class="se">\&quot;</span><span class="s2">: {</span><span class="se">\&quot;</span><span class="s2">time</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">周六</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">date</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">07月24日</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">img</span><span class="se">\&quot;</span><span class="s2">: [</span><span class="se">\&quot;\&quot;</span><span class="s2">, </span><span class="se">\&quot;\&quot;</span><span class="s2">], </span><span class="se">\&quot;</span><span class="s2">condition</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">中雨</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">wind</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">东风5-6级</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">temp</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">27 ~ 30</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">link</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">http://www.weather.com.cn/weather/101020100.shtml#7d</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">imgs</span><span class="se">\&quot;</span><span class="s2">: {</span><span class="se">\&quot;</span><span class="s2">1</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">a8</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">0</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">a8</span><span class="se">\&quot;</span><span class="s2">}, </span><span class="se">\&quot;</span><span class="s2">pm25</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">27</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">pollution</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">0</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">pm25url</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">//www.baidu.com/s?wd=</span><span class="si">%E</span><span class="s2">4%B8%8A</span><span class="si">%E</span><span class="s2">6%B5%B7</span><span class="si">%E</span><span class="s2">7%A9%BA</span><span class="si">%E</span><span class="s2">6%B0</span><span class="si">%94%</span><span class="s2">E8%B4%A8</span><span class="si">%E</span><span class="s2">9</span><span class="si">%87%</span><span class="s2">8F</span><span class="si">%E</span><span class="s2">6%8C</span><span class="si">%87%</span><span class="s2">E6</span><span class="si">%95%</span><span class="s2">B0&amp;amp;tn=baidutop10&amp;amp;rsv_idx=2</span><span class="se">\&quot;</span><span class="s2">}, </span><span class="se">\&quot;</span><span class="s2">thirdday</span><span class="se">\&quot;</span><span class="s2">: {</span><span class="se">\&quot;</span><span class="s2">time</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">周日</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">date</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">07月25日</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">img</span><span class="se">\&quot;</span><span class="s2">: [</span><span class="se">\&quot;\&quot;</span><span class="s2">, </span><span class="se">\&quot;\&quot;</span><span class="s2">], </span><span class="se">\&quot;</span><span class="s2">condition</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">大暴雨转大雨</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">wind</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">东风5-6级</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">temp</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">27 ~ 29</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">link</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">http://www.weather.com.cn/weather/101020100.shtml#7d</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">imgs</span><span class="se">\&quot;</span><span class="s2">: {</span><span class="se">\&quot;</span><span class="s2">1</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">a11</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">0</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">a11</span><span class="se">\&quot;</span><span class="s2">}, </span><span class="se">\&quot;</span><span class="s2">pm25</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">//www.baidu.com/s?wd=</span><span class="si">%E</span><span class="s2">4%B8%8A</span><span class="si">%E</span><span class="s2">6%B5%B7</span><span class="si">%E</span><span class="s2">7%A9%BA</span><span class="si">%E</span><span class="s2">6%B0</span><span class="si">%94%</span><span class="s2">E8%B4%A8</span><span class="si">%E</span><span class="s2">9</span><span class="si">%87%</span><span class="s2">8F</span><span class="si">%E</span><span class="s2">6%8C</span><span class="si">%87%</span><span class="s2">E6</span><span class="si">%95%</span><span class="s2">B0&amp;amp;tn=baidutop10&amp;amp;rsv_idx=2</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">pollution</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">0</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">pm25url</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;\&quot;</span><span class="s2">}, </span><span class="se">\&quot;</span><span class="s2">fourthday</span><span class="se">\&quot;</span><span class="s2">: {</span><span class="se">\&quot;</span><span class="s2">time</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">周一</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">date</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">07月26日</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">img</span><span class="se">\&quot;</span><span class="s2">: [</span><span class="se">\&quot;\&quot;</span><span class="s2">, </span><span class="se">\&quot;\&quot;</span><span class="s2">], </span><span class="se">\&quot;</span><span class="s2">condition</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">小雨</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">wind</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">东风5-6级</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">temp</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">26 ~ 29</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">link</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">http://www.weather.com.cn/weather/101020100.shtml#7d</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">imgs</span><span class="se">\&quot;</span><span class="s2">: {</span><span class="se">\&quot;</span><span class="s2">1</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">a7</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">0</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">a7</span><span class="se">\&quot;</span><span class="s2">}}, </span><span class="se">\&quot;</span><span class="s2">fifthday</span><span class="se">\&quot;</span><span class="s2">: {</span><span class="se">\&quot;</span><span class="s2">time</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">周二</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">date</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">07月27日</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">img</span><span class="se">\&quot;</span><span class="s2">: [</span><span class="se">\&quot;\&quot;</span><span class="s2">, </span><span class="se">\&quot;\&quot;</span><span class="s2">], </span><span class="se">\&quot;</span><span class="s2">condition</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">阴</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">wind</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">东风5-6级</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">temp</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">26 ~ 30</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">link</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">http://www.weather.com.cn/weather/101020100.shtml#7d</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">imgs</span><span class="se">\&quot;</span><span class="s2">: {</span><span class="se">\&quot;</span><span class="s2">1</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">a2</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">0</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">a2</span><span class="se">\&quot;</span><span class="s2">}}, </span><span class="se">\&quot;</span><span class="s2">linkseven</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">http://www.weather.com.cn/weather/101020100.shtml#7d</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">source</span><span class="se">\&quot;</span><span class="s2">: {</span><span class="se">\&quot;</span><span class="s2">name</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">中国气象频道</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">url</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">http://www.mywtv.cn/</span><span class="se">\&quot;</span><span class="s2">}, </span><span class="se">\&quot;</span><span class="s2">cityname</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">上海</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">calendar</span><span class="se">\&quot;</span><span class="s2">: {</span><span class="se">\&quot;</span><span class="s2">time</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">1627023005877</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">lunar</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">六月十四</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">festival</span><span class="se">\&quot;</span><span class="s2">: false, </span><span class="se">\&quot;</span><span class="s2">weatherSourceUrl</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">http://www.weather.com.cn/weather/101020100.shtml#7d</span><span class="se">\&quot;</span><span class="s2">}, </span><span class="se">\&quot;</span><span class="s2">currenttemp</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">32℃</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">warning</span><span class="se">\&quot;</span><span class="s2">: {</span><span class="se">\&quot;</span><span class="s2">title</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">台风预警</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">color</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">#329af0</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">imgurl</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">http://ss.bdimg.com/static/superman/img/weather/warn-293532f566.png</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">url</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">http://www.weather.com.cn/alarm/newalarmcontent.shtml?file=http://www.baidu.com/index.html</span><span class="se">\&quot;</span><span class="s2">}, </span><span class="se">\&quot;</span><span class="s2">pslink</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">//www.baidu.com/s?tn=baidutop10&amp;amp;rsv_idx=2&amp;amp;wd=</span><span class="si">%E</span><span class="s2">4%B8%8A</span><span class="si">%E</span><span class="s2">6%B5%B7</span><span class="si">%E</span><span class="s2">5%A4%A9</span><span class="si">%E</span><span class="s2">6%B0</span><span class="si">%94%</span><span class="s2">E9%A2</span><span class="si">%84%</span><span class="s2">E6%8A%A5</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">weatherType</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">aladdin</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">isauto</span><span class="se">\&quot;</span><span class="s2">: false, </span><span class="se">\&quot;</span><span class="s2">ipcity</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">杭州</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">province</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">浙江</span><span class="se">\&quot;</span><span class="s2">}}}}&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;patch&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;op&quot;</span><span class="p">:</span> <span class="s2">&quot;replace&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;/data/weather/content/fifthday/condition&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;中雨&quot;</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;op&quot;</span><span class="p">:</span> <span class="s2">&quot;replace&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;/data/weather/content/fifthday/date&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;07月24日&quot;</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;op&quot;</span><span class="p">:</span> <span class="s2">&quot;replace&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;/data/weather/content/fifthday/imgs/0&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;a8&quot;</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;op&quot;</span><span class="p">:</span> <span class="s2">&quot;replace&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;/data/weather/content/fifthday/imgs/1&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;a8&quot;</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;op&quot;</span><span class="p">:</span> <span class="s2">&quot;replace&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;/data/weather/content/fifthday/temp&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;26 ~ 31&quot;</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;op&quot;</span><span class="p">:</span> <span class="s2">&quot;replace&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;/data/weather/content/fifthday/time&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;周六&quot;</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;op&quot;</span><span class="p">:</span> <span class="s2">&quot;replace&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;/data/weather/content/fifthday/wind&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;东北风6-7级&quot;</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;op&quot;</span><span class="p">:</span> <span class="s2">&quot;replace&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;/data/weather/content/fourthday/date&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;07月23日&quot;</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;op&quot;</span><span class="p">:</span> <span class="s2">&quot;replace&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;/data/weather/content/fourthday/temp&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;27 ~ 31&quot;</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;op&quot;</span><span class="p">:</span> <span class="s2">&quot;replace&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;/data/weather/content/fourthday/time&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;周五&quot;</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;op&quot;</span><span class="p">:</span> <span class="s2">&quot;replace&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;/data/weather/content/thirdday/temp&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;27 ~ 31&quot;</span>
+                <span class="p">}</span>
+            <span class="p">],</span>
+            <span class="s2">&quot;handle&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span> <span class="c1"># 是否被处置过</span>
+            <span class="s2">&quot;updated_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-03 09:25:10&quot;</span> <span class="c1"># 最后更新时间</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">22</span><span class="p">,</span>
+            <span class="s2">&quot;insert_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-07-20 15:09:24&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;update_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-03 09:25:10&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;error_type&quot;</span><span class="p">:</span> <span class="s2">&quot;网页失效&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;invalid_res_time&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+            <span class="s2">&quot;handle&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+            <span class="s2">&quot;updated_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-03 09:25:10&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+    <span class="s2">&quot;effective_count&quot;</span><span class="p">:</span> <span class="mi">4</span> <span class="c1"># 有效数量 可用于更新左侧</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h2>接口错误日志处置(告警信息)-更新(处置)<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>PUT /api/webmonitor/api_logs/{id}/</p></li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;handle&quot;</span><span class="p">:</span> <span class="n">true</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="p">{</span>
+        <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+        <span class="s2">&quot;success&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;handle&quot;</span><span class="p">:</span> <span class="n">true</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;更新成功！&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h2>接口错误日志一键处置(告警信息)<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>POST /api/webmonitor/api_logs/handle/onekey/?base_info_id=&lt;(?P&lt;pk&gt;[0-9]+)&gt;</p></li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kc">None</span>
+</pre></div>
+</div>
+</li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s2">&quot;success&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;一键处置成功！&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h2>网页错误日志查询(告警信息)<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>GET /api/webmonitor/html_logs/search/?base_info_id=&lt;(?P&lt;pk&gt;[0-9]+)&gt;</p></li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;base_info_id&quot;</span><span class="p">:</span> <span class="mi">39</span><span class="p">,</span> <span class="c1"># 监控对象配置id | int | 必填</span>
+    <span class="s2">&quot;page&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;page_size&quot;</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;count&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="s2">&quot;next&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;previous&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;results&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">90</span><span class="p">,</span>
+            <span class="s2">&quot;insert_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-09 10:01:39&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;update_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-09 10:01:39&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;error_type&quot;</span><span class="p">:</span> <span class="s2">&quot;网页失效&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;handle&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+            <span class="s2">&quot;updated_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-09 10:01:39&quot;</span><span class="p">,</span> <span class="c1"># 最后更新时间</span>
+            <span class="s2">&quot;invalid&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;res_code&quot;</span><span class="p">:</span> <span class="mi">408</span><span class="p">,</span> <span class="c1"># 响应状态码</span>
+                <span class="s2">&quot;res_time&quot;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span> <span class="c1"># 超时时间</span>
+                <span class="s2">&quot;usability_status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span> <span class="c1"># 所需状态码</span>
+                <span class="s2">&quot;usability_threshold&quot;</span><span class="p">:</span> <span class="mi">1000</span> <span class="c1"># 所需响应时间(阈值)</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">89</span><span class="p">,</span>
+            <span class="s2">&quot;insert_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-09 09:53:18&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;update_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-09 09:53:18&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;error_type&quot;</span><span class="p">:</span> <span class="s2">&quot;网页挂马&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;handle&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+            <span class="s2">&quot;updated_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-09 09:53:18&quot;</span><span class="p">,</span> <span class="c1"># 数据更新时间</span>
+            <span class="s2">&quot;trojan&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="c1"># 网页挂马</span>
+                <span class="s2">&quot;urls&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="c1"># 挂马链接</span>
+                    <span class="s2">&quot;https://dss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/guide_new/arrow-top-d81f5f8843.png&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/static/protocol/https/home/img/sugbg_1762fe7.png&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;https://dss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/icons-441e82fb11.png&quot;</span><span class="p">,</span>
+                    <span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">88</span><span class="p">,</span>
+            <span class="s2">&quot;insert_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-09 09:41:24&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;update_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-09 09:41:24&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;error_type&quot;</span><span class="p">:</span> <span class="s2">&quot;不良信息&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;handle&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+            <span class="s2">&quot;updated_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-09 09:41:24&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;bad_info&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="c1"># 不良信息</span>
+                <span class="s2">&quot;keywords&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="c1"># 关键词</span>
+                    <span class="s2">&quot;新闻&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;百度一下&quot;</span>
+                <span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">76</span><span class="p">,</span>
+            <span class="s2">&quot;insert_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-07-30 16:33:57&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;update_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-02 17:37:02&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;error_type&quot;</span><span class="p">:</span> <span class="s2">&quot;信息泄露&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;handle&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+            <span class="s2">&quot;updated_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-02 17:37:02&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;info_leak&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="c1"># 信息泄露</span>
+                <span class="s2">&quot;phones&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="s2">&quot;15600182281&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;15275011874&quot;</span>
+                <span class="p">],</span>
+                <span class="s2">&quot;id_cards&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="s2">&quot;51160219980325116X&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;640300199804115345&quot;</span>
+                <span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">74</span><span class="p">,</span>
+            <span class="s2">&quot;insert_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-07-30 16:33:53&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;update_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-09 09:53:13&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;error_type&quot;</span><span class="p">:</span> <span class="s2">&quot;页面篡改&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;handle&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+            <span class="s2">&quot;updated_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-09 09:53:13&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;change&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="c1"># 修改内容</span>
+                <span class="s2">&quot;to&quot;</span><span class="p">:</span> <span class="s2">&quot;百度一下&quot;</span><span class="p">,</span>     <span class="c1"># 到篡改的</span>
+                <span class="s2">&quot;from&quot;</span><span class="p">:</span> <span class="s2">&quot;假百度一下&quot;</span>  <span class="c1"># 从原来的</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;selector&quot;</span><span class="p">:</span> <span class="p">{</span>  <span class="c1"># 使用的选择器</span>
+                <span class="s2">&quot;selector_type&quot;</span><span class="p">:</span> <span class="s2">&quot;Css Selector&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;selector_text&quot;</span><span class="p">:</span> <span class="s2">&quot;#su::attr(value)&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;selector_content&quot;</span><span class="p">:</span> <span class="s2">&quot;假百度一下&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;selector_error&quot;</span><span class="p">:</span> <span class="n">false</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">73</span><span class="p">,</span>
+            <span class="s2">&quot;insert_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-07-30 16:33:52&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;update_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-09 09:53:13&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;error_type&quot;</span><span class="p">:</span> <span class="s2">&quot;页面篡改&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;handle&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+            <span class="s2">&quot;updated_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-09 09:53:13&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;change&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;to&quot;</span><span class="p">:</span> <span class="s2">&quot;新闻&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;from&quot;</span><span class="p">:</span> <span class="s2">&quot;假新闻&quot;</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;selector&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;selector_type&quot;</span><span class="p">:</span> <span class="s2">&quot;Xpath&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;selector_text&quot;</span><span class="p">:</span> <span class="s2">&quot;//*[@id=&#39;s-top-left&#39;]/a[1]/text()&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;selector_content&quot;</span><span class="p">:</span> <span class="s2">&quot;假新闻&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;selector_error&quot;</span><span class="p">:</span> <span class="n">false</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+    <span class="s2">&quot;effective_count&quot;</span><span class="p">:</span> <span class="mi">4</span> <span class="c1"># 有效数量 可用于更新左侧</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id8">
+<h2>网页错误日志处置(告警信息)-更新(处置)<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>PUT /api/webmonitor/html_logs/{id}/</p></li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;handle&quot;</span><span class="p">:</span> <span class="n">true</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s2">&quot;success&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;handle&quot;</span><span class="p">:</span> <span class="n">true</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;更新成功！&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id9">
+<h2>网页错误日志一键处置(告警信息)<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>POST /api/webmonitor/html_logs/handle/onekey/?base_info_id=&lt;(?P&lt;pk&gt;[0-9]+)&gt;</p></li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kc">None</span>
+</pre></div>
+</div>
+</li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s2">&quot;success&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;一键处置成功！&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Hvv工具箱</a></h1>
+
+
+
+
+
+
+
+
+<h3>导航</h3>
+<p class="caption"><span class="caption-text">数据提供:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../providedata/xtb_tags.html">批量查询微步标签(包含微步用户信息)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">知识库:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../knowledge/loophole.html">漏洞库</a></li>
+</ul>
+<p class="caption"><span class="caption-text">主动式网站安全监测工具:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="baseinfo.html">监控对象配置(基础信息)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">监控日志(详细信息)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">访问历史(实时监控)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">接口错误日志查询(告警信息)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">接口错误日志处置(告警信息)-更新(处置)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">接口错误日志一键处置(告警信息)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">网页错误日志查询(告警信息)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">网页错误日志处置(告警信息)-更新(处置)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id9">网页错误日志一键处置(告警信息)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="badinfo.html">不良信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webhook.html">推送到钉钉配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="email.html">推送到邮件配置</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="baseinfo.html" title="上一章">监控对象配置(基础信息)</a></li>
+      <li>Next: <a href="badinfo.html" title="下一章">不良信息</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, W_OOD.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/api/webmonitor/detailinfo.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

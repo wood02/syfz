@@ -1,0 +1,34 @@
+{
+  "identification": "syfz",
+  "is_public": true,
+  "name": "Base64",
+  "version": "1.0",
+  "description": "Base64 加密解密",
+  "type": "加密解密",
+  "action": [
+    {
+      "name": "加密",
+      "func": "encryption"
+    },
+    {
+      "name": "解密",
+      "func": "decrypt"
+    }
+  ],
+  "args": {
+    "encryption": [
+      {
+        "key": "text",
+        "type": "text",
+        "required": true
+      }
+    ],
+    "decrypt": [
+      {
+        "key": "text",
+        "type": "text",
+        "required": true
+      }
+    ]
+  }
+}

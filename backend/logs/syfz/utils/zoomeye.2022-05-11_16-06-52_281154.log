@@ -1,0 +1,14 @@
+2022-05-11 16:07:59.855 | zeye.py 54 | ERROR | 无可用ZoomEye token
+2022-05-11 16:28:05.248 | zeye.py 40 | INFO | ID: 1 token正常, 余量为：10000！
+2022-05-11 16:29:56.536 | zeye.py 40 | INFO | [Zoomeye] ID: 1 token正常, 余量为：10000！
+2022-05-11 16:38:55.829 | zeye.py 40 | INFO | [Zoomeye] ID: 1 token正常, 余量为：9961！
+2022-05-11 16:39:20.633 | zeye.py 40 | INFO | [Zoomeye] ID: 1 token正常, 余量为：9942！
+2022-05-11 16:42:54.613 | zeye.py 40 | INFO | [Zoomeye] ID: 1 token正常, 余量为：9903！
+2022-05-11 16:49:40.108 | zeye.py 43 | INFO | [Zoomeye] ID: 1 token正常, 余量为：9884！
+2022-05-11 17:09:23.447 | zeye.py 43 | INFO | [Zoomeye] ID: 1 token正常, 余量为：9865！
+2022-05-11 17:31:53.186 | zeye.py 43 | INFO | [Zoomeye] ID: 1 token正常, 余量为：9825！
+2022-05-11 17:33:25.224 | zeye.py 43 | INFO | [Zoomeye] ID: 1 token正常, 余量为：9825！
+2022-05-11 17:33:25.224 | zeye.py 43 | INFO | [Zoomeye] ID: 1 token正常, 余量为：9825！
+2022-05-11 17:33:51.286 | zeye.py 43 | INFO | [Zoomeye] ID: 1 token正常, 余量为：9825！
+2022-05-11 17:34:47.906 | zeye.py 43 | INFO | [Zoomeye] ID: 1 token正常, 余量为：9805！
+2022-05-11 17:34:47.906 | zeye.py 43 | INFO | [Zoomeye] ID: 1 token正常, 余量为：9805！

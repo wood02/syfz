@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="e827911d-e10d-4b29-806d-3cc1e7a8c2b4" name="124.221.154.4_txy">
+        <fileTransfer rootFolder="/www/wwwroot/syfz" accessType="SFTP" host="124.221.154.4" port="22" sshConfigId="c25cdd1f-7356-4cca-93ff-afeb00201e82" sshConfig="root@124.221.154.4:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+      <webServer id="1faf0f88-d7ea-46de-8f97-9863b9d18bac" name="syfz_web" url="http://124.221.154.4:58000">
+        <fileTransfer host="124.221.154.4" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

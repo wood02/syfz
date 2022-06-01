@@ -1,0 +1,242 @@
+漏洞库
+============================================
+
+说明
+--------------------------------------
+
+1. 分为管理员和普通用户, 普通用户只可查询
+2. 角色模块此系统暂无
+3. 字段说明见【漏洞库查询(管理员和普通用户)响应结果中】
+4. <(?P<pk>[0-9]+)> 在此代表id
+
+漏洞库查询(管理员和普通用户)
+--------------------------------
+
+- GET /api/knowledge/loophole/?page=1&page_size=10
+- 请求参数::
+
+    {
+        "title": "weblogic" # 漏洞名称 | str | 选填 | 支持模糊搜索
+        "cve_num": "CVE-2014-4241" # CVE编号 | str | 选填 | 支持模糊搜索
+        "cnnvd_num": "CNNVD-201407-437" # CNNVD编号 | str | 选填 | 支持模糊搜索
+        "level": 2 # 威胁级别 | int | 选填 | 1:低危, 2:中危, 3:高危
+        "spub_time": "2019-05-31 00:00:00" # 发布开始时间 | time | 选填 | yyyy-MM-dd HH:mm:ss
+        "epub_time": "2019-05-31 00:00:00" # 发布结束时间 | time | 选填 | yyyy-MM-dd HH:mm:ss
+        "type": "缓冲区溢出" # 漏洞类型 | str | 选填 | 支持模糊搜索
+        "haspoc": true # 有无poc链接｜ bool | 选填 | true:有, false:无
+        "page": 1 # 页码 ｜ int | 选填 | 默认为 1
+        "page_size": 2 # 每页数 ｜ int | 选填 | 默认为 10
+    }
+
+- 响应结果::
+
+    {
+        "count": 54,
+        "next": "http://101.37.159.155:57001/api/knowledge/loophole/?level=&page=2&page_size=2&title=weblogic&type=",
+        "previous": null,
+        "results": [
+            {
+                "id": 81684,  # 编号
+                "insert_tm": "2021-06-03 17:35:42",
+                "update_tm": "2021-06-03 17:35:42",
+                "title": "Oracle WebLogic Server 远程安全漏洞(CVE-2014-4241)", # 漏洞名称
+                "pub_time": "2019-05-31 00:00:00", # 发布时间
+                "type": "缓冲区溢出", # 漏洞类型
+                "level": "中危", # 漏洞威胁级别
+                "cve_num": "CVE-2014-4241", # cve编号
+                "cnnvd_num": "CNNVD-201407-437", # cnnvd编号
+                "cvss_score": "0.0", # CVSS
+                "cnvd_num": null, # cnvd编号
+                "availability": "暂无数据", # 可利用性
+                "describe": "Oracle Weblogic Server是应用程序服务器。  Oracle Weblogic Server组件的实现上存在远程安全漏洞，此漏洞可通过HTTP协议利用，未经身份验证的远程攻击者可利用此漏洞影响受影响组件的完整性。该漏洞的影响版本包括：10.0.2.0, 10.3.6.0 ", # 漏洞描述
+                "solution": "Oracle已经为此发布了一个安全公告（cpujul2014-1972956）以及相应补丁:_x005f_x000D_\ncpujul2014-1972956：Oracle Critical Patch Update Advisory - July 2014_x005f_x000D_\n链接：http://www.oracle.com/technetwork/topics/security/cpujul2014-1972956.html", # 解决方案
+                "poclink": null, # poc 链接
+                "haspoc": false, # 是否有poc
+                "source": 2
+            },
+            {
+                "id": 81600,
+                "insert_tm": "2021-06-03 17:34:51",
+                "update_tm": "2021-06-03 17:34:51",
+                "title": "Oracle Fusion Middleware WebLogic Server组件安全漏洞",
+                "pub_time": "2018-10-17 00:00:00",
+                "type": "其他",
+                "level": "高危",
+                "cve_num": "CVE-2018-3191",
+                "cnnvd_num": "CNNVD-201810-900",
+                "cvss_score": "5.8",
+                "cnvd_num": null,
+                "availability": "部分地",
+                "describe": "Oracle Fusion Middleware（Oracle融合中间件）是美国甲骨文（Oracle）公司的一套面向企业和云环境的业务创新平台。该平台提供了中间件、软件集合等功能。WebLogic Server是其中的一个适用于云环境和传统环境的应用服务器组件。Oracle Fusion Middleware中的WebLogic Server组件10.3.6.0版本、12.1.3.0版本和12.2.1.3版本的WLS Core Components子组件存在安全漏洞。攻击者可利用该漏洞控制组件，影响数据的保密性、完整性和可用性。",
+                "solution": "目前厂商已发布升级补丁以修复漏洞，补丁获取链接：_x005f_x000D_\nhttps://www.oracle.com/technetwork/security-advisory/cpuoct2018-4428296.html",
+                "poclink": null,
+                "haspoc": false,
+                "source": 2
+            }
+        ]
+    }
+
+
+漏洞库数据数量(管理员和普通用户)
+--------------------------------
+
+- GET /api/knowledge/loophole/get_count/
+
+- 请求参数::
+
+    None
+
+- 响应结果::
+
+    {
+        "code": 200,
+        "success": true,
+        "data": {
+            "total": 81790, # 总计
+            "poc_num": 41968, # 有poc的数量
+            "cve_num": 81790, # 有cve编号的数量
+            "cnnvd_num": 47929 # 有cnnvd编号的数量
+        }
+    }
+
+
+漏洞库新增(管理员)
+--------------------------------
+
+- POST /api/knowledge/loophole/
+
+- 请求参数::
+
+    {
+        "title": "Oracle Fusion Middleware WebLogic Server组件安全漏洞", # 漏洞名称 | str | 必填
+        "pub_time": "2018-10-17 00:00:00", # 发布时间 | time | 必填 | yyyy-MM-dd HH:mm:ss
+        "type": "其他",  # 漏洞名称 | str
+        "level": 1,# 威胁级别 | int | 选填 | 1:低危, 2:中危, 3:高危
+        "cve_num": "CVE-2018-3191",
+        "cnnvd_num": "CNNVD-201810-900",
+        "cvss_score": "5.8", # cvss评分 | float | 选填 | 0.0~10.0
+        "cnvd_num": null,
+        "availability": 1, # 威胁级别 | int | 选填 | 0:暂无数据, 1:完全地, 2:部分地, 3:不受影响地
+        "describe": "Oracle Fusion Middleware（Oracle融合中间件）是美国甲骨文（Oracle）公司的一套面向企业和云环境的业务创新平台。该平台提供了中间件、软件集合等功能。WebLogic Server是其中的一个适用于云环境和传统环境的应用服务器组件。Oracle Fusion Middleware中的WebLogic Server组件10.3.6.0版本、12.1.3.0版本和12.2.1.3版本的WLS Core Components子组件存在安全漏洞。攻击者可利用该漏洞控制组件，影响数据的保密性、完整性和可用性。",
+        "solution": "目前厂商已发布升级补丁以修复漏洞，补丁获取链接：_x005f_x000D_\nhttps://www.oracle.com/technetwork/security-advisory/cpuoct2018-4428296.html",
+        "poclink":"http://baidu.com" # poc链接地址 或文本内容
+    }
+
+- 响应结果::
+
+    {
+        "code": 200,
+        "success": true,
+        "data": {
+            "id": 81806,
+            "cvss_score": 5.8,
+            "insert_tm": "2021-08-02 14:43:17",
+            "update_tm": "2021-08-02 14:43:17",
+            "title": "Oracle Fusion Middleware WebLogic Server组件安全漏洞",
+            "pub_time": "2018-10-17 00:00:00",
+            "type": "其他",
+            "level": 1,
+            "cve_num": "CVE-2018-3191",
+            "cnnvd_num": "CNNVD-201810-900",
+            "cnvd_num": null,
+            "availability": 1,
+            "describe": "Oracle Fusion Middleware（Oracle融合中间件）是美国甲骨文（Oracle）公司的一套面向企业和云环境的业务创新平台。该平台提供了中间件、软件集合等功能。WebLogic Server是其中的一个适用于云环境和传统环境的应用服务器组件。Oracle Fusion Middleware中的WebLogic Server组件10.3.6.0版本、12.1.3.0版本和12.2.1.3版本的WLS Core Components子组件存在安全漏洞。攻击者可利用该漏洞控制组件，影响数据的保密性、完整性和可用性。",
+            "solution": "目前厂商已发布升级补丁以修复漏洞，补丁获取链接：_x005f_x000D_\nhttps://www.oracle.com/technetwork/security-advisory/cpuoct2018-4428296.html",
+            "poclink": "http://baidu.com",
+            "haspoc": true,
+            "source": 3
+        }
+    }
+
+
+
+漏洞库更新(管理员)
+--------------------------------
+
+- PUT /api/knowledge/loophole/<(?P<pk>[0-9]+)>/
+
+- 请求参数::
+
+    {
+        "title": "Oracle Fusion Middleware WebLogic Server组件安全漏洞",
+        "pub_time": "2018-10-17 00:00:00",
+        "type": "其他",
+        "level": 1,
+        "cve_num": "CVE-2018-3191",
+        "cnnvd_num": "CNNVD-201810-900",
+        "cvss_score": "5.8",
+        "cnvd_num": null,
+        "availability": 1,
+        "describe": "Oracle Fusion Middleware（Oracle融合中间件）是美国甲骨文（Oracle）公司的一套面向企业和云环境的业务创新平台。该平台提供了中间件、软件集合等功能。WebLogic Server是其中的一个适用于云环境和传统环境的应用服务器组件。Oracle Fusion Middleware中的WebLogic Server组件10.3.6.0版本、12.1.3.0版本和12.2.1.3版本的WLS Core Components子组件存在安全漏洞。攻击者可利用该漏洞控制组件，影响数据的保密性、完整性和可用性。",
+        "solution": "目前厂商已发布升级补丁以修复漏洞，补丁获取链接：_x005f_x000D_\nhttps://www.oracle.com/technetwork/security-advisory/cpuoct2018-4428296.html",
+        "poclink":"http://baidu.com"
+    }
+- 参数说明::
+
+    以上参数均为可选参数
+
+- 响应结果::
+
+    {
+        "code": 200,
+        "success": true,
+        "data": {
+            "id": 81803,
+            "cvss_score": 5.8,
+            "insert_tm": "2021-08-02 14:14:37",
+            "update_tm": "2021-08-02 14:57:16",
+            "title": "Oracle Fusion Middleware WebLogic Server组件安全漏洞",
+            "pub_time": "2018-10-17 00:00:00",
+            "type": "其他",
+            "level": 1,
+            "cve_num": "CVE-2018-3191",
+            "cnnvd_num": "CNNVD-201810-900",
+            "cnvd_num": null,
+            "availability": 1,
+            "describe": "Oracle Fusion Middleware（Oracle融合中间件）是美国甲骨文（Oracle）公司的一套面向企业和云环境的业务创新平台。该平台提供了中间件、软件集合等功能。WebLogic Server是其中的一个适用于云环境和传统环境的应用服务器组件。Oracle Fusion Middleware中的WebLogic Server组件10.3.6.0版本、12.1.3.0版本和12.2.1.3版本的WLS Core Components子组件存在安全漏洞。攻击者可利用该漏洞控制组件，影响数据的保密性、完整性和可用性。",
+            "solution": "目前厂商已发布升级补丁以修复漏洞，补丁获取链接：_x005f_x000D_\nhttps://www.oracle.com/technetwork/security-advisory/cpuoct2018-4428296.html",
+            "poclink": "http://baidu.com",
+            "haspoc": true,
+            "source": 3
+        }
+    }
+
+
+漏洞库单个删除(管理员)
+--------------------------------
+
+- DELETE /api/knowledge/loophole/<(?P<pk>[0-9]+)>/
+
+- 请求参数::
+
+    None
+
+- 响应结果::
+
+    {
+        "code": 200,
+        "success": true,
+        "data": []
+    }
+
+漏洞库批量删除(管理员)
+--------------------------------
+
+- DELETE /api/knowledge/loophole/multiple_delete/
+
+- 请求参数::
+
+    {
+        "ids":[81805,81804] # id数组 | list | 必填
+    }
+
+- 响应结果::
+
+    {
+        "code": 200,
+        "success": true,
+        "data": {
+            "del_num": 1  # 批量删除成功的数量
+        },
+        "message": "删除成功！"
+    }

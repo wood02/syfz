@@ -1,0 +1,119 @@
+推送到钉钉配置
+=========================================================
+
+说明
+--------------------------------------
+
+    1. API地址: http://47.114.129.62:18000
+
+接收者(钉钉webhook)信息 查询
+--------------------------------
+
+- GET /api/webmonitor/webhook/?page=1&page_size=2
+
+- 请求参数::
+
+    None
+
+- 响应结果::
+
+    {
+        "count": 2,
+        "next": null,
+        "previous": null,
+        "results": [
+            {
+                "id": 2,
+                "insert_tm": "2021-07-21 15:22:26",
+                "update_tm": "2021-07-21 15:40:06",
+                "name": "滴滴",
+                "web_hook_url": "https://oapi.dingtalk.com/robot/send?access_token=062127412cbc8765370f7d97ee6ceb0e08dac92fe7216dfb408eff5397f3711e",
+                "secret": "SEC4c7b85e508a32bc220ac7b4b33ad6f31412f5805e5445cd1ef726af7660533ae"
+            },
+            {
+                "id": 1,
+                "insert_tm": "2021-07-21 10:50:08",
+                "update_tm": "2021-07-21 11:08:28",
+                "name": "TgSg-TEST",
+                "web_hook_url": "https://oapi.dingtalk.com/robot/send?access_token=daa164da65aadbad63a1abaeac63c784732f954729367110370dde89d9d13b80",
+                "secret": "SEC0dad0a90e2ca430d340b2671c4e82ae3673ebb1070a6b46df3201a9deb74ca27"
+            }
+        ]
+    }
+
+
+接收者(钉钉webhook)信息 新增
+--------------------------------
+
+- POST /api/webmonitor/webhook/
+
+- 请求参数::
+
+    {
+        "name": "滴滴", # 名称 | str
+        "web_hook_url": "https://oapi.dingtalk.com/robot/send?access_token=062127412cbc8765370f7d97ee6ceb0e08dac92fe7216dfb408eff5397f3711e", # 钉钉webhook 链接
+        "secret": "SEC4c7b85e508a32bc220ac7b4b33ad6f31412f5805e5445cd1ef726af7660533ae"
+    }
+
+- 响应结果::
+
+    {
+        "code": 200,
+        "success": true,
+        "data": {
+            "id": 3,
+            "insert_tm": "2021-08-09 10:53:56",
+            "update_tm": "2021-08-09 10:53:56",
+            "name": "滴滴2",
+            "web_hook_url": "https://oapi.dingtalk.com/robot/send?access_token=062127412cbc8765370f7d97ee6ceb0e08dac92fe7216dfb408eff5397f3711e",
+            "secret": "SEC4c7b85e508a32bc220ac7b4b33ad6f31412f5805e5445cd1ef726af7660533ae"
+        }
+    }
+
+
+接收者(钉钉webhook)信息 更新
+--------------------------------
+
+- PUT /api/webmonitor/bad_info/<(?P<pk>[0-9]+)>/
+
+- 请求参数::
+
+    {
+        "name": "滴滴2",
+        "web_hook_url": "https://oapi.dingtalk.com/robot/send?access_token=062127412cbc8765370f7d97ee6ceb0e08dac92fe7216dfb408eff5397f3711e",
+        "secret": "SEC4c7b85e508a32bc220ac7b4b33ad6f31412f5805e5445cd1ef726af7660533ae"
+    }
+
+- 响应结果::
+
+    {
+        "code": 200,
+        "success": true,
+        "data": {
+            "id": 3,
+            "insert_tm": "2021-08-09 10:53:56",
+            "update_tm": "2021-08-09 10:59:34",
+            "name": "滴滴2",
+            "web_hook_url": "https://oapi.dingtalk.com/robot/send?access_token=062127412cbc8765370f7d97ee6ceb0e08dac92fe7216dfb408eff5397f3711e",
+            "secret": "SEC4c7b85e508a32bc220ac7b4b33ad6f31412f5805e5445cd1ef726af7660533ae"
+        },
+        "message": "更新成功！"
+    }
+
+
+接收者(钉钉webhook)信息 删除
+--------------------------------
+
+- DELETE /api/webmonitor/base_info/<(?P<pk>[0-9]+)>/
+- 请求参数::
+
+    None
+
+- 响应结果::
+
+    {
+        "code": 200,
+        "success": true,
+        "data": []
+    }
+

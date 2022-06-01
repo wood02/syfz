@@ -1,0 +1,599 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>监控对象配置(基础信息) &#8212; Hvv工具箱  文档</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="监控日志(详细信息)" href="detailinfo.html" />
+    <link rel="prev" title="漏洞库" href="../knowledge/loophole.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="id1">
+<h1>监控对象配置(基础信息)<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2>说明<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>API地址: <a class="reference external" href="http://47.114.129.62:18000">http://47.114.129.62:18000</a></p></li>
+<li><p>&lt;(?P&lt;pk&gt;[0-9]+)&gt; 在此代表id 为监控对象列表的ID</p></li>
+<li><p>测试时不要删除id=36 和id=39的数据</p></li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="id3">
+<h2>监控对象配置查询(监控对象列表)<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>GET /api/webmonitor/base_info/?page=1&amp;page_size=2</p></li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;百度&quot;</span> <span class="c1"># 业务名称 | str | 选填 | 支持模糊搜索</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="mi">1</span> <span class="c1"># 类型 | int | 选填 | 1:网页, 2:接口</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;count&quot;</span><span class="p">:</span> <span class="mi">33</span><span class="p">,</span>
+    <span class="s2">&quot;next&quot;</span><span class="p">:</span> <span class="s2">&quot;http://47.114.129.62:18000/api/webmonitor/base_info/?page=1&amp;page_size=2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;previous&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;results&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">36</span><span class="p">,</span> <span class="c1"># 编号</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;接口&quot;</span><span class="p">,</span> <span class="c1"># 类型</span>
+            <span class="s2">&quot;insert_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-07-14 10:37:26&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;update_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-07-26 12:37:46&quot;</span><span class="p">,</span> <span class="c1"># 更新时间</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;上海的天气&quot;</span><span class="p">,</span> <span class="c1"># 业务名称</span>
+            <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.baidu.com/home/other/data/weatherInfo&quot;</span><span class="p">,</span> <span class="c1"># url</span>
+            <span class="s2">&quot;phone&quot;</span><span class="p">:</span> <span class="s2">&quot;18625546652&quot;</span><span class="p">,</span> <span class="c1"># 联系方式</span>
+            <span class="s2">&quot;people&quot;</span><span class="p">:</span> <span class="s2">&quot;项羽&quot;</span><span class="p">,</span> <span class="c1"># 业务负责人</span>
+            <span class="s2">&quot;api_error&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span> <span class="c1"># 接口异常监控</span>
+            <span class="s2">&quot;api_param&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="c1"># 请求参数</span>
+                <span class="s2">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;上海&quot;</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;api_method&quot;</span><span class="p">:</span> <span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="c1"># 请求方式</span>
+            <span class="s2">&quot;api_res_content&quot;</span><span class="p">:</span> <span class="s2">&quot;{</span><span class="se">\&quot;</span><span class="s2">errNo</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">0</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">data</span><span class="se">\&quot;</span><span class="s2">:{</span><span class="se">\&quot;</span><span class="s2">weather</span><span class="se">\&quot;</span><span class="s2">:{</span><span class="se">\&quot;</span><span class="s2">setting</span><span class="se">\&quot;</span><span class="s2">:{</span><span class="se">\&quot;</span><span class="s2">city</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">上海</span><span class="se">\&quot;</span><span class="s2">}, </span><span class="se">\&quot;</span><span class="s2">content</span><span class="se">\&quot;</span><span class="s2">:{</span><span class="se">\&quot;</span><span class="s2">week</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">周二 07月20日</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">city</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">上海</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">today</span><span class="se">\&quot;</span><span class="s2">:{</span><span class="se">\&quot;</span><span class="s2">time</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">周二 07月20日 (实时: 32℃)</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">date</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">07月20日</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">img</span><span class="se">\&quot;</span><span class="s2">:[</span><span class="se">\&quot;\&quot;</span><span class="s2">, </span><span class="se">\&quot;\&quot;</span><span class="s2">], </span><span class="se">\&quot;</span><span class="s2">condition</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">多云</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">wind</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">东风3-4级</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">temp</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">32℃</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">link</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">http://www.weather.com.cn/weather/101020100.shtml#7d</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">imgs</span><span class="se">\&quot;</span><span class="s2">:{</span><span class="se">\&quot;</span><span class="s2">1</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">a1</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">0</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">a1</span><span class="se">\&quot;</span><span class="s2">}, </span><span class="se">\&quot;</span><span class="s2">pm25</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">29</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">pollution</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">0</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">pm25url</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">//www.baidu.com/s?wd=</span><span class="si">%E</span><span class="s2">4%B8%8A</span><span class="si">%E</span><span class="s2">6%B5%B7</span><span class="si">%E</span><span class="s2">7%A9%BA</span><span class="si">%E</span><span class="s2">6%B0</span><span class="si">%94%</span><span class="s2">E8%B4%A8</span><span class="si">%E</span><span class="s2">9</span><span class="si">%87%</span><span class="s2">8F</span><span class="si">%E</span><span class="s2">6%8C</span><span class="si">%87%</span><span class="s2">E6</span><span class="si">%95%</span><span class="s2">B0&amp;amp;tn=baidutop10&amp;amp;rsv_idx=2</span><span class="se">\&quot;</span><span class="s2">}, </span><span class="se">\&quot;</span><span class="s2">tomorrow</span><span class="se">\&quot;</span><span class="s2">:{</span><span class="se">\&quot;</span><span class="s2">time</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">周三</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">date</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">07月21日</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">img</span><span class="se">\&quot;</span><span class="s2">:[</span><span class="se">\&quot;\&quot;</span><span class="s2">, </span><span class="se">\&quot;\&quot;</span><span class="s2">], </span><span class="se">\&quot;</span><span class="s2">condition</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">阴转多云</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">wind</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">东风4-5级</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">temp</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">27 ~ 33</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">link</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">http://www.weather.com.cn/weather/101020100.shtml#7d</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">imgs</span><span class="se">\&quot;</span><span class="s2">:{</span><span class="se">\&quot;</span><span class="s2">1</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">a2</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">0</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">a2</span><span class="se">\&quot;</span><span class="s2">}, </span><span class="se">\&quot;</span><span class="s2">pm25</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">29</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">pollution</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">0</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">pm25url</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">//www.baidu.com/s?wd=</span><span class="si">%E</span><span class="s2">4%B8%8A</span><span class="si">%E</span><span class="s2">6%B5%B7</span><span class="si">%E</span><span class="s2">7%A9%BA</span><span class="si">%E</span><span class="s2">6%B0</span><span class="si">%94%</span><span class="s2">E8%B4%A8</span><span class="si">%E</span><span class="s2">9</span><span class="si">%87%</span><span class="s2">8F</span><span class="si">%E</span><span class="s2">6%8C</span><span class="si">%87%</span><span class="s2">E6</span><span class="si">%95%</span><span class="s2">B0&amp;amp;tn=baidutop10&amp;amp;rsv_idx=2</span><span class="se">\&quot;</span><span class="s2">}, </span><span class="se">\&quot;</span><span class="s2">thirdday</span><span class="se">\&quot;</span><span class="s2">:{</span><span class="se">\&quot;</span><span class="s2">time</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">周四</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">date</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">07月22日</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">img</span><span class="se">\&quot;</span><span class="s2">:[</span><span class="se">\&quot;\&quot;</span><span class="s2">, </span><span class="se">\&quot;\&quot;</span><span class="s2">], </span><span class="se">\&quot;</span><span class="s2">condition</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">小雨</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">wind</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">东风4-5级</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">temp</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">27 ~ 31</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">link</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">http://www.weather.com.cn/weather/101020100.shtml#7d</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">imgs</span><span class="se">\&quot;</span><span class="s2">:{</span><span class="se">\&quot;</span><span class="s2">1</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">a7</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">0</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">a7</span><span class="se">\&quot;</span><span class="s2">}, </span><span class="se">\&quot;</span><span class="s2">pm25</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">//www.baidu.com/s?wd=</span><span class="si">%E</span><span class="s2">4%B8%8A</span><span class="si">%E</span><span class="s2">6%B5%B7</span><span class="si">%E</span><span class="s2">7%A9%BA</span><span class="si">%E</span><span class="s2">6%B0</span><span class="si">%94%</span><span class="s2">E8%B4%A8</span><span class="si">%E</span><span class="s2">9</span><span class="si">%87%</span><span class="s2">8F</span><span class="si">%E</span><span class="s2">6%8C</span><span class="si">%87%</span><span class="s2">E6</span><span class="si">%95%</span><span class="s2">B0&amp;amp;tn=baidutop10&amp;amp;rsv_idx=2</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">pollution</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">0</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">pm25url</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;\&quot;</span><span class="s2">}, </span><span class="se">\&quot;</span><span class="s2">fourthday</span><span class="se">\&quot;</span><span class="s2">:{</span><span class="se">\&quot;</span><span class="s2">time</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">周五</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">date</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">07月23日</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">img</span><span class="se">\&quot;</span><span class="s2">:[</span><span class="se">\&quot;\&quot;</span><span class="s2">, </span><span class="se">\&quot;\&quot;</span><span class="s2">], </span><span class="se">\&quot;</span><span class="s2">condition</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">小雨</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">wind</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">东北风5-6级</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">temp</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">27 ~ 31</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">link</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">http://www.weather.com.cn/weather/101020100.shtml#7d</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">imgs</span><span class="se">\&quot;</span><span class="s2">:{</span><span class="se">\&quot;</span><span class="s2">1</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">a7</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">0</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">a7</span><span class="se">\&quot;</span><span class="s2">}}, </span><span class="se">\&quot;</span><span class="s2">fifthday</span><span class="se">\&quot;</span><span class="s2">:{</span><span class="se">\&quot;</span><span class="s2">time</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">周六</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">date</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">07月24日</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">img</span><span class="se">\&quot;</span><span class="s2">:[</span><span class="se">\&quot;\&quot;</span><span class="s2">, </span><span class="se">\&quot;\&quot;</span><span class="s2">], </span><span class="se">\&quot;</span><span class="s2">condition</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">中雨</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">wind</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">东北风6-7级</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">temp</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">26 ~ 31</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">link</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">http://www.weather.com.cn/weather/101020100.shtml#7d</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">imgs</span><span class="se">\&quot;</span><span class="s2">:{</span><span class="se">\&quot;</span><span class="s2">1</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">a8</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">0</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">a8</span><span class="se">\&quot;</span><span class="s2">}}, </span><span class="se">\&quot;</span><span class="s2">linkseven</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">http://www.weather.com.cn/weather/101020100.shtml#7d</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">source</span><span class="se">\&quot;</span><span class="s2">:{</span><span class="se">\&quot;</span><span class="s2">name</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">中国气象频道</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">url</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">http://www.mywtv.cn/</span><span class="se">\&quot;</span><span class="s2">}, </span><span class="se">\&quot;</span><span class="s2">cityname</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">上海</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">calendar</span><span class="se">\&quot;</span><span class="s2">:{</span><span class="se">\&quot;</span><span class="s2">time</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">1626747904356</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">lunar</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">六月十一</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">festival</span><span class="se">\&quot;</span><span class="s2">:false, </span><span class="se">\&quot;</span><span class="s2">weatherSourceUrl</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">http://www.weather.com.cn/weather/101020100.shtml#7d</span><span class="se">\&quot;</span><span class="s2">}, </span><span class="se">\&quot;</span><span class="s2">currenttemp</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">32℃</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">pslink</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">//www.baidu.com/s?tn=baidutop10&amp;amp;rsv_idx=2&amp;amp;wd=</span><span class="si">%E</span><span class="s2">4%B8%8A</span><span class="si">%E</span><span class="s2">6%B5%B7</span><span class="si">%E</span><span class="s2">5%A4%A9</span><span class="si">%E</span><span class="s2">6%B0</span><span class="si">%94%</span><span class="s2">E9%A2</span><span class="si">%84%</span><span class="s2">E6%8A%A5</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">weatherType</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">aladdin</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">isauto</span><span class="se">\&quot;</span><span class="s2">:false, </span><span class="se">\&quot;</span><span class="s2">ipcity</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">杭州</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">province</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">浙江</span><span class="se">\&quot;</span><span class="s2">}}}}&quot;</span><span class="p">,</span> <span class="c1"># 响应内容</span>
+            <span class="s2">&quot;frequency&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="s2">&quot;usability&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span> <span class="c1"># 可用性监控</span>
+            <span class="s2">&quot;usability_threshold&quot;</span><span class="p">:</span> <span class="mi">2000</span><span class="p">,</span> <span class="c1"># 阈值</span>
+            <span class="s2">&quot;usability_status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span> <span class="c1"># 响应状态码</span>
+            <span class="s2">&quot;multi_link&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span> <span class="c1"># 多链路</span>
+            <span class="s2">&quot;headers&quot;</span><span class="p">:</span> <span class="s2">&quot;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36&quot;</span><span class="p">,</span> <span class="c1"># 请求头</span>
+            <span class="s2">&quot;re_expression&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="c1"># 正则表达式</span>
+            <span class="s2">&quot;rule&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="c1"># 规则</span>
+            <span class="s2">&quot;notification&quot;</span><span class="p">:</span> <span class="s2">&quot;1,2&quot;</span><span class="p">,</span> <span class="c1"># 通知方式</span>
+            <span class="s2">&quot;notification_email&quot;</span><span class="p">:</span> <span class="s2">&quot;x171899394@163.com&quot;</span><span class="p">,</span>  <span class="c1"># 通知邮件</span>
+            <span class="s2">&quot;job_state&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span> <span class="c1"># 任务状态</span>
+            <span class="s2">&quot;count&quot;</span><span class="p">:</span> <span class="mi">4</span> <span class="c1"># 监控对象的有效告警条数</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">39</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;网页&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;selector&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="c1"># 选择器</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;selector_type&quot;</span><span class="p">:</span> <span class="s2">&quot;Css Selector&quot;</span><span class="p">,</span>  <span class="c1"># 选择器类型</span>
+                    <span class="s2">&quot;selector_text&quot;</span><span class="p">:</span> <span class="s2">&quot;#su::attr(value)&quot;</span><span class="p">,</span> <span class="c1"># 选择器内容</span>
+                    <span class="s2">&quot;selector_content&quot;</span><span class="p">:</span> <span class="s2">&quot;假百度一下&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;selector_error&quot;</span><span class="p">:</span> <span class="n">false</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;selector_type&quot;</span><span class="p">:</span> <span class="s2">&quot;Xpath&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;selector_text&quot;</span><span class="p">:</span> <span class="s2">&quot;//*[@id=&#39;s-top-left&#39;]/a[1]/text()&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;selector_content&quot;</span><span class="p">:</span> <span class="s2">&quot;假新闻&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;selector_error&quot;</span><span class="p">:</span> <span class="n">false</span>
+                <span class="p">}</span>
+            <span class="p">],</span>
+            <span class="s2">&quot;insert_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-07-30 15:22:51&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;update_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-07-30 16:18:03&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;百度首页&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.baidu.com/&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;phone&quot;</span><span class="p">:</span> <span class="s2">&quot;18625546652&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;people&quot;</span><span class="p">:</span> <span class="s2">&quot;项羽&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;is_chrome&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span> <span class="c1"># 使用无头浏览器</span>
+            <span class="s2">&quot;html_change&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span> <span class="c1"># 篡改监控</span>
+            <span class="s2">&quot;html_trojan&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span> <span class="c1"># 网页挂马监测</span>
+            <span class="s2">&quot;html_bad_info&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span> <span class="c1"># 不良信息监测</span>
+            <span class="s2">&quot;html_bad_info_pool&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span><span class="c1"># 1 默认不良信息库  2自定义库</span>
+            <span class="s2">&quot;html_info_leak&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span> <span class="c1"># 信息泄露监测</span>
+            <span class="s2">&quot;html_info_leak_type&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="c1"># 1身份证, 2手机号</span>
+            <span class="s2">&quot;frequency&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+            <span class="s2">&quot;usability&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+            <span class="s2">&quot;usability_threshold&quot;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+            <span class="s2">&quot;usability_status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+            <span class="s2">&quot;multi_link&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+            <span class="s2">&quot;headers&quot;</span><span class="p">:</span> <span class="s2">&quot;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;re_expression&quot;</span><span class="p">:</span> <span class="s2">&quot;正则表达式&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;rule&quot;</span><span class="p">:</span> <span class="s2">&quot;rule&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;notification&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;notification_email&quot;</span><span class="p">:</span> <span class="s2">&quot;xiangwj@motanni.com&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;job_state&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+            <span class="s2">&quot;count&quot;</span><span class="p">:</span> <span class="mi">4</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h2>监控对象配置排序后列表页(监控对象列表)<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>GET /api/webmonitor/base_info/order/?page=1&amp;page_size=1</p></li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;page&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;page_size&quot;</span><span class="p">:</span> <span class="mi">2</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<blockquote>
+<div><ul>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;count&quot;</span><span class="p">:</span> <span class="mi">98</span><span class="p">,</span>
+    <span class="s2">&quot;next&quot;</span><span class="p">:</span> <span class="s2">&quot;http://127.0.0.1:8000/api/webmonitor/base_info/order/?page=2&amp;page_size=1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;previous&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;results&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">39</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;网页&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;selector&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;selector_type&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                    <span class="s2">&quot;selector_text&quot;</span><span class="p">:</span> <span class="s2">&quot;#su::attr(value)&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;selector_error&quot;</span><span class="p">:</span> <span class="n">false</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;selector_type&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                    <span class="s2">&quot;selector_text&quot;</span><span class="p">:</span> <span class="s2">&quot;//*[@id=&#39;s-top-left&#39;]/a[1]/text()&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;selector_error&quot;</span><span class="p">:</span> <span class="n">false</span>
+                <span class="p">}</span>
+            <span class="p">],</span>
+            <span class="s2">&quot;insert_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-07-30 15:22:51&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;update_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-26 11:00:29&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;百度首页&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://baidu.com/&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;phone&quot;</span><span class="p">:</span> <span class="s2">&quot;18625546652&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;people&quot;</span><span class="p">:</span> <span class="s2">&quot;负责人&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;is_chrome&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+            <span class="s2">&quot;html_change&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+            <span class="s2">&quot;html_trojan&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+            <span class="s2">&quot;html_bad_info&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+            <span class="s2">&quot;html_bad_info_pool&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;html_info_leak&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+            <span class="s2">&quot;html_info_leak_type&quot;</span><span class="p">:</span> <span class="s2">&quot;1,2&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;frequency&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+            <span class="s2">&quot;usability&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+            <span class="s2">&quot;usability_threshold&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;usability_status&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+            <span class="s2">&quot;multi_link&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+            <span class="s2">&quot;headers&quot;</span><span class="p">:</span> <span class="s2">&quot;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;re_expression&quot;</span><span class="p">:</span> <span class="s2">&quot;正则表达式&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;rule&quot;</span><span class="p">:</span> <span class="s2">&quot;rule&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;notification&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;notification_email&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;job_state&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+            <span class="s2">&quot;count&quot;</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span>
+            <span class="s2">&quot;updated_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-26 11:00:00&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id5">
+<h2>网页类型新增<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>POST /api/webmonitor/base_info/</p></li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;百度首页&quot;</span><span class="p">,</span> <span class="c1"># 系统名称 | str | 必填</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="c1"># 类型 | int | 必填且固定 | 1:网页类型</span>
+    <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.baidu.com/&quot;</span><span class="p">,</span>  <span class="c1"># url | str | 必填 | 链接类型</span>
+    <span class="s2">&quot;phone&quot;</span><span class="p">:</span> <span class="s2">&quot;18625546652&quot;</span><span class="p">,</span> <span class="c1"># 手机号 | str | 必填</span>
+    <span class="s2">&quot;people&quot;</span><span class="p">:</span> <span class="s2">&quot;负责人&quot;</span><span class="p">,</span> <span class="c1"># 负责人 | str | 必填</span>
+    <span class="s2">&quot;is_chrome&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span> <span class="c1"># 无头浏览器 | bool | 选填 | 默认为:false</span>
+    <span class="s2">&quot;html_change&quot;</span><span class="p">:</span><span class="n">true</span><span class="p">,</span> <span class="c1"># 篡改监控 | bool | 选填 | 默认为:false</span>
+    <span class="s2">&quot;selector&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="c1"># 选择器 | list | 选填(html_change为true时 为必填)</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;selector_type&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="c1"># 选择器类型 | int | 必填 | 1:Xpath,2:Css Selector</span>
+            <span class="s2">&quot;selector_text&quot;</span><span class="p">:</span> <span class="s2">&quot;//*[@id=&#39;s-top-left&#39;]/a[1]/text()&quot;</span> <span class="c1"># 选择器内容 | str | 必填</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;selector_type&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="s2">&quot;selector_text&quot;</span><span class="p">:</span> <span class="s2">&quot;#su::attr(value)&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;html_trojan&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>  <span class="c1"># 网页挂马 | bool | 选填 | 默认为:false</span>
+    <span class="s2">&quot;html_bad_info&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span> <span class="c1"># 不良信息 | bool | 选填 | 默认为:false</span>
+    <span class="s2">&quot;html_bad_info_pool&quot;</span><span class="p">:</span><span class="s2">&quot;1,2&quot;</span><span class="p">,</span>  <span class="c1"># 不良信息库 | str | 选填(html_bad_info为true时 为必填) | 格式为,分割 eg: 1,2 代表同时选中第一个和第二个选项</span>
+    <span class="s2">&quot;html_info_leak&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span> <span class="c1"># 信息泄露监测 | bool | 选填 | 默认为:false</span>
+    <span class="s2">&quot;html_info_leak_type&quot;</span><span class="p">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>  <span class="c1"># 信息泄露监测类型 | str | 选填(html_info_leak为true时 为必填) | 格式为,分割 eg: 1,2 代表同时选中第一个和第二个选项</span>
+    <span class="s2">&quot;frequency&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="c1"># 频率(分钟) | int | 必填</span>
+    <span class="s2">&quot;usability&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>  <span class="c1"># 可用性检测 | bool | 选填 | 默认为:false</span>
+    <span class="s2">&quot;usability_threshold&quot;</span><span class="p">:</span><span class="mi">1000</span><span class="p">,</span>  <span class="c1"># 阈值(ms) | int | 选填(usability为true时 为必填)</span>
+    <span class="s2">&quot;usability_status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>  <span class="c1"># 状态码 | int | 选填(usability为true时 为必填)</span>
+    <span class="s2">&quot;multi_link&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>  <span class="c1"># 多链路 | bool | 选填 | 默认为:false</span>
+    <span class="s2">&quot;headers&quot;</span><span class="p">:</span> <span class="s2">&quot;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36&quot;</span><span class="p">,</span>   <span class="c1"># 请求头 | str | 选填</span>
+    <span class="s2">&quot;re_expression&quot;</span><span class="p">:</span> <span class="s2">&quot;正则表达式&quot;</span><span class="p">,</span> <span class="c1"># 正则表达式 | str | 选填</span>
+    <span class="s2">&quot;rule&quot;</span><span class="p">:</span> <span class="s2">&quot;rule&quot;</span><span class="p">,</span> <span class="c1"># 规则 | str | 选填</span>
+    <span class="s2">&quot;notification&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="c1"># 通知方式 | str | 选填 | 格式为,分割 eg: 1,2 代表同时选中第一个和第二个选项</span>
+    <span class="s2">&quot;notification_email&quot;</span><span class="p">:</span> <span class="s2">&quot;xiangwj@motanni.com&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s2">&quot;success&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">77</span><span class="p">,</span>
+        <span class="s2">&quot;selector&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;selector_type&quot;</span><span class="p">:</span> <span class="s2">&quot;Css Selector&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;selector_text&quot;</span><span class="p">:</span> <span class="s2">&quot;#su::attr(value)&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;selector_content&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+                <span class="s2">&quot;selector_error&quot;</span><span class="p">:</span> <span class="n">null</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;selector_type&quot;</span><span class="p">:</span> <span class="s2">&quot;Xpath&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;selector_text&quot;</span><span class="p">:</span> <span class="s2">&quot;//*[@id=&#39;s-top-left&#39;]/a[1]/text()&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;selector_content&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+                <span class="s2">&quot;selector_error&quot;</span><span class="p">:</span> <span class="n">null</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;insert_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-05 09:19:44&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;update_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-05 09:19:44&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;百度首页&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.baidu.com/&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;phone&quot;</span><span class="p">:</span> <span class="s2">&quot;18625546652&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;people&quot;</span><span class="p">:</span> <span class="s2">&quot;项羽&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;is_chrome&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;html_change&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;html_trojan&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;html_bad_info&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;html_bad_info_pool&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;html_info_leak&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;html_info_leak_type&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;frequency&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="s2">&quot;usability&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;usability_threshold&quot;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+        <span class="s2">&quot;usability_status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+        <span class="s2">&quot;multi_link&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+        <span class="s2">&quot;headers&quot;</span><span class="p">:</span> <span class="s2">&quot;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;re_expression&quot;</span><span class="p">:</span> <span class="s2">&quot;正则表达式&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;rule&quot;</span><span class="p">:</span> <span class="s2">&quot;rule&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;notification&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;notification_email&quot;</span><span class="p">:</span> <span class="s2">&quot;xiangwj@motanni.com&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;job_state&quot;</span><span class="p">:</span> <span class="n">true</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h2>接口类型新增<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>POST /api/webmonitor/base_info/</p></li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;上海天气&quot;</span><span class="p">,</span> <span class="c1"># 系统名称 | str | 必填</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="c1"># 类型 | int | 必填且固定 | 2:接口</span>
+    <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.baidu.com/home/other/data/weatherInfo&quot;</span><span class="p">,</span>  <span class="c1"># url | str | 必填 | 链接类型</span>
+    <span class="s2">&quot;phone&quot;</span><span class="p">:</span> <span class="s2">&quot;18625546652&quot;</span><span class="p">,</span> <span class="c1"># 手机号 | str | 必填</span>
+    <span class="s2">&quot;people&quot;</span><span class="p">:</span> <span class="s2">&quot;负责人&quot;</span><span class="p">,</span> <span class="c1"># 负责人 | str | 必填</span>
+    <span class="s2">&quot;api_error&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>  <span class="c1"># 网页错误 | bool | 选填 | 默认为:false</span>
+    <span class="s2">&quot;api_param&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="c1"># 接口参数 | dict | 选填</span>
+        <span class="s2">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;上海&quot;</span>
+        <span class="p">},</span>
+    <span class="s2">&quot;api_method&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="c1"># 接口参数 | int | 选填(api_error为true时 为必填) | 1:GET,2:POST</span>
+    <span class="s2">&quot;api_res_content&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="c1"># 响应结果 | str | 选填</span>
+    <span class="s2">&quot;frequency&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="c1"># 频率(分钟) | int | 必填</span>
+    <span class="s2">&quot;usability&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>  <span class="c1"># 可用性检测 | bool | 选填 | 默认为:false</span>
+    <span class="s2">&quot;usability_threshold&quot;</span><span class="p">:</span><span class="mi">1000</span><span class="p">,</span>  <span class="c1"># 阈值(ms) | int | 选填(usability为true时 为必填)</span>
+    <span class="s2">&quot;usability_status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>  <span class="c1"># 状态码 | int | 选填</span>
+    <span class="s2">&quot;multi_link&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>  <span class="c1"># 多链路 | bool | 选填 | 默认为:false</span>
+    <span class="s2">&quot;headers&quot;</span><span class="p">:</span> <span class="s2">&quot;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36&quot;</span><span class="p">,</span>   <span class="c1"># 请求头 | str | 选填</span>
+    <span class="s2">&quot;re_expression&quot;</span><span class="p">:</span> <span class="s2">&quot;正则表达式&quot;</span><span class="p">,</span> <span class="c1"># 正则表达式 | str | 选填</span>
+    <span class="s2">&quot;rule&quot;</span><span class="p">:</span> <span class="s2">&quot;rule&quot;</span><span class="p">,</span> <span class="c1"># 规则 | str | 选填</span>
+    <span class="s2">&quot;notification&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="c1"># 通知方式 | str | 选填 | 格式为,分割 eg: 1,2 代表同时选中第一个和第二个选项</span>
+    <span class="s2">&quot;notification_email&quot;</span><span class="p">:</span> <span class="s2">&quot;xiangwj@motanni.com&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s2">&quot;success&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">80</span><span class="p">,</span>
+        <span class="s2">&quot;api_param&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;上海&quot;</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;api_method&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;api_res_content&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;insert_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-05 10:13:41&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;update_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-05 10:13:41&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;上海天气&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.baidu.com/home/other/data/weatherInfo&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;phone&quot;</span><span class="p">:</span> <span class="s2">&quot;18625546652&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;people&quot;</span><span class="p">:</span> <span class="s2">&quot;负责人&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;html_change&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+        <span class="s2">&quot;api_error&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;frequency&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="s2">&quot;usability&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s2">&quot;usability_threshold&quot;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+        <span class="s2">&quot;usability_status&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+        <span class="s2">&quot;multi_link&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+        <span class="s2">&quot;headers&quot;</span><span class="p">:</span> <span class="s2">&quot;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;re_expression&quot;</span><span class="p">:</span> <span class="s2">&quot;正则表达式&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;rule&quot;</span><span class="p">:</span> <span class="s2">&quot;rule&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;notification&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;notification_email&quot;</span><span class="p">:</span> <span class="s2">&quot;xiangwj@motanni.com&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;job_state&quot;</span><span class="p">:</span> <span class="n">true</span>
+       <span class="p">}</span>
+   <span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h2>监控对象配置更新<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>PUT  /api/webmonitor/base_info/&lt;(?P&lt;pk&gt;[0-9]+)&gt;/</p></li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>  <span class="c1"># 类型 | int | 必填 | 1:网页 2:接口</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;xxxxxxx&quot;</span><span class="p">,</span>
+    <span class="o">.....</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>参数说明:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>为局部更新,type为必填参数, 其余参数和新增对应！
+</pre></div>
+</div>
+</li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s2">&quot;success&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">80</span><span class="p">,</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;接口&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;insert_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-05 10:13:41&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;update_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-09 08:46:29&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;shtq&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id8">
+<h2>单个监控对象配置删除<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>DELETE /api/webmonitor/base_info/&lt;(?P&lt;pk&gt;[0-9]+)&gt;/</p></li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kc">None</span>
+</pre></div>
+</div>
+</li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s2">&quot;success&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">[]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id9">
+<h2>批量监控对象配置删除<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>DELETE /api/webmonitor/base_info/multiple_del/</p></li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;ids&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="mi">4</span><span class="p">,</span>
+        <span class="mi">48</span><span class="p">,</span>
+        <span class="mi">54</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s2">&quot;success&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">79</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="mi">2</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id10">
+<h2>暂停任务<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>POST /api/webmonitor/base_info/&lt;(?P&lt;pk&gt;[0-9]+)&gt;/pause_job/</p></li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kc">None</span>
+</pre></div>
+</div>
+</li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s2">&quot;success&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;暂停成功！&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id11">
+<h2>重启任务<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>POST /api/webmonitor/base_info/&lt;(?P&lt;pk&gt;[0-9]+)&gt;/resume_job/</p></li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kc">None</span>
+</pre></div>
+</div>
+</li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s2">&quot;success&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;重启成功！&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Hvv工具箱</a></h1>
+
+
+
+
+
+
+
+
+<h3>导航</h3>
+<p class="caption"><span class="caption-text">数据提供:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../providedata/xtb_tags.html">批量查询微步标签(包含微步用户信息)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">知识库:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../knowledge/loophole.html">漏洞库</a></li>
+</ul>
+<p class="caption"><span class="caption-text">主动式网站安全监测工具:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">监控对象配置(基础信息)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">监控对象配置查询(监控对象列表)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">监控对象配置排序后列表页(监控对象列表)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">网页类型新增</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">接口类型新增</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">监控对象配置更新</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">单个监控对象配置删除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id9">批量监控对象配置删除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id10">暂停任务</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id11">重启任务</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="detailinfo.html">监控日志(详细信息)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="badinfo.html">不良信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webhook.html">推送到钉钉配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="email.html">推送到邮件配置</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../knowledge/loophole.html" title="上一章">漏洞库</a></li>
+      <li>Next: <a href="detailinfo.html" title="下一章">监控日志(详细信息)</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, W_OOD.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/api/webmonitor/baseinfo.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

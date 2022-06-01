@@ -1,0 +1,415 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>源代码策略 &#8212; Hvv工具箱  文档</title>
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../../../genindex.html" />
+    <link rel="search" title="搜索" href="../../../search.html" />
+    <link rel="next" title="源代码白名单" href="white.html" />
+    <link rel="prev" title="源代码检测" href="code.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="id1">
+<h1>源代码策略<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2>说明<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>API地址: <a class="reference external" href="http://47.114.129.62:18000">http://47.114.129.62:18000</a></p></li>
+<li><p>&lt;(?P&lt;pk&gt;[0-9]+)&gt; 在此代表id</p></li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="id3">
+<h2>源代码策略-列表<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>GET /api/mgxx/code/job/?page=1&amp;page_size=2</p></li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;job_name&quot;</span><span class="p">:</span> <span class="s2">&quot;名称&quot;</span> <span class="c1"># 策略名 | str | 选填 | 支持模糊搜索</span>
+    <span class="s2">&quot;remark&quot;</span><span class="p">:</span> <span class="s2">&quot;备注&quot;</span> <span class="c1"># 备注 | str | 选填 | 支持模糊搜索</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;count&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">&quot;next&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;previous&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;results&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+            <span class="s2">&quot;insert_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-09-14 10:50:07&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;update_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-09-14 10:50:07&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;job_name&quot;</span><span class="p">:</span> <span class="s2">&quot;qq3&quot;</span><span class="p">,</span> <span class="c1"># 策略名称</span>
+            <span class="s2">&quot;query&quot;</span><span class="p">:</span> <span class="s2">&quot;dGl0bGU9ImJlaWppbmci&quot;</span><span class="p">,</span> <span class="c1"># 关键词</span>
+            <span class="s2">&quot;scan_page&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+            <span class="s2">&quot;scan_interval_min&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="c1"># 扫描频率 | 1:每天, 2:每周, 3:每月</span>
+            <span class="s2">&quot;store_type&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="c1"># 扫描类型 | 1:记录文件的每个版本, 2:一个文件只记录一次, 3:一个仓库只记录一次</span>
+            <span class="s2">&quot;remark&quot;</span><span class="p">:</span> <span class="s2">&quot;备注&quot;</span><span class="p">,</span> <span class="c1"># 备注</span>
+            <span class="s2">&quot;last_scan_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-09-14 10:49:00&quot;</span><span class="p">,</span> <span class="c1"># 最后扫描时间</span>
+            <span class="s2">&quot;curr_page&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="s2">&quot;job_state&quot;</span><span class="p">:</span> <span class="n">true</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h2>源代码策略-新增<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>POST /api/mgxx/code/job/</p></li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;job_name&quot;</span><span class="p">:</span> <span class="s2">&quot;qq2&quot;</span><span class="p">,</span> <span class="c1"># 策略名 | str | 必填</span>
+    <span class="s2">&quot;query&quot;</span><span class="p">:</span> <span class="s2">&quot;dGl0bGU9ImJlaWppbmci&quot;</span><span class="p">,</span> <span class="c1"># 关键词 | str(base64编码) | 必填</span>
+    <span class="s2">&quot;scan_interval_min&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>  <span class="c1"># 扫描频率 | int | 必填 | 1:每天, 2:每周, 3:每月</span>
+    <span class="s2">&quot;store_type&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="c1"># 扫描类型  | int | 必填 | 1:记录文件的每个版本, 2:一个文件只记录一次, 3:一个仓库只记录一次</span>
+    <span class="s2">&quot;remark&quot;</span><span class="p">:</span> <span class="s2">&quot;qq33d&quot;</span> <span class="c1"># 备注 | str | 选填</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s2">&quot;success&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+        <span class="s2">&quot;insert_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-09-16 14:40:52&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;update_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-09-16 14:40:52&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;job_name&quot;</span><span class="p">:</span> <span class="s2">&quot;qq3&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;query&quot;</span><span class="p">:</span> <span class="s2">&quot;dGl0bGU9ImJlaWppbmci&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;scan_page&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+        <span class="s2">&quot;scan_interval_min&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;store_type&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;remark&quot;</span><span class="p">:</span> <span class="s2">&quot;备注&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;last_scan_at&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+        <span class="s2">&quot;curr_page&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;job_state&quot;</span><span class="p">:</span> <span class="n">true</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;新增成功!&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h2>源代码策略-更新<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>PUT /api/mgxx/code/job/&lt;(?P&lt;pk&gt;[0-9]+)&gt;/</p></li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;job_name&quot;</span><span class="p">:</span> <span class="s2">&quot;qq2&quot;</span><span class="p">,</span> <span class="c1"># 策略名 | str | 选填</span>
+    <span class="s2">&quot;query&quot;</span><span class="p">:</span> <span class="s2">&quot;dGl0bGU9ImJlaWppbmci&quot;</span><span class="p">,</span> <span class="c1"># 关键词 | str(base64编码) | 选填</span>
+    <span class="s2">&quot;scan_interval_min&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>  <span class="c1"># 扫描频率 | int | 选填 | 1:每天, 2:每周, 3:每月</span>
+    <span class="s2">&quot;store_type&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="c1"># 扫描类型  | int | 选填 | 1:记录文件的每个版本, 2:一个文件只记录一次, 3:一个仓库只记录一次</span>
+    <span class="s2">&quot;remark&quot;</span><span class="p">:</span> <span class="s2">&quot;qq33d&quot;</span> <span class="c1"># 备注 | str | 选填</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s2">&quot;success&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+        <span class="s2">&quot;insert_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-09-14 10:50:07&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;update_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-09-16 14:42:35&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;job_name&quot;</span><span class="p">:</span> <span class="s2">&quot;大数据&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;query&quot;</span><span class="p">:</span> <span class="s2">&quot;dGl0bGU9ImJlaWppbmci&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;scan_page&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+        <span class="s2">&quot;scan_interval_min&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;store_type&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="s2">&quot;remark&quot;</span><span class="p">:</span> <span class="s2">&quot;备注😮😮😮&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;last_scan_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-09-14 10:49:00&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;curr_page&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="s2">&quot;job_state&quot;</span><span class="p">:</span> <span class="n">true</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;更新成功！&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h2>源代码策略-删除/批量删除<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>DELETE /api/mgxx/code/job/multiple_del/</p></li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;ids&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">9</span><span class="p">],</span>  <span class="c1">#  ids | list | 必填</span>
+    <span class="s2">&quot;del_all&quot;</span><span class="p">:</span> <span class="n">false</span> <span class="c1"># 删除策略/删除策略和告警 | bool | 必填 | false:删除策略, 删除策略和告警:true</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s2">&quot;success&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;删除成功&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="github-token">
+<h2>源代码github token-列表<a class="headerlink" href="#github-token" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>GET /api/mgxx/code/github_token/?page_size=1</p></li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;count&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">&quot;next&quot;</span><span class="p">:</span> <span class="s2">&quot;http://127.0.0.1:8000/api/mgxx/code/github_token/?page=2&amp;page_size=1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;previous&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;results&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="s2">&quot;insert_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-09-07 15:13:49&quot;</span><span class="p">,</span> <span class="c1"># 插入时候</span>
+            <span class="s2">&quot;update_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-10-12 14:17:03&quot;</span><span class="p">,</span> <span class="c1"># 更新时间</span>
+            <span class="s2">&quot;token&quot;</span><span class="p">:</span> <span class="s2">&quot;ghp_gUwpYpj7GQmfgTpqFKblo0hsyopA6O4V8Ap2&quot;</span><span class="p">,</span> <span class="c1"># token</span>
+            <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;异常&quot;</span><span class="p">,</span> <span class="c1"># token 上次状态  状态为未知时不显示 token限制信息</span>
+            <span class="s2">&quot;rate_limit&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="c1"># token限制信息</span>
+                <span class="s2">&quot;used&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="c1"># 已使用</span>
+                <span class="s2">&quot;limit&quot;</span><span class="p">:</span> <span class="mi">5000</span><span class="p">,</span> <span class="c1"># 限制总数量</span>
+                <span class="s2">&quot;reset&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span> <span class="c1"># 重置时间</span>
+                <span class="s2">&quot;remaining&quot;</span><span class="p">:</span> <span class="mi">5000</span> <span class="c1"># 剩余数量</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;remark&quot;</span><span class="p">:</span> <span class="s2">&quot;备注&quot;</span><span class="p">,</span> <span class="c1"># 备注</span>
+            <span class="s2">&quot;error_message&quot;</span><span class="p">:</span> <span class="s2">&quot;401 {</span><span class="se">\&quot;</span><span class="s2">message</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">Bad credentials</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">documentation_url</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">https://docs.github.com/rest</span><span class="se">\&quot;</span><span class="s2">}&quot;</span> <span class="c1"># 异常信息</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h2>源代码github token-新增<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>POST /api/mgxx/code/github_token/</p></li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+     <span class="s2">&quot;token&quot;</span><span class="p">:</span> <span class="s2">&quot;ghp_gUwpYpj7GQmfgTpqFKblo0hsyopA6O4V8Ap3&quot;</span><span class="p">,</span> <span class="c1"># token | str | 必填 | 长度为固定长度40</span>
+    <span class="s2">&quot;remark&quot;</span><span class="p">:</span> <span class="s2">&quot;备注&quot;</span> <span class="c1"># 备注 | str | 选填</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s2">&quot;success&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+        <span class="s2">&quot;insert_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-10-13 10:39:50&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;update_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-10-13 10:39:50&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;token&quot;</span><span class="p">:</span> <span class="s2">&quot;ghp_gUwpYpj7GQmfgTpqFKblo0hsyopA6O4V8Ap3&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;未知&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;rate_limit&quot;</span><span class="p">:</span> <span class="p">{},</span>
+        <span class="s2">&quot;remark&quot;</span><span class="p">:</span> <span class="s2">&quot;备注&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;error_message&quot;</span><span class="p">:</span> <span class="n">null</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;新增成功!&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id8">
+<h2>源代码github token-更新<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>PUT /api/mgxx/code/github_token/&lt;(?P&lt;pk&gt;[0-9]+)&gt;/</p></li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+      <span class="s2">&quot;token&quot;</span><span class="p">:</span> <span class="s2">&quot;ghp_gUwpYpj7GQmfgTpqFKblo0hsyopA6O4V8Ap3&quot;</span><span class="p">,</span> <span class="c1"># token | str | 选填 | 长度为固定长度40</span>
+     <span class="s2">&quot;remark&quot;</span><span class="p">:</span> <span class="s2">&quot;备注&quot;</span> <span class="c1"># 备注 | str | 选填</span>
+ <span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s2">&quot;success&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+        <span class="s2">&quot;insert_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-10-13 10:39:50&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;update_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-10-13 13:58:39&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;token&quot;</span><span class="p">:</span> <span class="s2">&quot;ghp_gUwpYpj7GQmfgTpqFKblo0hsyopA6O4V8Ap5&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;未知&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;rate_limit&quot;</span><span class="p">:</span> <span class="p">{},</span>
+        <span class="s2">&quot;remark&quot;</span><span class="p">:</span> <span class="s2">&quot;备注2&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;error_message&quot;</span><span class="p">:</span> <span class="n">null</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;更新成功！&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id9">
+<h2>源代码github token-删除<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>DELETE /api/mgxx/code/github_token/&lt;(?P&lt;pk&gt;[0-9]+)&gt;/</p></li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s2">&quot;success&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;删除成功！&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Hvv工具箱</a></h1>
+
+
+
+
+
+
+
+
+<h3>导航</h3>
+<p class="caption"><span class="caption-text">数据提供:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../providedata/xtb_tags.html">批量查询微步标签(包含微步用户信息)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">知识库:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../knowledge/loophole.html">漏洞库</a></li>
+</ul>
+<p class="caption"><span class="caption-text">主动式网站安全监测工具:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../webmonitor/baseinfo.html">监控对象配置(基础信息)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../webmonitor/detailinfo.html">监控日志(详细信息)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../webmonitor/badinfo.html">不良信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../webmonitor/webhook.html">推送到钉钉配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../webmonitor/email.html">推送到邮件配置</a></li>
+</ul>
+<p class="caption"><span class="caption-text">敏感信息:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">总览</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../icp/icp.html">未备案检测</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../icp/job.html">未备案策略</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../icp/white.html">未备案白名单</a></li>
+<li class="toctree-l1"><a class="reference internal" href="code.html">源代码检测</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">源代码策略</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">源代码策略-列表</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">源代码策略-新增</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">源代码策略-更新</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">源代码策略-删除/批量删除</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#github-token">源代码github token-列表</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">源代码github token-新增</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">源代码github token-更新</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id9">源代码github token-删除</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="white.html">源代码白名单</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sys/event.html">系统设置</a></li>
+</ul>
+<p class="caption"><span class="caption-text">用户管理:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../rbac/role.html">角色管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rbac/user.html">用户管理</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="code.html" title="上一章">源代码检测</a></li>
+      <li>Next: <a href="white.html" title="下一章">源代码白名单</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, W_OOD.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../_sources/api/mgxx/code/job.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

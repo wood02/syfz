@@ -1,0 +1,5 @@
+docker_env/db/data
+docker_env/db/log
+backend/AAAAA-本地测试
+backend/toolset_default
+backend/.idea

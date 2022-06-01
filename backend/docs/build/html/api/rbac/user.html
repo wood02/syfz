@@ -1,0 +1,379 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>用户管理 &#8212; Hvv工具箱  文档</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="prev" title="角色管理" href="role.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="id1">
+<h1>用户管理<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2>新建用户<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>POST api/user/</p></li>
+<li><p>注意事项:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">1.</span><span class="n">添加的时候只支持单个添加</span>
+<span class="mf">2.</span><span class="n">可以添加多个角色</span>
+</pre></div>
+</div>
+</li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;nick_name&quot;</span><span class="p">:</span><span class="s2">&quot;test3&quot;</span><span class="p">,</span>  <span class="c1"># 用户名  | str | 必填 |</span>
+    <span class="s2">&quot;cipher&quot;</span><span class="p">:</span><span class="s2">&quot;123456&quot;</span><span class="p">,</span>  <span class="c1"># 密码  | str | 必填 |</span>
+    <span class="s2">&quot;phone&quot;</span><span class="p">:</span><span class="s2">&quot;13012568945&quot;</span><span class="p">,</span>  <span class="c1"># 手机号码 | str | 必填 |</span>
+    <span class="s2">&quot;unit&quot;</span><span class="p">:</span><span class="mi">7</span><span class="p">,</span>  <span class="c1">#  所属单位  | int | 选填 |</span>
+    <span class="s2">&quot;role&quot;</span><span class="p">:[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># 角色列表  | list | 必填 | 1:审计管理管理员 2:普通管理员 3:普通用户 | 列表长度为1 为1,2,3 其中一个success:[1],[2]  error:[1,2]</span>
+    <span class="n">先使用</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">进行测试</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;添加成功&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>查看用户<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>GET api/user/</p></li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;test3&quot;</span><span class="p">,</span>  <span class="c1"># 用户名  | str | 选填 |</span>
+    <span class="s2">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>  <span class="c1"># 状态  | str | 选填 | 1:启用,0:停用 |</span>
+    <span class="s2">&quot;phone&quot;</span><span class="p">:</span><span class="s2">&quot;13012568945&quot;</span><span class="p">,</span>  <span class="c1"># 手机号码 | str | 选填 |</span>
+    <span class="s2">&quot;role&quot;</span><span class="p">:[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># 角色列表  | list | 选填 | 1:审计管理管理员 2:普通管理员 3:普通用户</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+            <span class="s2">&quot;nick_name&quot;</span><span class="p">:</span> <span class="s2">&quot;test4&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cst_update&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-09-02 15:30:32&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;phone&quot;</span><span class="p">:</span> <span class="s2">&quot;13012568945&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;unit&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+                <span class="s2">&quot;unit_name&quot;</span><span class="p">:</span> <span class="s2">&quot;浙江公司&quot;</span>
+            <span class="p">},</span>
+            <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+                    <span class="s2">&quot;role_name&quot;</span><span class="p">:</span> <span class="s2">&quot;测试角色-添加&quot;</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h2>编辑用户<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>PATCH api/user/{id}/</p></li>
+<li><p>注意事项:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">1.</span><span class="n">添加的时候只支持单个编辑</span>
+<span class="mf">2.</span><span class="n">url的id参数代表要编辑的用户id</span>
+</pre></div>
+</div>
+</li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;nick_name&quot;</span><span class="p">:</span> <span class="s2">&quot;cgs&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;cst_update&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-31 15:08:28&quot;</span><span class="p">,</span>  <span class="c1"># 更新时间</span>
+    <span class="s2">&quot;phone&quot;</span><span class="p">:</span> <span class="s2">&quot;13012568945&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;unit&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+    <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;编辑成功&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h2>删除用户<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>DELETE api/user/{id}/</p></li>
+<li><p>注意事项:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">1.</span><span class="n">添加的时候只支持单个删除</span>
+<span class="mf">2.</span><span class="n">url的id参数代表要删除的用户id</span>
+</pre></div>
+</div>
+</li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">无</span>
+</pre></div>
+</div>
+</li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;删除成功&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h2>编辑用户<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>PATCH api/user/{id}/</p></li>
+<li><p>注意事项:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">1.</span><span class="n">添加的时候只支持单个编辑</span>
+<span class="mf">2.</span><span class="n">url的id参数代表要编辑的用户id</span>
+</pre></div>
+</div>
+</li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;nick_name&quot;</span><span class="p">:</span> <span class="s2">&quot;cgs&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;cst_update&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-31 15:08:28&quot;</span><span class="p">,</span>  <span class="c1"># 更新时间</span>
+    <span class="s2">&quot;phone&quot;</span><span class="p">:</span> <span class="s2">&quot;13012568945&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;unit&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+    <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;编辑成功&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h2>重置密码<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>POST api/user/reset/</p></li>
+<li><p>注意事项:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">1.</span><span class="n">可以传多个用户id</span>
+</pre></div>
+</div>
+</li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;ids&quot;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>  <span class="c1"># 要重置的用户id}</span>
+</pre></div>
+</div>
+</li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;重置成功&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id8">
+<h2>用户数据-数据导出<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>GET /api/user/export/</p></li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;ids&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span> <span class="c1"># 要导出的ids | str | 选填 | 无此参数导出搜索数据,可加搜索参数, 有则导出指定数据 | id 按照,分割</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;test3&quot;</span><span class="p">,</span>  <span class="c1"># 用户名  | str | 选填 |</span>
+    <span class="s2">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>  <span class="c1"># 状态  | str | 选填 | 1:启用,0:停用 |</span>
+    <span class="s2">&quot;phone&quot;</span><span class="p">:</span><span class="s2">&quot;13012568945&quot;</span><span class="p">,</span>  <span class="c1"># 手机号码 | str | 选填 |</span>
+    <span class="s2">&quot;role&quot;</span><span class="p">:[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># 角色列表  | list | 选填 | 1:管理员 2:普通用户</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id9">
+<h2>个人中心-修改密码<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>POST /api/user/change_pwd/</p></li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+     <span class="s2">&quot;old_pwd&quot;</span><span class="p">:</span> <span class="s2">&quot;f123123&quot;</span><span class="p">,</span>  <span class="c1"># 旧密码  | str | 必填 |</span>
+     <span class="s2">&quot;new_pwd&quot;</span><span class="p">:</span> <span class="s2">&quot;a123123&quot;</span><span class="p">,</span>  <span class="c1"># 用户名  | str | 必填 | 必须包含大写或小写字母和数字的组合，可以使用特殊字符，长度在6-20之间，不能包含空格</span>
+     <span class="s2">&quot;confirm_new_pwd&quot;</span><span class="p">:</span> <span class="s2">&quot;a123123&quot;</span>  <span class="c1"># 用户名  | str | 必填 |</span>
+ <span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;修改成功&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Hvv工具箱</a></h1>
+
+
+
+
+
+
+
+
+<h3>导航</h3>
+<p class="caption"><span class="caption-text">数据提供:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../providedata/xtb_tags.html">批量查询微步标签(包含微步用户信息)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">知识库:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../knowledge/loophole.html">漏洞库</a></li>
+</ul>
+<p class="caption"><span class="caption-text">主动式网站安全监测工具:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../webmonitor/baseinfo.html">监控对象配置(基础信息)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../webmonitor/detailinfo.html">监控日志(详细信息)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../webmonitor/badinfo.html">不良信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../webmonitor/webhook.html">推送到钉钉配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../webmonitor/email.html">推送到邮件配置</a></li>
+</ul>
+<p class="caption"><span class="caption-text">敏感信息:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../mgxx/index.html">总览</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mgxx/icp/icp.html">未备案检测</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mgxx/icp/job.html">未备案策略</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mgxx/icp/white.html">未备案白名单</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mgxx/code/code.html">源代码检测</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mgxx/code/job.html">源代码策略</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mgxx/code/white.html">源代码白名单</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mgxx/sys/event.html">系统设置</a></li>
+</ul>
+<p class="caption"><span class="caption-text">用户管理:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="role.html">角色管理</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">用户管理</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">新建用户</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">查看用户</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">编辑用户</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">删除用户</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">编辑用户</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">重置密码</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">用户数据-数据导出</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id9">个人中心-修改密码</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="role.html" title="上一章">角色管理</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, W_OOD.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/api/rbac/user.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

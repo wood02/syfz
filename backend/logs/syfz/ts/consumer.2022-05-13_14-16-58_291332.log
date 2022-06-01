@@ -1,0 +1,320 @@
+2022-05-13 14:23:25.642 | consumer.py 90 | ERROR | 连接异常，重新连接
+2022-05-13 14:23:27.391 | consumer.py 90 | ERROR | 连接异常，重新连接
+2022-05-13 14:23:28.645 | consumer.py 90 | ERROR | 连接异常，重新连接
+2022-05-13 14:23:31.294 | consumer.py 90 | ERROR | 连接异常，重新连接
+2022-05-13 14:23:34.130 | consumer.py 90 | ERROR | 连接异常，重新连接
+2022-05-13 14:23:38.480 | consumer.py 90 | ERROR | 连接异常，重新连接
+2022-05-13 14:23:39.861 | consumer.py 90 | ERROR | 连接异常，重新连接
+2022-05-13 14:23:44.389 | consumer.py 90 | ERROR | 连接异常，重新连接
+2022-05-13 14:23:48.778 | consumer.py 90 | ERROR | 连接异常，重新连接
+2022-05-13 14:23:52.657 | consumer.py 90 | ERROR | 连接异常，重新连接
+2022-05-13 14:23:56.267 | consumer.py 90 | ERROR | 连接异常，重新连接
+2022-05-13 14:23:58.074 | consumer.py 90 | ERROR | 连接异常，重新连接
+2022-05-13 14:24:03.012 | consumer.py 90 | ERROR | 连接异常，重新连接
+2022-05-13 14:24:06.956 | consumer.py 90 | ERROR | 连接异常，重新连接
+2022-05-13 14:30:11.828 | consumer.py 42 | INFO | received new message for - topic_new_scan_server
+2022-05-13 14:30:11.829 | consumer.py 90 | ERROR | 连接异常，重新连接
+2022-05-13 14:31:56.103 | consumer.py 44 | INFO | received new message for - topic_new_scan_server
+2022-05-13 14:31:56.103 | consumer.py 95 | ERROR | 异常，重新连接
+2022-05-13 14:32:25.440 | consumer.py 44 | INFO | received new message for - topic_new_scan_server
+2022-05-13 14:32:25.441 | consumer.py 95 | ERROR | 异常：'status'
+2022-05-13 14:33:37.393 | consumer.py 44 | INFO | Received new message for - topic_new_scan_server
+2022-05-13 14:33:37.393 | consumer.py 95 | ERROR | 异常：'status'
+2022-05-13 14:33:55.171 | consumer.py 44 | INFO | Received new message for - topic_new_scan_server
+2022-05-13 14:34:10.465 | consumer.py 44 | INFO | Received new message for - topic_new_scan_server
+2022-05-13 14:35:15.770 | consumer.py 44 | INFO | Received new message for - topic_new_scan_server
+2022-05-13 14:36:34.487 | consumer.py 45 | INFO | Received new message for - topic_new_scan_server
+2022-05-13 14:36:34.487 | consumer.py 97 | ERROR | 数据存储异常：Expecting value: line 1 column 1 (char 0)
+2022-05-13 14:36:43.309 | consumer.py 45 | INFO | Received new message for - topic_new_scan_server
+2022-05-13 14:36:43.309 | consumer.py 97 | ERROR | 数据存储异常：Expecting value: line 1 column 1 (char 0)
+2022-05-13 14:37:10.213 | consumer.py 45 | INFO | Received new message for - topic_new_scan_server
+2022-05-13 14:37:10.213 | consumer.py 97 | ERROR | 数据存储异常：Expecting value: line 1 column 1 (char 0)
+2022-05-13 14:38:45.055 | consumer.py 45 | INFO | Received new message for - topic_new_scan_server
+2022-05-13 14:38:45.056 | consumer.py 97 | ERROR | 数据存储异常：Expecting value: line 1 column 1 (char 0)
+2022-05-13 14:39:19.733 | consumer.py 45 | INFO | Received new message for - topic_new_scan_server
+2022-05-13 14:39:19.733 | consumer.py 99 | ERROR | 异常：Expecting value: line 1 column 1 (char 0)
+2022-05-13 14:40:19.532 | consumer.py 45 | INFO | Received new message for - topic_new_scan_server
+2022-05-13 14:40:19.533 | consumer.py 99 | ERROR | 异常：Expecting value: line 1 column 1 (char 0)
+2022-05-13 14:41:37.654 | consumer.py 45 | INFO | Received new message for - topic_new_scan_server
+2022-05-13 14:42:24.635 | consumer.py 45 | INFO | Received new message for - topic_new_scan_server
+2022-05-13 14:42:24.636 | consumer.py 53 | WARNING | Saving to DB
+2022-05-13 14:42:24.636 | consumer.py 61 | ERROR | 数据存储异常：Expecting value: line 1 column 1 (char 0)
+2022-05-13 14:42:48.313 | consumer.py 45 | INFO | Received new message for - topic_new_scan_server
+2022-05-13 14:42:48.314 | consumer.py 46 | WARNING | Received b'dadsa'
+2022-05-13 14:42:48.314 | consumer.py 53 | WARNING | Saving to DB
+2022-05-13 14:42:48.314 | consumer.py 61 | ERROR | 数据存储异常：Expecting value: line 1 column 1 (char 0)
+2022-05-13 14:43:27.598 | consumer.py 45 | INFO | Received new message for - topic_new_scan_server
+2022-05-13 14:43:27.598 | consumer.py 47 | WARNING | Received 'dadsa'
+2022-05-13 14:43:27.598 | consumer.py 52 | WARNING | Saving to DB
+2022-05-13 14:43:27.598 | consumer.py 60 | ERROR | 数据存储异常：Expecting value: line 1 column 1 (char 0)
+2022-05-13 14:44:01.522 | consumer.py 45 | INFO | Received new message for - topic_new_scan_server
+2022-05-13 14:44:01.523 | consumer.py 47 | WARNING | Received 'dadsa'
+2022-05-13 14:44:01.523 | consumer.py 52 | WARNING | Saving to DB
+2022-05-13 14:44:01.523 | consumer.py 60 | ERROR | 数据存储异常：Expecting value: line 1 column 1 (char 0)
+2022-05-13 14:44:15.839 | consumer.py 45 | INFO | Received new message for - topic_new_scan_server
+2022-05-13 14:44:15.839 | consumer.py 47 | WARNING | Received 'dadsa'
+2022-05-13 14:44:15.839 | consumer.py 52 | WARNING | Saving to DB
+2022-05-13 14:44:15.840 | consumer.py 60 | ERROR | 数据存储异常：Expecting value: line 1 column 1 (char 0)
+2022-05-13 14:44:41.003 | consumer.py 45 | INFO | Received new message for - topic_new_scan_server
+2022-05-13 14:44:41.004 | consumer.py 47 | WARNING | Received 'dadsa'
+2022-05-13 14:44:41.004 | consumer.py 52 | WARNING | Saving to DB
+2022-05-13 14:44:41.004 | consumer.py 60 | ERROR | 数据存储异常：Expecting value: line 1 column 1 (char 0)
+2022-05-13 14:45:12.869 | consumer.py 70 | WARNING | Waiting for data for queue_new_scan_server. To exit press CTRL+C
+2022-05-13 14:45:14.858 | consumer.py 45 | INFO | Received new message for - topic_new_scan_server
+2022-05-13 14:45:14.858 | consumer.py 47 | WARNING | Received 'dadsa'
+2022-05-13 14:45:14.858 | consumer.py 52 | WARNING | Saving to DB
+2022-05-13 14:45:14.858 | consumer.py 60 | ERROR | 数据存储异常：Expecting value: line 1 column 1 (char 0)
+2022-05-13 14:45:52.940 | consumer.py 70 | WARNING | Waiting for data for queue_new_scan_server. To exit press CTRL+C
+2022-05-13 14:46:03.760 | consumer.py 94 | ERROR | 异常：(320, "CONNECTION_FORCED - broker forced connection closure with reason 'shutdown'")
+2022-05-13 14:46:24.592 | consumer.py 94 | ERROR | 异常：
+2022-05-13 14:46:28.479 | consumer.py 94 | ERROR | 异常：
+2022-05-13 14:46:31.801 | consumer.py 94 | ERROR | 异常：
+2022-05-13 14:46:35.824 | consumer.py 94 | ERROR | 异常：
+2022-05-13 14:46:38.306 | consumer.py 94 | ERROR | 连接异常，重新连接：
+2022-05-13 14:46:41.777 | consumer.py 94 | ERROR | 连接异常，重新连接：
+2022-05-13 14:46:46.617 | consumer.py 94 | ERROR | 连接异常，重新连接：
+2022-05-13 14:46:49.036 | consumer.py 94 | ERROR | 连接异常，重新连接：
+2022-05-13 14:46:51.277 | consumer.py 94 | ERROR | 连接异常，重新连接：
+2022-05-13 14:46:53.490 | consumer.py 94 | ERROR | 连接异常，重新连接：
+2022-05-13 14:46:55.870 | consumer.py 94 | ERROR | 连接异常，重新连接：StreamLostError: ('Transport indicated EOF',)
+2022-05-13 14:47:00.770 | consumer.py 94 | ERROR | 连接异常，重新连接：StreamLostError: ('Transport indicated EOF',)
+2022-05-13 14:47:04.043 | consumer.py 70 | WARNING | Waiting for data for queue_new_scan_server. To exit press CTRL+C
+2022-05-13 14:47:34.884 | consumer.py 70 | WARNING | 已连接，Waiting for data for queue_new_scan_server. To exit press CTRL+C
+2022-05-13 14:48:21.670 | consumer.py 70 | WARNING | 已连接，Waiting for [ queue_new_scan_server ]
+2022-05-13 14:48:29.395 | consumer.py 70 | WARNING | 已连接， Waiting for [ queue_new_scan_server ]
+2022-05-13 14:48:52.102 | consumer.py 70 | WARNING | 已连接， Waiting for queue: [ queue_new_scan_server ]
+2022-05-13 14:49:38.138 | consumer.py 45 | INFO | Received new message for - topic_new_scan_server
+2022-05-13 14:49:38.141 | consumer.py 47 | WARNING | Received 'dadsa'
+2022-05-13 14:49:38.141 | consumer.py 52 | WARNING | Saving to DB
+2022-05-13 14:49:38.141 | consumer.py 60 | ERROR | 数据存储异常：Expecting value: line 1 column 1 (char 0)
+2022-05-13 14:49:54.691 | consumer.py 45 | INFO | Received new message for - topic_new_scan_server
+2022-05-13 14:49:54.692 | consumer.py 47 | WARNING | Received '{"status": 1, "data": {"target": "124.221.154.4", "assets": [{"port": 58000, "service": "http"}, {"port": 22, "service": "ssh"}], "assetinfo": {"http": [{"port": 58000, "service": "http", "protocol": "tcp", "title": "\\u00e9\\u00bb\\u0098\\u00e8\\u00ae\\u00a4\\u00e7\\u00ab\\u0099\\u00e7\\u0082\\u00b9\\u00ef\\u00bc\\u0081", "finger": {"middleware": [{"type": "middleware", "name": "Nginx"}], "fingers": []}, "dirs": [], "phpmyadmin": {}, "scan_time": "2022-04-29 10:31:46"}], "weakpass": [], "vul": [{"url": " http://124.221.154.4:58000 ", "name": " XXXX SQL\\u6ce8\\u5165\\u6f0f\\u6d1e PoC ", "cve_id": "", "component": "   Drupal  ", "version": "   7.x   ", "status": " success ", "scan_time": "2022-04-29 10:33:39"}]}}, "msg": "success"}'
+2022-05-13 14:49:54.692 | consumer.py 52 | WARNING | Saving to DB
+2022-05-13 14:50:49.995 | consumer.py 70 | WARNING | 已连接， Waiting for queue: [ queue_new_scan_server ]
+2022-05-13 14:50:52.859 | consumer.py 45 | INFO | Received new message from - topic_new_scan_server
+2022-05-13 14:50:52.859 | consumer.py 47 | WARNING | Received '{"status": 1, "data": {"target": "124.221.154.4", "assets": [{"port": 58000, "service": "http"}, {"port": 22, "service": "ssh"}], "assetinfo": {"http": [{"port": 58000, "service": "http", "protocol": "tcp", "title": "\\u00e9\\u00bb\\u0098\\u00e8\\u00ae\\u00a4\\u00e7\\u00ab\\u0099\\u00e7\\u0082\\u00b9\\u00ef\\u00bc\\u0081", "finger": {"middleware": [{"type": "middleware", "name": "Nginx"}], "fingers": []}, "dirs": [], "phpmyadmin": {}, "scan_time": "2022-04-29 10:31:46"}], "weakpass": [], "vul": [{"url": " http://124.221.154.4:58000 ", "name": " XXXX SQL\\u6ce8\\u5165\\u6f0f\\u6d1e PoC ", "cve_id": "", "component": "   Drupal  ", "version": "   7.x   ", "status": " success ", "scan_time": "2022-04-29 10:33:39"}]}}, "msg": "success"}'
+2022-05-13 14:50:52.859 | consumer.py 52 | WARNING | Saving to DB
+2022-05-13 14:50:52.892 | consumer.py 58 | WARNING | Saved to DB
+2022-05-13 14:53:09.902 | consumer.py 71 | WARNING | 已连接， Waiting for queue: [ queue_new_scan_server ]
+2022-05-13 14:53:18.127 | consumer.py 45 | INFO | Received new message from - topic_new_scan_server
+2022-05-13 14:53:18.127 | consumer.py 47 | WARNING | Received '{"status": 1, "data": {"target": "124.221.154.4", "assets": [{"port": 58000, "service": "http"}, {"port": 22, "service": "ssh"}], "assetinfo": {"http": [{"port": 58000, "service": "http", "protocol": "tcp", "title": "\\u00e9\\u00bb\\u0098\\u00e8\\u00ae\\u00a4\\u00e7\\u00ab\\u0099\\u00e7\\u0082\\u00b9\\u00ef\\u00bc\\u0081", "finger": {"middleware": [{"type": "middleware", "name": "Nginx"}], "fingers": []}, "dirs": [], "phpmyadmin": {}, "scan_time": "2022-04-29 10:31:46"}], "weakpass": [], "vul": [{"url": " http://124.221.154.4:58000 ", "name": " XXXX SQL\\u6ce8\\u5165\\u6f0f\\u6d1e PoC ", "cve_id": "", "component": "   Drupal  ", "version": "   7.x   ", "status": " success ", "scan_time": "2022-04-29 10:33:39"}]}}, "msg": "success"}'
+2022-05-13 14:53:18.128 | consumer.py 52 | WARNING | Saving to DB
+2022-05-13 14:53:18.160 | consumer.py 59 | WARNING | Saved to DB
+2022-05-13 14:54:16.586 | consumer.py 45 | INFO | Received new message from - topic_new_scan_server
+2022-05-13 14:54:16.587 | consumer.py 47 | WARNING | Received '{"status": 1, "data": {"target": "124.221.154.4", "assets": [{"port": 58000, "service": "http"}, {"port": 22, "service": "ssh"}], "assetinfo": {"http": [{"port": 58000, "service": "http", "protocol": "tcp", "title": "\\u767e\\u5ea6\\u4e00\\u4e0b", "finger": {"middleware": [{"type": "middleware", "name": "Nginx"}], "fingers": []}, "dirs": [], "phpmyadmin": {}, "scan_time": "2022-04-29 10:31:46"}], "weakpass": [], "vul": [{"url": " http://124.221.154.4:58000 ", "name": " XXXX SQL PoC ", "cve_id": "", "component": "   Drupal  ", "version": "   7.x   ", "status": " success ", "scan_time": "2022-04-29 10:33:39"}]}}, "msg": "success"}'
+2022-05-13 14:54:16.587 | consumer.py 52 | WARNING | Saving to DB
+2022-05-13 14:54:16.608 | consumer.py 59 | WARNING | Saved to DB
+2022-05-13 14:58:17.329 | consumer.py 95 | ERROR | 连接异常，重新连接：(320, "CONNECTION_FORCED - broker forced connection closure with reason 'shutdown'")
+2022-05-13 14:58:21.432 | consumer.py 95 | ERROR | 连接异常，重新连接：StreamLostError: ('Transport indicated EOF',)
+2022-05-13 14:58:22.998 | consumer.py 95 | ERROR | 连接异常，重新连接：StreamLostError: ('Transport indicated EOF',)
+2022-05-13 14:58:24.286 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 14:58:27.259 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 14:58:28.690 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 14:58:31.352 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 14:58:36.218 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 14:58:40.198 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 14:58:42.230 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 14:58:45.528 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 14:58:49.108 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 14:58:50.222 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 14:58:55.043 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 14:58:57.944 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 14:59:00.812 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 14:59:02.131 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 14:59:06.192 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 14:59:07.589 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 14:59:12.552 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 14:59:14.689 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 14:59:17.887 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 14:59:18.931 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 14:59:22.816 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 14:59:27.781 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 14:59:31.746 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 14:59:33.345 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 14:59:36.627 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 14:59:40.227 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 14:59:43.371 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 14:59:47.015 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 14:59:48.715 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 14:59:50.603 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 14:59:54.687 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 14:59:58.888 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:00:00.606 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:00:04.731 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:00:07.713 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:00:12.707 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:00:16.673 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:00:18.303 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:00:22.804 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:00:26.895 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:00:30.085 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:00:33.281 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:00:37.748 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:00:42.276 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:00:45.172 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:00:47.313 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:00:51.692 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:00:56.027 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:01:00.906 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:01:02.797 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:01:05.666 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:01:06.921 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:01:11.392 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:01:15.358 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:01:18.308 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:01:20.227 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:01:23.827 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:01:27.401 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:01:30.703 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:01:33.220 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:01:36.784 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:01:39.735 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:01:42.278 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:01:46.263 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:01:49.476 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:01:53.349 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:01:56.405 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:02:01.267 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:02:02.973 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:02:06.261 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:02:10.279 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:02:14.761 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:02:17.349 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:02:20.588 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:02:24.482 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:02:29.100 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:02:33.888 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:02:34.943 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:02:37.870 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:02:39.868 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:02:43.558 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:02:44.688 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:02:47.170 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:02:51.238 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:02:53.875 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:02:58.102 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:03:00.028 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:03:04.738 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:03:07.017 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:03:10.608 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:03:14.853 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:03:15.891 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:03:18.048 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:03:21.274 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:03:22.965 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:03:27.609 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:03:30.860 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:03:32.584 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:03:37.277 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:03:41.227 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:03:42.563 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:03:47.372 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:03:50.800 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:03:54.778 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:03:58.660 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:04:02.299 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:04:04.135 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:04:08.747 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:04:12.374 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:04:16.528 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:04:21.235 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:04:22.507 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:04:26.590 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:04:31.247 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:04:33.394 | consumer.py 95 | ERROR | 连接异常，重新连接：StreamLostError: ('Transport indicated EOF',)
+2022-05-13 15:04:36.343 | consumer.py 95 | ERROR | 连接异常，重新连接：StreamLostError: ('Transport indicated EOF',)
+2022-05-13 15:04:39.460 | consumer.py 95 | ERROR | 连接异常，重新连接：StreamLostError: ('Transport indicated EOF',)
+2022-05-13 15:04:43.402 | consumer.py 95 | ERROR | 连接异常，重新连接：StreamLostError: ('Transport indicated EOF',)
+2022-05-13 15:04:47.076 | consumer.py 95 | ERROR | 连接异常，重新连接：StreamLostError: ('Transport indicated EOF',)
+2022-05-13 15:04:49.870 | consumer.py 95 | ERROR | 连接异常，重新连接：StreamLostError: ('Transport indicated EOF',)
+2022-05-13 15:04:52.282 | consumer.py 95 | ERROR | 连接异常，重新连接：StreamLostError: ('Transport indicated EOF',)
+2022-05-13 15:04:55.794 | consumer.py 95 | ERROR | 连接异常，重新连接：StreamLostError: ('Transport indicated EOF',)
+2022-05-13 15:04:57.368 | consumer.py 95 | ERROR | 连接异常，重新连接：StreamLostError: ('Transport indicated EOF',)
+2022-05-13 15:05:01.067 | consumer.py 71 | WARNING | 已连接， Waiting for queue: [ queue_new_scan_server ]
+2022-05-13 15:11:13.756 | consumer.py 95 | ERROR | 连接异常，重新连接：(320, "CONNECTION_FORCED - broker forced connection closure with reason 'shutdown'")
+2022-05-13 15:11:16.384 | consumer.py 95 | ERROR | 连接异常，重新连接：StreamLostError: ('Transport indicated EOF',)
+2022-05-13 15:11:18.008 | consumer.py 95 | ERROR | 连接异常，重新连接：StreamLostError: ('Transport indicated EOF',)
+2022-05-13 15:11:22.519 | consumer.py 95 | ERROR | 连接异常，重新连接：StreamLostError: ('Transport indicated EOF',)
+2022-05-13 15:11:25.752 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:11:29.271 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:11:33.291 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:11:35.889 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:11:38.313 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:11:39.599 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:11:44.367 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:11:48.056 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:11:52.333 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:11:55.654 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:11:57.955 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:11:58.975 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:12:02.415 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:12:05.318 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:12:06.704 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:12:10.243 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:12:12.306 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:12:16.413 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:12:20.767 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:12:24.381 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:12:28.722 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:12:30.049 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:12:34.700 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:12:38.818 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:12:40.175 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:12:44.481 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:12:45.901 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:12:50.364 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:12:53.632 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:12:58.025 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:13:02.943 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:13:04.144 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:13:08.196 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:13:12.512 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:13:16.148 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:13:18.330 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:13:21.704 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:13:26.532 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:13:28.434 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:13:30.086 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:13:31.157 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:13:32.685 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:13:37.474 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:13:40.520 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:13:41.848 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:13:43.214 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:13:46.585 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:13:48.942 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:13:53.880 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:13:58.203 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:14:01.044 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:14:05.898 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:14:07.250 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:14:08.492 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:14:12.054 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:14:16.033 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:14:19.288 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:14:21.614 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:14:23.670 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:14:26.051 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:14:30.383 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:14:34.271 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:14:39.015 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:14:42.284 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:14:46.976 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:14:49.252 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:14:53.201 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:14:55.910 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:15:00.118 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:15:02.556 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:15:04.210 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:15:06.630 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:15:10.366 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:15:13.230 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:15:17.988 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:15:20.915 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:15:24.968 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:15:26.097 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:15:28.069 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:15:32.544 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:15:35.535 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:15:37.246 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-13 15:22:27.188 | consumer.py 71 | WARNING | 已连接， Waiting for queue: [ queue_new_scan_server ] routing_key: [ topic_new_scan_server ]

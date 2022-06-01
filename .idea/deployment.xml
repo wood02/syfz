@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" autoUpload="Always" promptOnRemoteOverwrite="CHECK_CONTENT" serverName="124_syfz_docker" createEmptyFolders="true">
+    <serverData>
+      <paths name="124_syfz_docker">
+        <serverdata>
+          <mappings>
+            <mapping deploy="syfz_docker" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/backend/AAAAA-本地测试" />
+            <excludedPath local="true" path="$PROJECT_DIR$/backend/test" />
+            <excludedPath local="true" path="$PROJECT_DIR$/backend/doc" />
+            <excludedPath local="true" path="$PROJECT_DIR$/backend/toolset/hide" />
+            <excludedPath local="true" path="$PROJECT_DIR$/docker_env/db/data" />
+            <excludedPath local="true" path="$PROJECT_DIR$/docker_env/db/logs" />
+            <excludedPath local="true" path="$PROJECT_DIR$/docker_env/redis/data" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myAutoUpload" value="ALWAYS" />
+  </component>
+</project>

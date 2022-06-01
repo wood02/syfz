@@ -1,0 +1,36 @@
+{
+  "order": 3,
+  "identification": "syfz",
+  "is_public": true,
+  "name": "FOFA资产测绘",
+  "version": "1.0",
+  "description": "网络空间测绘搜索引擎。",
+  "type": "信息收集",
+  "action": [
+    {
+      "name": "搜索",
+      "func": "search"
+    }
+  ],
+  "args": {
+    "search": [
+      {
+        "key": "query",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "page",
+        "type": "number",
+        "required": true,
+        "default": 1
+      },
+      {
+        "key": "page_size",
+        "type": "number",
+        "required": true,
+        "default": 10
+      }
+    ]
+  }
+}

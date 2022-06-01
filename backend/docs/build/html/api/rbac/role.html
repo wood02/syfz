@@ -1,0 +1,352 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>角色管理 &#8212; Hvv工具箱  文档</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="用户管理" href="user.html" />
+    <link rel="prev" title="系统设置" href="../mgxx/sys/event.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="id1">
+<h1>角色管理<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2>新建角色<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>POST api/role/</p></li>
+<li><p>注意事项:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>1.添加的时候只支持单个添加
+2.permission参数为列表格式，列表内容为权限id
+3.添加所属权限时，列表里必须要带上所有需要放开的权限
+4.添加的权限必须为最后一个级别的权限
+</pre></div>
+</div>
+</li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;role_name&quot;</span><span class="p">:</span><span class="s2">&quot;单位管理员&quot;</span><span class="p">,</span>  <span class="c1"># 角色名称 | str | 必填 |</span>
+    <span class="s2">&quot;permission&quot;</span><span class="p">:[</span><span class="mi">30</span><span class="p">,</span><span class="mi">31</span><span class="p">]</span>  <span class="c1"># 权限列表 | list | 必填 |</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;创建成功&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>查看角色<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>GET api/role/</p></li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;单位管理员&quot;</span><span class="p">,</span>  <span class="c1"># 角色名称 | str | 选填 | 模糊匹配 |</span>
+ <span class="s2">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;1&quot;</span>  <span class="c1"># 状态 | str | 选填 | 1:启用，0:停用 |</span>
+ <span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+            <span class="s2">&quot;role_name&quot;</span><span class="p">:</span> <span class="s2">&quot;测试角色-添加&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;cst_update&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-09-02 11:07:39&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;permission&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="c1"># 权限id</span>
+                    <span class="s2">&quot;parent_id&quot;</span><span class="p">:</span> <span class="mi">23</span><span class="p">,</span>  <span class="c1"># 上级权限id</span>
+                    <span class="s2">&quot;permissions_name&quot;</span><span class="p">:</span> <span class="s2">&quot;查看用户&quot;</span>  <span class="c1"># 权限名称</span>
+                <span class="p">}</span>
+            <span class="p">],</span>
+            <span class="s2">&quot;user_count&quot;</span><span class="p">:</span> <span class="mi">0</span>  <span class="c1"># 使用当前角色的用户数量</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h2>编辑角色<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>PATCH api/role/{id}/</p></li>
+<li><p>注意事项:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>1.只支持单个编辑
+2.编辑所属权限时，列表里必须要带上所有需要放开的权限
+3.url的id参数代表要编辑的角色id
+</pre></div>
+</div>
+</li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+ <span class="s2">&quot;role_name&quot;</span><span class="p">:</span><span class="s2">&quot;测试角色-编辑&quot;</span><span class="p">,</span>  <span class="c1"># 角色名称 | str | 选填 | |</span>
+ <span class="s2">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>  <span class="c1"># 状态 | str | 选填 | 1:启用，0:停用 |</span>
+ <span class="s2">&quot;cst_update&quot;</span><span class="p">:</span><span class="s2">&quot;2021-08-31 16:06:35&quot;</span><span class="p">,</span>  <span class="c1"># 更新时间 | datetime | 选填 | 默认为更新时的当前时间 |</span>
+ <span class="s2">&quot;permission&quot;</span><span class="p">:[</span><span class="mi">25</span><span class="p">,</span><span class="mi">26</span><span class="p">,</span><span class="mi">27</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">29</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">31</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">33</span><span class="p">,</span><span class="mi">34</span><span class="p">]</span>  <span class="c1"># 权限列表 | list | 选填 |</span>
+ <span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;编辑成功&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;role_name&quot;</span><span class="p">:</span> <span class="s2">&quot;超级管理员&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;cst_update&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-08-31 16:06:35&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;permission&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="mi">25</span><span class="p">,</span>
+            <span class="mi">26</span><span class="p">,</span>
+            <span class="mi">27</span><span class="p">,</span>
+            <span class="mi">28</span><span class="p">,</span>
+            <span class="mi">29</span><span class="p">,</span>
+            <span class="mi">30</span><span class="p">,</span>
+            <span class="mi">31</span><span class="p">,</span>
+            <span class="mi">32</span><span class="p">,</span>
+            <span class="mi">33</span><span class="p">,</span>
+            <span class="mi">34</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h2>删除角色<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>DELETE api/role/{id}/</p></li>
+<li><p>注意事项:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>1.只支持单个删除
+2.删除角色时，如果角色有用户使用，则需要带上参数is_delete再请求，即可删除
+3.url的id参数代表要删除的角色id
+</pre></div>
+</div>
+</li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;is_delete&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;删除成功&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h2>查看权限<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>GET api/role/{id}/</p></li>
+<li><p>注意事项:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>1.只支持单个编辑
+2.编辑所属权限时，列表里必须要带上所有需要放开的权限
+</pre></div>
+</div>
+</li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">无</span>
+</pre></div>
+</div>
+</li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span><span class="p">,</span>
+<span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+<span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">24</span><span class="p">,</span>  <span class="c1"># 权限id</span>
+            <span class="s2">&quot;permissions_name&quot;</span><span class="p">:</span> <span class="s2">&quot;单位管理&quot;</span><span class="p">,</span>  <span class="c1"># 权限名称</span>
+            <span class="s2">&quot;p_id&quot;</span><span class="p">:</span> <span class="mi">19</span><span class="p">,</span>  <span class="c1"># 上级权限id</span>
+            <span class="s2">&quot;p_name&quot;</span><span class="p">:</span> <span class="s2">&quot;组织管理&quot;</span><span class="p">,</span>  <span class="c1"># 上级权限名称</span>
+            <span class="s2">&quot;children&quot;</span><span class="p">:</span> <span class="p">[</span>   <span class="c1"># 下级权限</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">31</span><span class="p">,</span>
+                    <span class="s2">&quot;permissions_name&quot;</span><span class="p">:</span> <span class="s2">&quot;新增单位&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;p_id&quot;</span><span class="p">:</span> <span class="mi">24</span><span class="p">,</span>
+                    <span class="s2">&quot;p_name&quot;</span><span class="p">:</span> <span class="s2">&quot;单位管理&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;children&quot;</span><span class="p">:</span> <span class="p">[]</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span>
+                    <span class="s2">&quot;permissions_name&quot;</span><span class="p">:</span> <span class="s2">&quot;查看单位&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;p_id&quot;</span><span class="p">:</span> <span class="mi">24</span><span class="p">,</span>
+                    <span class="s2">&quot;p_name&quot;</span><span class="p">:</span> <span class="s2">&quot;单位管理&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;children&quot;</span><span class="p">:</span> <span class="p">[]</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">33</span><span class="p">,</span>
+                    <span class="s2">&quot;permissions_name&quot;</span><span class="p">:</span> <span class="s2">&quot;编辑单位&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;p_id&quot;</span><span class="p">:</span> <span class="mi">24</span><span class="p">,</span>
+                    <span class="s2">&quot;p_name&quot;</span><span class="p">:</span> <span class="s2">&quot;单位管理&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;children&quot;</span><span class="p">:</span> <span class="p">[]</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">34</span><span class="p">,</span>
+                    <span class="s2">&quot;permissions_name&quot;</span><span class="p">:</span> <span class="s2">&quot;删除单位&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;p_id&quot;</span><span class="p">:</span> <span class="mi">24</span><span class="p">,</span>
+                    <span class="s2">&quot;p_name&quot;</span><span class="p">:</span> <span class="s2">&quot;单位管理&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;children&quot;</span><span class="p">:</span> <span class="p">[]</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Hvv工具箱</a></h1>
+
+
+
+
+
+
+
+
+<h3>导航</h3>
+<p class="caption"><span class="caption-text">数据提供:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../providedata/xtb_tags.html">批量查询微步标签(包含微步用户信息)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">知识库:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../knowledge/loophole.html">漏洞库</a></li>
+</ul>
+<p class="caption"><span class="caption-text">主动式网站安全监测工具:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../webmonitor/baseinfo.html">监控对象配置(基础信息)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../webmonitor/detailinfo.html">监控日志(详细信息)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../webmonitor/badinfo.html">不良信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../webmonitor/webhook.html">推送到钉钉配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../webmonitor/email.html">推送到邮件配置</a></li>
+</ul>
+<p class="caption"><span class="caption-text">敏感信息:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../mgxx/index.html">总览</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mgxx/icp/icp.html">未备案检测</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mgxx/icp/job.html">未备案策略</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mgxx/icp/white.html">未备案白名单</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mgxx/code/code.html">源代码检测</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mgxx/code/job.html">源代码策略</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mgxx/code/white.html">源代码白名单</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mgxx/sys/event.html">系统设置</a></li>
+</ul>
+<p class="caption"><span class="caption-text">用户管理:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">角色管理</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">新建角色</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">查看角色</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">编辑角色</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">删除角色</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">查看权限</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="user.html">用户管理</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../mgxx/sys/event.html" title="上一章">系统设置</a></li>
+      <li>Next: <a href="user.html" title="下一章">用户管理</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, W_OOD.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/api/rbac/role.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

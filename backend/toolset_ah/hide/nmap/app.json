@@ -1,0 +1,38 @@
+{
+  "identification": "syfz",
+  "is_public": true,
+  "name": "nmap",
+  "version": "1.0",
+  "description": "一款端口扫描工具",
+  "type": "安全扫描",
+  "action": [
+    {
+      "name": "端口扫描",
+      "func": "scan"
+    }
+  ],
+  "args": {
+    "scan": [
+      {
+        "key": "target",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "ports",
+        "type": "text",
+        "required": true
+      },
+      {
+        "key": "protocol",
+        "type": "select",
+        "required": true,
+        "default": "tcp",
+        "data": [
+          "tcp",
+          "udp"
+        ]
+      }
+    ]
+  }
+}

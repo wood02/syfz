@@ -1,0 +1,16 @@
+2022-05-18 08:19:44.548 | tasks.py 93 | WARNING | 3
+2022-05-18 08:19:44.551 | tasks.py 94 | WARNING | IP分析异常重试
+2022-05-18 08:19:46.665 | tasks.py 93 | WARNING | 3
+2022-05-18 08:19:46.674 | tasks.py 94 | WARNING | IP分析异常重试
+2022-05-18 08:19:47.622 | tasks.py 126 | WARNING | ip信誉异常重试
+2022-05-18 10:07:36.567 | tasks.py 93 | WARNING | 2
+2022-05-18 10:07:36.568 | tasks.py 94 | WARNING | IP分析异常重试
+2022-05-18 10:34:13.915 | tasks.py 126 | WARNING | ip信誉异常重试
+2022-05-18 10:34:15.967 | tasks.py 93 | WARNING | 3
+2022-05-18 10:34:15.968 | tasks.py 94 | WARNING | IP分析异常重试
+2022-05-18 10:34:16.903 | tasks.py 126 | WARNING | ip信誉异常重试
+2022-05-18 14:31:39.586 | tasks.py 126 | WARNING | ip信誉异常重试
+2022-05-18 14:31:40.629 | tasks.py 93 | WARNING | 3
+2022-05-18 14:31:40.630 | tasks.py 94 | WARNING | IP分析异常重试
+2022-05-18 14:31:41.702 | tasks.py 93 | WARNING | 3
+2022-05-18 14:31:41.702 | tasks.py 94 | WARNING | IP分析异常重试

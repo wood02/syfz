@@ -1,0 +1,254 @@
+源代码策略
+=========================================================
+
+说明
+--------------------------------------
+
+    1. API地址: http://47.114.129.62:18000
+    2. <(?P<pk>[0-9]+)> 在此代表id
+
+源代码策略-列表
+--------------------------------
+
+- GET /api/mgxx/code/job/?page=1&page_size=2
+- 请求参数::
+
+    {
+        "job_name": "名称" # 策略名 | str | 选填 | 支持模糊搜索
+        "remark": "备注" # 备注 | str | 选填 | 支持模糊搜索
+    }
+
+- 响应结果::
+
+    {
+        "count": 2,
+        "next": null,
+        "previous": null,
+        "results": [
+            {
+                "id": 7,
+                "insert_tm": "2021-09-14 10:50:07",
+                "update_tm": "2021-09-14 10:50:07",
+                "job_name": "qq3", # 策略名称
+                "query": "dGl0bGU9ImJlaWppbmci", # 关键词
+                "scan_page": 5,
+                "scan_interval_min": 1, # 扫描频率 | 1:每天, 2:每周, 3:每月
+                "store_type": 1, # 扫描类型 | 1:记录文件的每个版本, 2:一个文件只记录一次, 3:一个仓库只记录一次
+                "remark": "备注", # 备注
+                "last_scan_at": "2021-09-14 10:49:00", # 最后扫描时间
+                "curr_page": 2,
+                "job_state": true
+            }
+        ]
+    }
+
+
+源代码策略-新增
+----------------------------------------------------
+
+- POST /api/mgxx/code/job/
+
+- 请求参数::
+
+    {
+        "job_name": "qq2", # 策略名 | str | 必填
+        "query": "dGl0bGU9ImJlaWppbmci", # 关键词 | str(base64编码) | 必填
+        "scan_interval_min": 1,  # 扫描频率 | int | 必填 | 1:每天, 2:每周, 3:每月
+        "store_type": 1, # 扫描类型  | int | 必填 | 1:记录文件的每个版本, 2:一个文件只记录一次, 3:一个仓库只记录一次
+        "remark": "qq33d" # 备注 | str | 选填
+    }
+
+
+- 响应结果::
+
+    {
+        "code": 200,
+        "success": true,
+        "data": {
+            "id": 8,
+            "insert_tm": "2021-09-16 14:40:52",
+            "update_tm": "2021-09-16 14:40:52",
+            "job_name": "qq3",
+            "query": "dGl0bGU9ImJlaWppbmci",
+            "scan_page": 5,
+            "scan_interval_min": 1,
+            "store_type": 1,
+            "remark": "备注",
+            "last_scan_at": null,
+            "curr_page": 1,
+            "job_state": true
+        },
+        "message": "新增成功!"
+    }
+
+源代码策略-更新
+----------------------------------------------------
+
+- PUT /api/mgxx/code/job/<(?P<pk>[0-9]+)>/
+
+- 请求参数::
+
+    {
+        "job_name": "qq2", # 策略名 | str | 选填
+        "query": "dGl0bGU9ImJlaWppbmci", # 关键词 | str(base64编码) | 选填
+        "scan_interval_min": 1,  # 扫描频率 | int | 选填 | 1:每天, 2:每周, 3:每月
+        "store_type": 1, # 扫描类型  | int | 选填 | 1:记录文件的每个版本, 2:一个文件只记录一次, 3:一个仓库只记录一次
+        "remark": "qq33d" # 备注 | str | 选填
+    }
+
+
+- 响应结果::
+
+    {
+        "code": 200,
+        "success": true,
+        "data": {
+            "id": 7,
+            "insert_tm": "2021-09-14 10:50:07",
+            "update_tm": "2021-09-16 14:42:35",
+            "job_name": "大数据",
+            "query": "dGl0bGU9ImJlaWppbmci",
+            "scan_page": 5,
+            "scan_interval_min": 1,
+            "store_type": 3,
+            "remark": "备注😮😮😮",
+            "last_scan_at": "2021-09-14 10:49:00",
+            "curr_page": 2,
+            "job_state": true
+        },
+        "message": "更新成功！"
+    }
+
+
+
+源代码策略-删除/批量删除
+--------------------------------
+
+- DELETE /api/mgxx/code/job/multiple_del/
+- 请求参数::
+
+    {
+        "ids": [1,9],  #  ids | list | 必填
+        "del_all": false # 删除策略/删除策略和告警 | bool | 必填 | false:删除策略, 删除策略和告警:true
+
+    }
+
+- 响应结果::
+
+    {
+        "code": 200,
+        "success": true,
+        "data": [],
+        "message": "删除成功"
+    }
+
+
+
+源代码github token-列表
+--------------------------------
+
+- GET /api/mgxx/code/github_token/?page_size=1
+
+
+- 响应结果::
+
+    {
+        "count": 2,
+        "next": "http://127.0.0.1:8000/api/mgxx/code/github_token/?page=2&page_size=1",
+        "previous": null,
+        "results": [
+            {
+                "id": 2,
+                "insert_tm": "2021-09-07 15:13:49", # 插入时候
+                "update_tm": "2021-10-12 14:17:03", # 更新时间
+                "token": "ghp_gUwpYpj7GQmfgTpqFKblo0hsyopA6O4V8Ap2", # token
+                "status": "异常", # token 上次状态  状态为未知时不显示 token限制信息
+                "rate_limit": { # token限制信息
+                    "used": 0, # 已使用
+                    "limit": 5000, # 限制总数量
+                    "reset": null, # 重置时间
+                    "remaining": 5000 # 剩余数量
+                },
+                "remark": "备注", # 备注
+                "error_message": "401 {\"message\": \"Bad credentials\", \"documentation_url\": \"https://docs.github.com/rest\"}" # 异常信息
+            }
+        ]
+    }
+
+
+源代码github token-新增
+----------------------------------------------------
+
+- POST /api/mgxx/code/github_token/
+
+- 请求参数::
+
+    {
+         "token": "ghp_gUwpYpj7GQmfgTpqFKblo0hsyopA6O4V8Ap3", # token | str | 必填 | 长度为固定长度40
+        "remark": "备注" # 备注 | str | 选填
+    }
+
+
+- 响应结果::
+
+    {
+        "code": 200,
+        "success": true,
+        "data": {
+            "id": 4,
+            "insert_tm": "2021-10-13 10:39:50",
+            "update_tm": "2021-10-13 10:39:50",
+            "token": "ghp_gUwpYpj7GQmfgTpqFKblo0hsyopA6O4V8Ap3",
+            "status": "未知",
+            "rate_limit": {},
+            "remark": "备注",
+            "error_message": null
+        },
+        "message": "新增成功!"
+    }
+
+源代码github token-更新
+----------------------------------------------------
+
+- PUT /api/mgxx/code/github_token/<(?P<pk>[0-9]+)>/
+
+- 请求参数::
+
+   {
+         "token": "ghp_gUwpYpj7GQmfgTpqFKblo0hsyopA6O4V8Ap3", # token | str | 选填 | 长度为固定长度40
+        "remark": "备注" # 备注 | str | 选填
+    }
+
+
+- 响应结果::
+
+    {
+        "code": 200,
+        "success": true,
+        "data": {
+            "id": 4,
+            "insert_tm": "2021-10-13 10:39:50",
+            "update_tm": "2021-10-13 13:58:39",
+            "token": "ghp_gUwpYpj7GQmfgTpqFKblo0hsyopA6O4V8Ap5",
+            "status": "未知",
+            "rate_limit": {},
+            "remark": "备注2",
+            "error_message": null
+        },
+        "message": "更新成功！"
+    }
+
+
+源代码github token-删除
+----------------------------------------------------
+
+- DELETE /api/mgxx/code/github_token/<(?P<pk>[0-9]+)>/
+
+- 响应结果::
+
+    {
+        "code": 200,
+        "success": true,
+        "data": [],
+        "message": "删除成功！"
+    }

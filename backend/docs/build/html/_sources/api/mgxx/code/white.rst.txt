@@ -1,0 +1,131 @@
+源代码白名单
+=========================================================
+
+说明
+--------------------------------------
+
+    1. API地址: http://47.114.129.62:18000
+    2. <(?P<pk>[0-9]+)> 在此代表id
+
+源代码白名单-列表
+--------------------------------
+
+- GET /api/mgxx/code/white/?page=1&page_size=1
+- 请求参数::
+
+    {
+        "repo_owner": "1111" # 用户名 | str | 选填 | 支持模糊搜索
+        "repo_full_name": "333" # 仓库名 | str | 选填 | 支持模糊搜索
+        "remark": "备注" # 备注 | str | 选填 | 支持模糊搜索
+    }
+
+- 响应结果::
+
+    {
+        "count": 1,
+        "next": null,
+        "previous": null,
+        "results": [
+            {
+                "id": 20,
+                "insert_tm": "2021-09-16 14:25:07",
+                "update_tm": "2021-09-16 14:25:07",
+                "repo_owner": "binghong-chen",
+                "repo_full_name": null,
+                "remark": null
+            }
+        ]
+    }
+
+源代码白名单-新增
+--------------------------------
+
+- POST /api/mgxx/code/white/
+- 请求参数::
+
+    1.用户名
+        {
+            "type":"repo_owner",  # 类型 | str | 必填
+            "repo_owner":"aaa" # 用户名 | str | 必填
+        }
+    2.仓库名
+        {
+            "type":"repo_full_name",   # 类型 | str | 必填
+            "repo_full_name":"aaa/bbb" # 仓库名 | str | 必填 | 格式: aaa/bbb   也就是 用户名/仓库名
+        }
+
+
+- 响应结果::
+
+    {
+        "code": 200,
+        "success": true,
+        "data": {
+            "id": 24,
+            "insert_tm": "2021-09-16 15:03:15",
+            "update_tm": "2021-09-16 15:03:15",
+            "repo_owner": null,
+            "repo_full_name": "aaa/bbb",
+            "remark": "备注一下"
+        },
+        "message": "新增成功!"
+    }
+
+
+
+源代码白名单-更新
+--------------------------------
+
+- PUT /api/mgxx/code/white/<(?P<pk>[0-9]+)>/
+- 请求参数::
+
+    1.用户名
+        {
+            "type":"repo_owner",  # 类型 | str | 必填
+            "repo_owner":"aaa" # 用户名 | str | 必填
+            "remark":"备注一下" # 备注 | str | 选填
+        }
+    2.仓库名
+        {
+            "type":"repo_full_name",   # 类型 | str | 必填
+            "repo_full_name":"aaa/bbb" # 仓库名 | str | 必填 | 格式: aaa/bbb   也就是 用户名/仓库名
+            "remark":"备注一下" # 备注 | str | 选填
+
+        }
+
+
+
+- 响应结果::
+
+    {
+        "code": 200,
+        "success": true,
+        "data": {
+            "id": 13,
+            "insert_tm": "2021-09-09 13:13:11",
+            "update_tm": "2021-09-16 15:12:06",
+            "repo_owner": null,
+            "repo_full_name": "Karlmyh/Data-Science-and-Innovation",
+            "remark": "备注一下"
+        },
+        "message": "更新成功！"
+    }
+
+
+源代码白名单-删除/批量删除
+--------------------------------
+
+- DELETE /api/mgxx/code/white/multiple_del/
+- 请求参数::
+
+    {
+        "ids":[1,7] # ids | list | 必填
+    }
+- 响应结果::
+
+    {
+        "code": 200,
+        "success": true,
+        "data": [],
+        "message": "删除成功！"
+    }

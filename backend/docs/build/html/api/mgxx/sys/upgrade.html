@@ -1,0 +1,249 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>系统升级 &#8212; Hvv工具箱  文档</title>
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../../../genindex.html" />
+    <link rel="search" title="搜索" href="../../../search.html" />
+    <link rel="next" title="角色管理" href="../../rbac/role.html" />
+    <link rel="prev" title="系统配置" href="config.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="id1">
+<h1>系统升级<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2>说明<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>http地址: <a class="reference external" href="http://47.99.151.142:18002">http://47.99.151.142:18002</a></p></li>
+<li><p>http地址: ws://47.99.151.142:18002/</p></li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="id3">
+<h2>文件上传<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>POST /upgrade/upload/</p></li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;chunk&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="c1"># 文件第几段 | int | 必填 | 大于等于1的正整数</span>
+    <span class="s2">&quot;file&quot;</span><span class="p">:</span><span class="n">文件</span><span class="p">,</span> <span class="c1"># 文件 | file | 必填 | .tar.gz结尾</span>
+    <span class="s2">&quot;identifier&quot;</span><span class="p">:</span><span class="s2">&quot;aaaa&quot;</span><span class="p">,</span> <span class="c1"># 文件标准 | str | 必填</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s2">&quot;success&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h2>组装文件<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>POST /upgrade/join_file/</p></li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="p">{</span>
+    <span class="s2">&quot;identifier&quot;</span><span class="p">:</span><span class="s2">&quot;aaaa&quot;</span><span class="p">,</span> <span class="c1"># 文件标准 | str | 必填 | 分段文件的标识</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s2">&quot;success&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;success&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h2>效验服务器连接验证<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>ws://47.99.151.142:18002/upgrade/push/progress/</p></li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;check_server&quot;</span><span class="p">:</span><span class="n">true</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;success&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;校验服务器连接正常&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="md5">
+<h2>文件md5 验证<a class="headerlink" href="#md5" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>GET /upgrade/upload/</p></li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;check_file_md5&quot;</span><span class="p">:</span><span class="n">true</span><span class="p">,</span> <span class="c1"># 是否是验证文件MD5 | bool | 必填</span>
+    <span class="s2">&quot;md5&quot;</span><span class="p">:</span><span class="s2">&quot;a34ad0b683bb76d8f3862ae1a3371b10&quot;</span><span class="p">,</span> <span class="c1"># 要上传文件的MD5 | str | 必填</span>
+    <span class="s2">&quot;version&quot;</span><span class="p">:</span><span class="s2">&quot;v1.0.1&quot;</span> <span class="c1"># 当前版本 | str | 必填</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;success&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span> <span class="c1"># 验证通过才能请求提交文件</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;文件验证通过！&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Hvv工具箱</a></h1>
+
+
+
+
+
+
+
+
+<h3>导航</h3>
+<p class="caption"><span class="caption-text">数据提供:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../providedata/xtb_tags.html">批量查询微步标签(包含微步用户信息)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">知识库:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../knowledge/loophole.html">漏洞库</a></li>
+</ul>
+<p class="caption"><span class="caption-text">主动式网站安全监测工具:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../webmonitor/baseinfo.html">监控对象配置(基础信息)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../webmonitor/detailinfo.html">监控日志(详细信息)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../webmonitor/badinfo.html">不良信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../webmonitor/webhook.html">推送到钉钉配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../webmonitor/email.html">推送到邮件配置</a></li>
+</ul>
+<p class="caption"><span class="caption-text">敏感信息:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">总览</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../icp/icp.html">未备案检测</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../icp/job.html">未备案策略</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../icp/white.html">未备案白名单</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code/code.html">源代码检测</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code/job.html">源代码策略</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code/white.html">源代码白名单</a></li>
+<li class="toctree-l1"><a class="reference internal" href="event.html">系统设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">系统配置</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">系统升级</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">文件上传</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">组装文件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">效验服务器连接验证</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#md5">文件md5 验证</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">用户管理:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../rbac/role.html">角色管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rbac/user.html">用户管理</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="config.html" title="上一章">系统配置</a></li>
+      <li>Next: <a href="../../rbac/role.html" title="下一章">角色管理</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, W_OOD.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../_sources/api/mgxx/sys/upgrade.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

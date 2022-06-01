@@ -1,0 +1,194 @@
+源代码检测
+=========================================================
+
+说明
+--------------------------------------
+
+    1. API地址: http://47.114.129.62:18000
+    2. <(?P<pk>[0-9]+)> 在此代表id
+
+源代码-列表
+--------------------------------
+
+- GET /api/mgxx/code/code/?page=1&page_size=2
+- 请求参数::
+
+    {
+        "id": 2 # id(编号) | int | 选填
+        "repo_owner": "aa" # 用户名 | str | 选填 | 支持模糊搜索
+        "repo_name": "aa" # 仓库名 | str | 选填 | 支持模糊搜索
+        "repo_description": "repo_description" # 仓库描述 | str | 选填 | 支持模糊搜索
+        "salarm_time": "2020-09-08 14:24:37" # 告警开始时间 | time | 选填 | yyyy-MM-dd HH:mm:ss
+        "ealarm_time": "2020-09-08 14:24:37" # 告警结束时间 | time | 选填 | yyyy-MM-dd HH:mm:ss
+        "status": 1 # 状态 | int | 选填 |  1:未确认,2:异常
+        "job_name": "aa" # 策略名称 | str | 选填 |  根据数据统计接口job_names列表数据
+        "remark": "备注" # 备注 | str | 选填 | 支持模糊搜索
+    }
+
+- 响应结果::
+
+    {
+        "count": 1,
+        "next": null,
+        "previous": null,
+        "results": [
+            {
+                "id": 325,
+                "insert_tm": "2021-09-14 10:47:11",
+                "update_tm": "2021-09-14 10:47:11",
+                "alarm_time": "2021-09-14 10:47:11",
+                "status": 1,
+                "uuid": "98cdfa235e6433a063e788759660c5f0",
+                "repo_owner": "xinyi-zhu", # 用户名
+                "repo_name": "frog_tech_trend", # 仓库名
+                "repo_full_name": "xinyi-zhu/frog_tech_trend", # 仓库名/用户名
+                "file_path": "build/trend.json",# 文件名
+                "file_html_url": "https://github.com/xinyi-zhu/frog_tech_trend/blob/8d7433275b64a877c4ddd412370921207c439f49/build/trend.json", # 跳转地址
+                "html_url_blob": "8d7433275b64a877c4ddd412370921207c439f49",
+                "file_download_url": "https://raw.githubusercontent.com/xinyi-zhu/frog_tech_trend/8d7433275b64a877c4ddd412370921207c439f49/build/trend.json",
+                "file_size": "23047",
+                "repo_description": null, # 仓库描述
+                "commit_latest_date": "2021-01-24 10:15:27", # 仓库最新提交时间
+                "commit_file_date": "2021-01-24 05:30:26", # 文件最新提交时间
+                "text_matches": [ # 快照
+                    {
+                        "matches": [ # 快照 highlight
+                            {
+                                "text": "大数据",
+                                "indices": [
+                                    33,
+                                    36
+                                ]
+                            }
+                        ],
+                        "fragment": "\":\"21\",\"year\":\"2015\",\"category\":\"大数据\",\"themeicon\":\"信息安全\",\"headline\":\"随着API的增多，许多产品与服务也变得越来越容易受到黑客攻击。"
+                        # 快照文本
+                    },
+                    {
+                        "matches": [
+                            {
+                                "text": "大数据",
+                                "indices": [
+                                    41,
+                                    44
+                                ]
+                            }
+                        ],
+                        "fragment": "\"},\n{\"id\":\"22\",\"year\":\"2015\",\"category\":\"大数据\",\"themeicon\":\"信息安全\",\"headline"
+                    }
+                ],
+                "source": "Github", # 来源
+                "first_handle_time": null,
+                "job_name": "qq3", # 策略名
+                "query": "大数据 in:file",
+                "qbase64": "5aSn5pWw5o2uIGluOmZpbGU=",
+                "remark": null,
+                "code_job": null
+            }
+        ]
+    }
+
+
+源代码检测-单个/批量更新(处置)
+----------------------------------------------------
+
+- PUT /api/mgxx/code/code/multiple_update/
+
+- 请求参数::
+
+
+    {
+        "ids": [1,9],  #  ids | list | 必填
+        "status": 1 # 状态 | int | 必填  | 1:未确认,2:异常
+    }
+
+
+- 响应结果::
+
+    {
+        "code": 200,
+        "success": true,
+        "data": [],
+        "message": "更新成功"
+    }
+
+
+源代码检测-单个/批量误报加白
+--------------------------------
+
+- POST /api/mgxx/code/code/multiple_white/
+- 请求参数::
+
+    {
+        "ids": [1,9],  #  ids | list | 必填
+        "type":"repo_owner"  # 类型 | str | 必填 | repo_owner:用户名,repo_full_name:仓库名
+    }
+
+- 响应结果::
+
+    {
+        "code": 200,
+        "success": true,
+        "data": [],
+        "message": "加白成功！"
+    }
+
+
+
+源代码检测-数据统计包含(匹配策略列表)
+-------------------------------------------------
+
+- GET /api/mgxx/code/code/statistics/
+- 请求参数::
+
+    None
+
+- 响应结果::
+
+    {
+        "code": 200,
+        "success": true,
+        "data": {
+            "total": 11, # 总数
+            "unconfirmed": 11, # 未处置
+            "abnormal": 0, #
+            "job_names": [ # 匹配策略列表
+                {
+                    "job_name": "qq3",
+                    "count": 8
+                },
+                {
+                    "job_name": "大数据",
+                    "count": 59
+                },
+                {
+                    "job_name": "qq2",
+                    "count": 9
+                }
+            ],
+            "week_handle": 1, # 本周处置数
+            "week_handle_avg": 13827.183333333332 # 本周平均处置时间
+        },
+        "message": "查询成功！"
+    }
+
+
+源代码检测-数据导出
+-------------------------------------------------
+
+- GET /api/mgxx/code/code/export/
+
+- 请求参数::
+
+    {
+        "ids":[5,7] # 要导出的ids | list | 选填 | 无此参数导出搜索数据,可加搜索参数, 有则导出指定数据
+        "repo_owner": "aa" # 用户名 | str | 选填 | 支持模糊搜索
+        "repo_name": "aa" # 仓库名 | str | 选填 | 支持模糊搜索
+        "repo_description": "repo_description" # 仓库描述 | str | 选填 | 支持模糊搜索
+        "salarm_time": "2020-09-08 14:24:37" # 告警开始时间 | time | 选填 | yyyy-MM-dd HH:mm:ss
+        "ealarm_time": "2020-09-08 14:24:37" # 告警结束时间 | time | 选填 | yyyy-MM-dd HH:mm:ss
+        "status": 1 # 状态 | int | 选填 |  1:未确认,2:异常
+        "job_name": "aa" # 策略名称 | str | 选填 |  根据数据统计接口job_names列表数据
+        "remark": "备注" # 备注 | str | 选填 | 支持模糊搜索
+    }
+

@@ -1,0 +1,166 @@
+未备案策略
+=========================================================
+
+说明
+--------------------------------------
+
+    1. API地址: http://47.114.129.62:18000
+    2. <(?P<pk>[0-9]+)> 在此代表id
+
+未备案策略-列表
+--------------------------------
+
+- GET /api/mgxx/icp/job/?page=1&page_size=2
+- 请求参数::
+
+    {
+        "job_name": "名称" # 策略名 | str | 选填 | 支持模糊搜索
+        "remark": "备注" # 备注 | str | 选填 | 支持模糊搜索
+    }
+
+- 响应结果::
+
+    {
+        "count": 5,
+        "next": "http://127.0.0.1:8000/api/mgxx/icp/job/?page=2&page_size=1",
+        "previous": null,
+        "results": [
+            {
+                "id": 6, # 序号
+                "insert_tm": "2021-08-30 16:06:18",
+                "update_tm": "2021-09-08 17:18:08",
+                "job_name": "qq2",  # 策略名
+                "query": "dGl0bGU9ImJlaWppbmci",
+                "scan_page": 5,
+                "scan_interval_min": 1, # 扫描频率 | 1:每天, 2:每周, 3:每月
+                "days_ago": 365,
+                "remark": "qq33d", # 备注
+                "last_scan_at": "2021-09-08 17:18:07", # 上次扫描时间
+                "curr_page": 6,
+                "job_state": true
+            }
+        ]
+    }
+
+
+
+未备案策略-新增
+----------------------------------------------------
+
+- POST /api/mgxx/icp/job/
+
+- 请求参数::
+
+    {
+        "job_name": "qq2", # 系统名称 | str | 必填
+        "query": "dGl0bGU9ImJlaWppbmci"", # 关键词 | str(base64编码) | 必填 | 格式: title="电力" && port="80"
+        "scan_interval_min": 1,  # 扫描频率 | int | 必填 | 1:每天, 2:每周, 3:每月
+        "remark": "qq33d" # 备注 | str | 选填
+    }
+
+
+- 响应结果::
+
+    {
+        "code": 200,
+        "success": true,
+        "data": {
+            "id": 10,
+            "insert_tm": "2021-09-13 11:02:07",
+            "update_tm": "2021-09-13 11:02:07",
+            "job_name": "百度",
+            "query": "dGl0bGU9ImJlaWppbmci",
+            "scan_page": 5,
+            "scan_interval_min": 1,
+            "days_ago": 365,
+            "remark": "qq33d",
+            "last_scan_at": null,
+            "curr_page": 1,
+            "job_state": true
+        }
+    }
+
+未备案策略-更新
+----------------------------------------------------
+
+- PUT /api/mgxx/icp/job/<(?P<pk>[0-9]+)>/
+
+- 请求参数::
+
+    {
+        "job_name": "qq2", # 系统名称 | str | 选填
+        "query": "dGl0bGU9ImJlaWppbmci", # 关键词 | str(base64编码) | 选填
+        "scan_interval_min": 1,  # 扫描频率 | int | 选填 | 1:每天, 2:每周, 3:每月
+        "remark": "qq33d" # 备注 | str | 选填
+    }
+
+
+- 响应结果::
+
+    {
+        "code": 200,
+        "success": true,
+        "data": {
+            "id": 10,
+            "insert_tm": "2021-09-13 11:02:07",
+            "update_tm": "2021-09-13 11:02:07",
+            "job_name": "百度",
+            "query": "dGl0bGU9ImJlaWppbmci",
+            "scan_page": 5,
+            "scan_interval_min": 1,
+            "days_ago": 365,
+            "remark": "qq33d",
+            "last_scan_at": null,
+            "curr_page": 1,
+            "job_state": true
+        }
+    }
+
+
+
+未备案策略-删除/批量删除
+--------------------------------
+
+- DELETE /api/mgxx/icp/job/multiple_del/
+- 请求参数::
+
+    {
+        "ids": [1,9],  #  ids | list | 必填
+        "del_all": false # 删除策略/删除策略和告警 | bool | 必填 | false:删除策略, 删除策略和告警:true
+
+    }
+
+- 响应结果::
+
+    {
+        "code": 200,
+        "success": true,
+        "data": [],
+        "message": "删除成功"
+    }
+
+
+
+未备案策略-icon_hash
+--------------------------------
+
+- POST /api/mgxx/icp/iconupload/
+- 请求参数::
+
+    {
+        "file":  fs.createReadStream('/Desktop//favicon_lanhu.ico'),  #  文件 | file | 必填
+
+    }
+
+- 响应结果::
+
+    {
+        "code": 200,
+        "success": true,
+        "data": {
+            "icon_hash": 1420662463,
+            "icon_hash_query": "icon_hash=\"1420662463\""
+        },
+        "message": "上传成功"
+    }
+

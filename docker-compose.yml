@@ -1,0 +1,192 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8-oracle
+    container_name: 'syfz_main_db'
+    privileged: true
+    ports:
+      - "53306:3306"
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD} # root 密码
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - TZ=Asia/Shanghai
+    command:
+      --wait_timeout=31536000
+      --interactive_timeout=31536000
+      --max_connections=1000
+      --default-authentication-plugin=mysql_native_password
+      --max_allowed_packet=1024M
+
+    volumes:
+      - "/etc/localtime:/etc/localtime:ro"  # linux 打开
+      - "./docker_env/db/data:/var/lib/mysql"
+#      - "./docker_env/db/conf.d:/etc/mysql/conf.d"
+      - "./docker_env/db/conf.d/my.cnf:/etc/my.cnf"
+      - "./docker_env/db/logs:/logs"
+      - "./docker_env/db/backupdb:/backupdb"
+    # 首次启动不加 第二次启动加
+    command:
+      - /bin/bash
+      - -c
+      - |
+        chmod +rw /var/lib/mysql
+        mysqld
+
+  redis:
+    image: redis:6-alpine
+    container_name: 'syfz_main_redis'
+    restart: always
+#    command: redis-server --requirepass AREprNahAZwZDLy6  --appendonly yes --protected-mode no
+    command: redis-server --requirepass AREprNahAZwZDLy6  --protected-mode no
+    expose:
+      - "6379"
+    volumes:
+      - "/etc/localtime:/etc/localtime:ro"  # linux 打开
+      - "./docker_env/redis/data:/data"
+#      - "./docker_env/redis/conf.d:/conf.d"
+
+  server:
+    build:
+      context: .
+      dockerfile: ./docker_env/server/Dockerfile
+    image: syfz_main_server:v1.0.1
+    container_name: 'syfz_main_server'
+    volumes:
+      - "./docker_env/server/backend:/code/backend"
+      - "./docker_env/server/logs:/code/logs"
+      - "./docker_env/server/media:/code/media"
+    restart: always
+    environment:
+      - MYSQL_PORT=${MYSQL_PORT}
+      - MYSQL_HOST=${MYSQL_HOST}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD} # root 密码
+      - DEBUG=${DEBUG}
+    depends_on:
+      - redis
+      - db
+    expose:
+      - "8000"
+
+  web:
+    container_name: 'syfz_main_web'
+    restart: always
+    build: ./web/syfz_web # 使用现有的
+    image: syfz_main_web:v1.0.1
+    ports:
+      - "${SERVER_PORT}:80"
+    volumes:
+      - "/etc/localtime:/etc/localtime:ro"  # linux 打开
+    depends_on:
+      - db
+      - redis
+      - server
+
+  celery-beat:
+    image: syfz_base:v1.0.1
+    container_name: 'syfz_main_beat'
+    restart: always
+    command: /bin/bash -c "cd /code && celery -A Syfz beat -l info --scheduler django_celery_beat.schedulers:DatabaseScheduler"
+    environment:
+      - MYSQL_PORT=${MYSQL_PORT}
+      - MYSQL_HOST=${MYSQL_HOST}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD} # root 密码
+    volumes:
+      - "./docker_env/server/backend:/code/backend"
+      - "./docker_env/server/logs:/code/logs"
+      - "./docker_env/server/media:/code/media"
+    depends_on:
+      - redis
+      - db
+
+  celery-work:
+    image: syfz_base:v1.0.1
+    container_name: 'syfz_main_worker'
+    restart: always
+    command: /bin/bash -c "cd /code && celery -A Syfz.celery_main  worker -l info"
+    environment:
+      - MYSQL_PORT=${MYSQL_PORT}
+      - MYSQL_HOST=${MYSQL_HOST}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD} # root 密码
+    volumes:
+      - "./docker_env/server/backend:/code/backend"
+      - "./docker_env/server/logs:/code/logs"
+      - "./docker_env/server/media:/code/media"
+    depends_on:
+      - redis
+      - server
+
+  consumer1:
+    image: syfz_base:v1.0.1
+    container_name: 'syfz_main_consumer1'
+    command: /bin/bash -c "cd /code && python apps/tracesource/utils/consumer1.py"
+
+    restart: always
+    environment:
+      - RABBITMQ_USER=${RABBITMQ_USER}
+      - RABBITMQ_PASS=${RABBITMQ_PASS}
+      - RABBITMQ_HOST=${RABBITMQ_HOST}
+      - RABBITMQ_PORT=${RABBITMQ_PORT}
+      - MYSQL_PORT=${MYSQL_PORT}
+      - MYSQL_HOST=${MYSQL_HOST}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD} # root 密码
+    volumes:
+      - "./docker_env/server/backend:/code/backend"
+      - "./docker_env/server/logs:/code/logs"
+      - "./docker_env/server/media:/code/media"
+    depends_on:
+      - redis
+      - db
+      - server
+
+  consumer2:
+    image: syfz_base:v1.0.1
+    container_name: 'syfz_main_consumer2'
+    restart: always
+    command: /bin/bash -c "cd /code && python apps/tracesource/utils/consumer2.py"
+    environment:
+      - RABBITMQ_USER=${RABBITMQ_USER}
+      - RABBITMQ_PASS=${RABBITMQ_PASS}
+      - RABBITMQ_HOST=${RABBITMQ_HOST}
+      - RABBITMQ_PORT=${RABBITMQ_PORT}
+      - MYSQL_PORT=${MYSQL_PORT}
+      - MYSQL_HOST=${MYSQL_HOST}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD} # root 密码
+    depends_on:
+      - redis
+      - db
+      - server
+
+  socialpsw_server:
+    image: syfz_socialpsw_server:v1.0.1
+    container_name: 'syfz_socialpsw'
+    restart: always
+    ports:
+      - "58002:5000"
+
+
+  pwndrop_server:
+    image: syfz_pwndrop_server:v1.0.1
+    container_name: 'syfz_pwndrop_server'
+    restart: always
+    ports:
+        - "58003:443"
+    volumes:
+        - "./docker_env/pwndrop_server/data:/usr/local/pwndrop/data"
+
+# docker build -t syfz_base:v1.0.1 -f docker_env/base/Dockerfile . # 生成基础镜像 不需要
+# chmod 777 docker_env
+# chmod 444 docker_env/db/conf.d/my.cnf
+# docker-compose up -d # 启动服务
+# docker exec -it syfz_main_server /bin/bash -c "python manage.py loaddata syfz_db.json" # 初始化数据

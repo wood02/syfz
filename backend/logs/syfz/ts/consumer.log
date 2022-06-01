@@ -1,0 +1,28 @@
+2022-05-16 16:11:30.502 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-16 16:11:44.826 | consumer.py 95 | ERROR | 连接异常，重新连接：
+2022-05-16 16:11:57.009 | consumer.py 71 | WARNING | 已连接， Waiting for queue: [ queue_new_scan_server ] routing_key: [ topic_new_scan_server ]
+2022-05-16 16:12:08.255 | consumer.py 45 | INFO | Received new message from - topic_new_scan_server
+2022-05-16 16:12:08.256 | consumer.py 47 | WARNING | Received 'hello world'
+2022-05-16 16:12:08.256 | consumer.py 52 | WARNING | Saving to DB
+2022-05-16 16:12:08.256 | consumer.py 61 | ERROR | 数据存储异常：Expecting value: line 1 column 1 (char 0)
+2022-05-16 16:23:15.136 | consumer.py 45 | INFO | Received new message from - topic_new_scan_server
+2022-05-16 16:23:15.136 | consumer.py 47 | WARNING | Received 'hello world'
+2022-05-16 16:23:15.137 | consumer.py 52 | WARNING | Saving to DB
+2022-05-16 16:23:15.137 | consumer.py 61 | ERROR | 数据存储异常：Expecting value: line 1 column 1 (char 0)
+2022-05-16 16:23:23.879 | consumer.py 45 | INFO | Received new message from - topic_new_scan_server
+2022-05-16 16:23:23.879 | consumer.py 47 | WARNING | Received 'hello world'
+2022-05-16 16:23:23.879 | consumer.py 52 | WARNING | Saving to DB
+2022-05-16 16:23:23.879 | consumer.py 61 | ERROR | 数据存储异常：Expecting value: line 1 column 1 (char 0)
+2022-05-16 16:23:56.371 | consumer.py 45 | INFO | Received new message from - topic_new_scan_server
+2022-05-16 16:23:56.379 | consumer.py 47 | WARNING | Received 'hello world'
+2022-05-16 16:23:56.380 | consumer.py 52 | WARNING | Saving to DB
+2022-05-16 16:23:56.380 | consumer.py 61 | ERROR | 数据存储异常：Expecting value: line 1 column 1 (char 0)
+2022-05-16 16:23:56.402 | consumer.py 45 | INFO | Received new message from - topic_new_scan_server
+2022-05-16 16:23:56.403 | consumer.py 47 | WARNING | Received 'hello world'
+2022-05-16 16:23:56.403 | consumer.py 52 | WARNING | Saving to DB
+2022-05-16 16:23:56.403 | consumer.py 61 | ERROR | 数据存储异常：Expecting value: line 1 column 1 (char 0)
+2022-05-16 16:23:56.408 | consumer.py 45 | INFO | Received new message from - topic_new_scan_server
+2022-05-16 16:23:56.409 | consumer.py 47 | WARNING | Received 'hello world'
+2022-05-16 16:23:56.409 | consumer.py 52 | WARNING | Saving to DB
+2022-05-16 16:23:56.409 | consumer.py 61 | ERROR | 数据存储异常：Expecting value: line 1 column 1 (char 0)
+2022-05-16 16:29:57.186 | consumer.py 71 | WARNING | 已连接， Waiting for queue: [ queue_new_scan_server ] routing_key: [ topic_new_scan_server ]

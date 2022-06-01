@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="124.221.154.4_txy" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <serverData>
+      <paths name="124.221.154.4_txy">
+        <serverdata>
+          <mappings>
+            <mapping deploy="Syfz" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/AAAAA-本地测试" />
+            <excludedPath local="true" path="$PROJECT_DIR$/test" />
+            <excludedPath local="true" path="$PROJECT_DIR$/Syfz/settings/config/conf.ini" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>

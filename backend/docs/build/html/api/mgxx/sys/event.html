@@ -1,0 +1,327 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>系统设置 &#8212; Hvv工具箱  文档</title>
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../../../genindex.html" />
+    <link rel="search" title="搜索" href="../../../search.html" />
+    <link rel="next" title="系统配置" href="config.html" />
+    <link rel="prev" title="源代码白名单" href="../code/white.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="id1">
+<h1>系统设置<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2>说明<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>API地址: <a class="reference external" href="http://47.114.129.62:18000">http://47.114.129.62:18000</a></p></li>
+<li><p>&lt;(?P&lt;pk&gt;[0-9]+)&gt; 在此代表id</p></li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="id3">
+<h2>安全审计-登录日志<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>GET api/system/login/event/?page=1&amp;page_size=2</p></li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span> <span class="c1"># id(编号) | int | 选填</span>
+    <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;username&quot;</span> <span class="c1"># 用户名 | str | 选填 | 支持模糊搜索</span>
+    <span class="s2">&quot;slogin_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-09-08 14:24:37&quot;</span> <span class="c1"># 登录开始时间 | time | 选填 | yyyy-MM-dd HH:mm:ss</span>
+    <span class="s2">&quot;elogin_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-09-08 14:24:37&quot;</span> <span class="c1"># 登录结束时间 | time | 选填 | yyyy-MM-dd HH:mm:ss</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;count&quot;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span>
+    <span class="s2">&quot;next&quot;</span><span class="p">:</span> <span class="s2">&quot;http://127.0.0.1:8000/api/system/login/event/?page=2&amp;page_size=1&amp;username=admin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;previous&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+    <span class="s2">&quot;results&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span>
+            <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;admin&quot;</span><span class="p">,</span> <span class="c1"># 用户名</span>
+            <span class="s2">&quot;login_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-09-18 11:04:26&quot;</span><span class="p">,</span> <span class="c1"># 登录时间</span>
+            <span class="s2">&quot;terminal_type&quot;</span><span class="p">:</span> <span class="s2">&quot;PC&quot;</span><span class="p">,</span> <span class="c1"># 终端类型</span>
+            <span class="s2">&quot;browser_type&quot;</span><span class="p">:</span> <span class="s2">&quot;Chrome 93.0.4577&quot;</span><span class="p">,</span> <span class="c1"># 浏览器版本</span>
+            <span class="s2">&quot;os&quot;</span><span class="p">:</span> <span class="s2">&quot;Windows 10&quot;</span><span class="p">,</span> <span class="c1"># 操作系统</span>
+            <span class="s2">&quot;equipment_name&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span> <span class="c1"># 设备名称</span>
+            <span class="s2">&quot;mac_address&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span> <span class="c1"># mac地址</span>
+            <span class="s2">&quot;login_ip&quot;</span><span class="p">:</span> <span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span> <span class="c1"># 登录IP</span>
+            <span class="s2">&quot;user&quot;</span><span class="p">:</span> <span class="mi">1</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h2>安全审计-登录日志-数据导出<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>GET api/system/login/event/export/</p></li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+     <span class="s2">&quot;ids&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span> <span class="c1"># 要导出的ids | str | 选填 | 无此参数导出搜索数据,可加搜索参数, 有则导出指定数据 | id 按照,分割</span>
+    <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;username&quot;</span> <span class="c1"># 用户名 | str | 选填 | 支持模糊搜索</span>
+    <span class="s2">&quot;slogin_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-09-08 14:24:37&quot;</span> <span class="c1"># 登录开始时间 | time | 选填 | yyyy-MM-dd HH:mm:ss</span>
+    <span class="s2">&quot;elogin_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-09-08 14:24:37&quot;</span> <span class="c1"># 登录结束时间 | time | 选填 | yyyy-MM-dd HH:mm:ss</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h2>安全审计-操作记录<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>GET /api/system/operation/log/</p></li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;creator&quot;</span><span class="p">:</span> <span class="s2">&quot;username&quot;</span><span class="p">,</span>  <span class="c1">#  操作者 | str | 选填</span>
+    <span class="s2">&quot;sinsert_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-09-08 14:24:37&quot;</span> <span class="c1"># 操作开始时间 | time | 选填 | yyyy-MM-dd HH:mm:ss</span>
+    <span class="s2">&quot;einsert_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-09-08 14:24:37&quot;</span> <span class="c1"># 操作结束时间 | time | 选填 | yyyy-MM-dd HH:mm:ss</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;count&quot;</span><span class="p">:</span> <span class="mi">124</span><span class="p">,</span>
+    <span class="s2">&quot;next&quot;</span><span class="p">:</span> <span class="s2">&quot;http://127.0.0.1:8000/api/system/operation/log/?page=3&amp;page_size=1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;previous&quot;</span><span class="p">:</span> <span class="s2">&quot;http://127.0.0.1:8000/api/system/operation/log/?page_size=1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;results&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;modifier&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+            <span class="s2">&quot;update_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-09-24 15:38:41&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;insert_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-09-24 15:38:41&quot;</span><span class="p">,</span> <span class="c1"># 操作时间</span>
+            <span class="s2">&quot;request_modular&quot;</span><span class="p">:</span> <span class="s2">&quot;源代码策略&quot;</span><span class="p">,</span> <span class="c1"># 操作模块</span>
+            <span class="s2">&quot;request_path&quot;</span><span class="p">:</span> <span class="s2">&quot;/api/mgxx/code/job/&quot;</span><span class="p">,</span> <span class="c1"># 请求地址</span>
+            <span class="s2">&quot;request_body&quot;</span><span class="p">:</span> <span class="s2">&quot;{</span><span class="se">\&quot;</span><span class="s2">job_name</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">qq3</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">query</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">大数据</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">scan_interval_min</span><span class="se">\&quot;</span><span class="s2">: 1, </span><span class="se">\&quot;</span><span class="s2">remark</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">备注</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">store_type</span><span class="se">\&quot;</span><span class="s2">: 1}&quot;</span><span class="p">,</span> <span class="c1">#请求参数</span>
+            <span class="s2">&quot;request_method&quot;</span><span class="p">:</span> <span class="s2">&quot;POST&quot;</span><span class="p">,</span> <span class="c1"># 请方式</span>
+            <span class="s2">&quot;request_msg&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+            <span class="s2">&quot;request_ip&quot;</span><span class="p">:</span> <span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span> <span class="c1"># 请求IP</span>
+            <span class="s2">&quot;request_browser&quot;</span><span class="p">:</span> <span class="s2">&quot;Other&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;response_code&quot;</span><span class="p">:</span> <span class="s2">&quot;200&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;request_location&quot;</span><span class="p">:</span> <span class="s2">&quot; 本机地址&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;request_os&quot;</span><span class="p">:</span> <span class="s2">&quot;Other&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;json_result&quot;</span><span class="p">:</span> <span class="s2">&quot;{</span><span class="se">\&quot;</span><span class="s2">code</span><span class="se">\&quot;</span><span class="s2">: 200, </span><span class="se">\&quot;</span><span class="s2">message</span><span class="se">\&quot;</span><span class="s2">: </span><span class="se">\&quot;</span><span class="s2">新增成功!</span><span class="se">\&quot;</span><span class="s2">}&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span> <span class="c1">#</span>
+            <span class="s2">&quot;handle_type&quot;</span><span class="p">:</span> <span class="s2">&quot;新增策略-源代码&quot;</span><span class="p">,</span> <span class="c1"># 操作类型</span>
+            <span class="s2">&quot;creator&quot;</span><span class="p">:</span> <span class="s2">&quot;admin&quot;</span> <span class="c1"># 操作者</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h2>安全审计-操作记录-数据导出<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>GET /api/system/operation/log/export/</p></li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;ids&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span> <span class="c1"># 要导出的ids | str | 选填 | 无此参数导出搜索数据,可加搜索参数, 有则导出指定数据 | id 按照,分割</span>
+    <span class="s2">&quot;creator&quot;</span><span class="p">:</span> <span class="s2">&quot;username&quot;</span><span class="p">,</span>  <span class="c1">#  操作者 | str | 选填</span>
+    <span class="s2">&quot;sinsert_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-09-08 14:24:37&quot;</span> <span class="c1"># 操作开始时间 | time | 选填 | yyyy-MM-dd HH:mm:ss</span>
+    <span class="s2">&quot;einsert_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2020-09-08 14:24:37&quot;</span> <span class="c1"># 操作结束时间 | time | 选填 | yyyy-MM-dd HH:mm:ss</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h2>系统配置-系统信息-获取授权信息<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>GET /api/mgxx/license/</p></li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s2">&quot;success&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;insert_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-09-07 15:08:40&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;update_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-09-18 16:44:39&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;serial_code&quot;</span><span class="p">:</span> <span class="s2">&quot;SD0L02320L1TH6510CS8&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;expire_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-12-02 15:09:21&quot;</span> <span class="c1"># 到期日期</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;查询成功！&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id8">
+<h2>系统配置-系统信息-添加授权信息<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>POST /api/mgxx/license/</p></li>
+<li><p>请求参数:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;license_key&quot;</span><span class="p">:</span><span class="s2">&quot;aFxHUzycddPVTuVhGZIsiuOAzVH3CN7iTvMoOJ3z/GznKJQro8I8sOdprVhU/4ERxui8uKjQZ+9cKhvunuZfd7l8kEvCOJSSoTFFjAV8uc/8HoNVY1tcXG//Q4LLqVx85+bqpYtCAJznMoHPTgs3XILi/YJrAphthTFcDZuRFnK3qDvoYY4DMfBNI4mnIiwWtjHk0zzTX4WgTboiWh7tbMkvz1BplRfRrXfI7H5F00eDc+JDe4K7yaTUuOVYNPJkWZicQg4hsd7DAvBKfYXXDOi1+lV0MeelNdV1fKVgtMzmdkPmWSagR+9s38rg2gXycw4WOPfIgS5kHp2WAj+f1g==&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>响应结果:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+    <span class="s2">&quot;success&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;insert_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-11-05 16:10:43&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;update_tm&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-11-05 16:16:01&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;serial_code&quot;</span><span class="p">:</span> <span class="s2">&quot;BP1116LGAJB6TL7964E5&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;expire_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2022-05-05 09:44:31&quot;</span><span class="p">,</span> <span class="c1"># 到期时间</span>
+        <span class="s2">&quot;days&quot;</span><span class="p">:</span> <span class="mi">180</span> <span class="c1"># 到期天数</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;新增成功!&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Hvv工具箱</a></h1>
+
+
+
+
+
+
+
+
+<h3>导航</h3>
+<p class="caption"><span class="caption-text">数据提供:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../providedata/xtb_tags.html">批量查询微步标签(包含微步用户信息)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">知识库:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../knowledge/loophole.html">漏洞库</a></li>
+</ul>
+<p class="caption"><span class="caption-text">主动式网站安全监测工具:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../webmonitor/baseinfo.html">监控对象配置(基础信息)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../webmonitor/detailinfo.html">监控日志(详细信息)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../webmonitor/badinfo.html">不良信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../webmonitor/webhook.html">推送到钉钉配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../webmonitor/email.html">推送到邮件配置</a></li>
+</ul>
+<p class="caption"><span class="caption-text">敏感信息:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">总览</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../icp/icp.html">未备案检测</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../icp/job.html">未备案策略</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../icp/white.html">未备案白名单</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code/code.html">源代码检测</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code/job.html">源代码策略</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code/white.html">源代码白名单</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">系统设置</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">安全审计-登录日志</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">安全审计-登录日志-数据导出</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">安全审计-操作记录</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">安全审计-操作记录-数据导出</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">系统配置-系统信息-获取授权信息</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">系统配置-系统信息-添加授权信息</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">系统配置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upgrade.html">系统升级</a></li>
+</ul>
+<p class="caption"><span class="caption-text">用户管理:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../rbac/role.html">角色管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rbac/user.html">用户管理</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../code/white.html" title="上一章">源代码白名单</a></li>
+      <li>Next: <a href="config.html" title="下一章">系统配置</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, W_OOD.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../../_sources/api/mgxx/sys/event.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
